@@ -1,0 +1,17 @@
+[
+    {
+        "email": "mail1@gmail.com",
+        "message": "mail 1 ",
+        "id": "313134"
+    },
+    {
+        "email": "mail2@gmail.com",
+        "message": "mail 2",
+        "id": "31334"
+    },
+    {
+        "email": "mail3@gmail.com",
+        "message": "mail 3",
+        "id": "311234"
+    }
+]
