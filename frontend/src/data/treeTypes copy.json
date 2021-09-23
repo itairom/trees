@@ -1,0 +1,1355 @@
+[
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": " Persea americana",
+            "typeName": "אבוקדו אמריקני (זנים שונים) "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Juglans regia ",
+            "typeName": "אגוז המלך "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Juglans nigra ",
+            "typeName": "אגוז שחור "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Agonis flexuosa ",
+            "typeName": "אגון גמיש "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pyrus syriaca ",
+            "typeName": "אגס סורי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pyrus calleryana ",
+            "typeName": "אגס קלרי "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Pyrus communis ",
+            "typeName": "אגס תרבותי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Adansonia digitata ",
+            "typeName": "אדנסוניה מאוצבעת "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Acer buergerianum ",
+            "typeName": "אדר ברגר "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Acer palmatum ",
+            "typeName": "אדר כפני "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Acer negundo ",
+            "typeName": "אדר מילני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Acer campestre ",
+            "typeName": "אדר מצוי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Acer obtusifolium ",
+            "typeName": "אדר סורי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Rhus lancea ",
+            "typeName": "אוג אזמלני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Rhus coriaria ",
+            "typeName": "אוג הבורסקאים "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Rhus succedanea ",
+            "typeName": "אוג הדונג "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Rhus copallina ",
+            "typeName": "אוג הקופל "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Eugenia uniflora ",
+            "typeName": "אוגניה חד-פרחית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Pinus roxburghii ",
+            "typeName": "אורן ארך-עלים "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Pinus pinea ",
+            "typeName": "אורן הגלעין "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pinus pinaster ",
+            "typeName": "אורן החוף "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pinus halepensis ",
+            "typeName": "אורן ירושלים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pinus canariensis ",
+            "typeName": "אורן קנרי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pinus brutia ",
+            "typeName": "אורן קפריסאי "
+        },
+        {
+            "typeValue": "1",
+            "BinomialNomenclature": "Melia azedarach ",
+            "typeName": "אזדרכת מצויה "
+        },
+        {
+            "typeValue": "1",
+            "BinomialNomenclature": "Ailanthus altissima ",
+            "typeName": "אילנטה בלוטית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Inga vera ",
+            "typeName": "אינגה אמיתית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Eucalyptus leucoxylon ",
+            "typeName": "איקליפטוס בהיר-קליפה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Eucalyptus camadulensis ",
+            "typeName": "איקליפטוס המקור "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Eucalyptus torquata ",
+            "typeName": "איקליפטוס הצאוורון "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Eucalyptus gomphocephala ",
+            "typeName": "איקליפטוס מסמרי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Albizia julibrissin ",
+            "typeName": "אלביציה ורודה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Albizia lebbeck ",
+            "typeName": "אלביציה צהובה "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Pistacia atlantica ",
+            "typeName": "אלה אטלנטית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Pistacia palaestina ",
+            "typeName": "אלה ארץ-ישראלית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pistacia chinensis ",
+            "typeName": "אלה סינית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Quercus robur ",
+            "typeName": "אלון אנגלי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Quercus pedunculiflora ",
+            "typeName": "אלון ארך-עוקצים "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Quercus ilex ",
+            "typeName": "אלון הגלעין "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Quercus libani ",
+            "typeName": "אלון הלבנון "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Quercus suber ",
+            "typeName": "אלון השעם "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Quercus ithaburensis ",
+            "typeName": "אלון התבור "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Quercus boissieri ",
+            "typeName": "אלון התולע "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Quercus calliprino ",
+            "typeName": "אלון מצוי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Quercus cerris ",
+            "typeName": "אלון שסוע "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Erythrina abyssinica ",
+            "typeName": "אלמוגן אתיופי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Erythrina indica ",
+            "typeName": "אלמוגן הודי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Erythrina crista-galli ",
+            "typeName": "אלמוגן כרבולתי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Erythrina corallodendrum ",
+            "typeName": "אלמוגן רחב-עלים "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Pistacia vera ",
+            "typeName": "אלת הבוטנה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Enterolobium cyclocarpum ",
+            "typeName": "אנטרולוביום עגול-פרי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Diospyros virginiana ",
+            "typeName": "אפרסמון אמריקני "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Diospyros kaki ",
+            "typeName": "אפרסמון יפני (זנים שונים) "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " Persica vulgaris",
+            "typeName": "אפרסק מצוי (זנים שונים) "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Acmena smithii ",
+            "typeName": "אקמנה סמיטי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Araucaria heterophylla ",
+            "typeName": "אראוקריה רמה "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Araucaria bidwiillii ",
+            "typeName": "אראוקריית בידוויל "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Cedrus atlantica ",
+            "typeName": "ארז אטלנטי "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Cedrus deodara ",
+            "typeName": "ארז הימלאי "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Cedrus libani ",
+            "typeName": "ארז הלבנון "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Rhamnus alaternus ",
+            "typeName": "אשחר רחב-עלים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Tamarix aphylla ",
+            "typeName": "אשל הפרקים "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Tamarix chinensis ",
+            "typeName": "אשל סיני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Bauhinia variegate ",
+            "typeName": "בוהיניה מגוונת "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Bolusanthus specious ",
+            "typeName": "בולוסנתוס נאה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Bombax ceiba ",
+            "typeName": "בומבק צייבה "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Ulmus americana ",
+            "typeName": "בוקיצה אמריקנית "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Ulmus pumila ",
+            "typeName": "בוקיצה נמוכה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ulmus parvifolia ",
+            "typeName": "בוקיצה קטנת-עלים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ulmus canescens ",
+            "typeName": "בוקיצה שעירה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Phillyrea latifolia ",
+            "typeName": "בר-זית בינוני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Cupressus arizonica ",
+            "typeName": "ברוש אריזוני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Cupressus funebris ",
+            "typeName": "ברוש בכות "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Cupressus macrocarpa ",
+            "typeName": "ברוש גדול-פירות "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Cupressus sempervirens ",
+            "typeName": "ברוש מצוי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Cupressus lusitanica ",
+            "typeName": "ברוש פורטוגלי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Cupressus glabra ",
+            "typeName": "ברוש קירח "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Cupressus cashmeriana ",
+            "typeName": "ברוש קשמירי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Metrosideros excelsa ",
+            "typeName": "ברזילי הדור "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Brachychiton discolor ",
+            "typeName": "ברכיכטון דו-גוני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Brachychiton aserifolius ",
+            "typeName": "ברכיכיטון אדרי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Brachychiton australis ",
+            "typeName": "ברכיכיטון אוסטרלי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Brachychiton bidwillii ",
+            "typeName": "ברכיכיטון בידוויל "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Brachychiton rupestris ",
+            "typeName": "ברכיכיטון הסלעים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Brachychiton populneum ",
+            "typeName": "ברכיכיטון צפצפתי "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " guajava Psidium",
+            "typeName": "גואיבה מצויה (זנים שונים) "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " cattleianum Psidium",
+            "typeName": "גואיבה תותית (זנים שונים) "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Ginkgo biloba ",
+            "typeName": "גינקו דו-אונתי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Gleditsia triacanthos ",
+            "typeName": "גלדיצייה תלת-קוצית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Grevillea robusta ",
+            "typeName": "גרווילאה חסונה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Prunus subgenera cerasus ",
+            "typeName": "דובדבן "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Platanus acerifolia ",
+            "typeName": "דולב אדרי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Platanus orientalis ",
+            "typeName": "דולב מזרחי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Platanus mexicana ",
+            "typeName": "דולב מכסיקני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Platanus racemoca ",
+            "typeName": "דולב קליפורני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Dombeya rotundifolia ",
+            "typeName": "דומביאה עגולת-עלים "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Tecoma stans ",
+            "typeName": "דק-פרי זקוף "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Tecoma castanifolia ",
+            "typeName": "דק-פרי ערמוני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Dracaena draco ",
+            "typeName": "דרקונית קנרית "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " Citrus paradisi",
+            "typeName": "הדר האשכולית  "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " Citrus medica",
+            "typeName": "הדר האתרוג  "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Citrus aurantium ",
+            "typeName": "הדר החושחש "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": " Citrus limon",
+            "typeName": "הדר הלימון  "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " Citrus reticulata",
+            "typeName": "הדר המנדרין "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " Citrus grandis",
+            "typeName": "הדר הפומלו  "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " Citrus sinensis",
+            "typeName": "הדר התפוז  "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Hovenia dulcis ",
+            "typeName": "הובניה מתוקה "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Homalanthus populifolius ",
+            "typeName": "הומלנתוס צפצפתי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Heteromeles arbutifolia ",
+            "typeName": "הטרומלס קטלבי "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Hibiscus elatus ",
+            "typeName": "היביסקוס רם "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Hymenosporum flavum ",
+            "typeName": "הינומית צהובה "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Olea europaea ",
+            "typeName": "זית אירופי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Zelkova serrate ",
+            "typeName": "זלקובה משורית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Balanites aegyptiaca ",
+            "typeName": "זקום מצרי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Khaya nyasica ",
+            "typeName": "חאיה ניאסית "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " Cydonia oblonga",
+            "typeName": "חבוש מוארך  "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Eriobolus trilobatus ",
+            "typeName": "חוזרר החורש "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Euphorbia cotinifolia ",
+            "typeName": "חלבלוב דמוי-קוטינוס "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Euphorbia tirucalli ",
+            "typeName": "חלבלוב רותמי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Ceratonia siliqua ",
+            "typeName": "חרוב מצוי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Tabebuia impetiginosa ",
+            "typeName": "טבבויה איפה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Tabebuia chrysantha ",
+            "typeName": "טבבויה צהובה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Tetraclinis articulate ",
+            "typeName": "טטרקליניס מפריק "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Taxodium distichum ",
+            "typeName": "טכסודיון דו-טורי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Radermachia sinica ",
+            "typeName": "טקומן סיני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Terminalia arjuna ",
+            "typeName": "טרמינליה הודית "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Prosopis juliflora ",
+            "typeName": "ינבוט המסקיטו "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Prosopis alba ",
+            "typeName": "ינבוט לבן "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Elaeagnus angutifolia ",
+            "typeName": "יצהרון מכסיף "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Jatropha integerrima ",
+            "typeName": "יתרופית תמימה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Chorisia insignis ",
+            "typeName": "כוריזיה בקבוקית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Chorisia speciosa ",
+            "typeName": "כוריזיה הדורה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Chitalpa tashkentensis X ",
+            "typeName": "כיטלפת טשקנט X "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Chilopsis linearis ",
+            "typeName": "כילופסיס סרגלי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Cercis siliquastrum ",
+            "typeName": "כליל החורש "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Cercis canadensis ",
+            "typeName": "כליל קנדי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "pterospermum acerifolium ",
+            "typeName": "כנוף-זרע אדרי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Cassia fistula ",
+            "typeName": "כסיית האבוב "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Alectryon tomentosum ",
+            "typeName": "כרבל לביד "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Styrax officinalis ",
+            "typeName": "לבנה רפואי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Lagunaria patersonii ",
+            "typeName": "לגונריית פטרסון "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Lagerstroemia indica ",
+            "typeName": "לגרסטרמיה הודית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ligustrum japonicum ",
+            "typeName": "ליגוסטרום יפני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "liquidambar styraciflua ",
+            "typeName": "ליקווידמבר לבני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Harpephyllum caffrum ",
+            "typeName": "מגלון אפריקני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Magnolia grandiflora ",
+            "typeName": "מגנוליה גדולת-פרחים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Moringa oleifera ",
+            "typeName": "מורינגה מכונפת "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Moringa peregrine ",
+            "typeName": "מורינגה רותמית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Metasequoia glyptostroboides ",
+            "typeName": "מטאסקוויה סינית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Fraxinus Americana ",
+            "typeName": "מילה אמריקנית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Fraxinus uhde ",
+            "typeName": "מילה ירוקת-עד "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Fraxinus ornus ",
+            "typeName": "מילה לבנת-פרחים "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Fraxinus syriaca ",
+            "typeName": "מילה סורית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Fraxinus pennsylvanica ",
+            "typeName": "מילה פנסילוונית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Celtis africana ",
+            "typeName": "מיש אפריקני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Celtis bungeana ",
+            "typeName": "מיש בונגה "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Celtis australis ",
+            "typeName": "מיש דרומי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Celtis sinensis ",
+            "typeName": "מיש סיני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Tipuana tipu ",
+            "typeName": "מכנף נאה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Melaleuca spp. ",
+            "typeName": "מללויקה מינים שונים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Mangifera indica ",
+            "typeName": "מנגו הודי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Macadamia tetraphylla ",
+            "typeName": "מקדמיה רבועה "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Maerua crassifolia ",
+            "typeName": "מרואה עבת-עלים "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Markhamia lutea ",
+            "typeName": "מרקמיה צהובה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Spathodea campanulata ",
+            "typeName": "מתחלית פעמונית "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Solanum macranthum ",
+            "typeName": "סולנום גדול "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Sophora secundiflora ",
+            "typeName": "סופורה אמריקנית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Sophora japonica  ",
+            "typeName": "סופורה יפנית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Jacaranda mimosifolia ",
+            "typeName": "סיגלון עלי-מימוסה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Syzygium austral ",
+            "typeName": "סיזיגיון אוסטרלי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Syzygium jambolan ",
+            "typeName": "סיזיגיון ימבולן "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Syzygium paniculatum ",
+            "typeName": "סיזיגיון מכבדי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Dalbergia sissoo ",
+            "typeName": "סיסם הודי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Sapium sebiferum ",
+            "typeName": "ספיון השעוה "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Sequoia sempervirens ",
+            "typeName": "סקויה נאה "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Crataegus azarolus ",
+            "typeName": "עוזרר אדום "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Crataegus aronia ",
+            "typeName": "עוזרר קוצני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Laurus nobilis ",
+            "typeName": "ער אציל "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Salix acmophylla ",
+            "typeName": "ערבה מחודדת "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Salix humboldtiana ",
+            "typeName": "ערבה צריפית  "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Salix babylonica ",
+            "typeName": "ערבת בבל "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Juniperus excels ",
+            "typeName": "ערער רם "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Cordia myxa ",
+            "typeName": "ערף דביק שמו שונה לגופנן המדבר (נקרא גם ערף המדבר) "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Calodendrum capensis ",
+            "typeName": "פארון הכף "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Podocarpus macrophyllus  ",
+            "typeName": "פודוקרפוס גדול-עלים "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Podocarpus falcatus ",
+            "typeName": "פודוקרפוס מגלי "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Paulownia fortune ",
+            "typeName": "פולובניית פרוטון "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pongamia pinnata ",
+            "typeName": "פונגמיה מנוצה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Pterocarya fraxinifolia ",
+            "typeName": "פטרוקריה מיילנית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Feijoa sellowiana ",
+            "typeName": "פיג'ואה תרבותית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Phytolacca dioica ",
+            "typeName": "פיטולקה דו-ביתית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Pittosporum undulatum ",
+            "typeName": "פיטוספורום גלוני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Pittosporum tobira ",
+            "typeName": "פיטוספורום יפני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ficus auriculata ",
+            "typeName": "פיקוס אוזני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Ficus bengalensis ",
+            "typeName": "פיקוס בנגלי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ficus benjamina ",
+            "typeName": "פיקוס בנימינה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ficus elastic ",
+            "typeName": "פיקוס הגומי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": " Ficus microcarpa ",
+            "typeName": "פיקוס השדרות "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Ficus sycomorus  ",
+            "typeName": "פיקוס השקמה  "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ficus carica ",
+            "typeName": "פיקוס התאנה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ficus rubiginosa ",
+            "typeName": "פיקוס חלוד "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ficus lyrata ",
+            "typeName": "פיקוס כינורי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Ficus oblique ",
+            "typeName": "פיקוס מעוקם "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ficus binnendijkii ",
+            "typeName": "פיקוס צר-עלים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ficus religiosa ",
+            "typeName": "פיקוס קדוש "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Firmiana simplex  ",
+            "typeName": "פירמיאנה פשוטה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Plumeria rubra ",
+            "typeName": "פלומריה ריחנית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Schinus molle ",
+            "typeName": "פלפלון בכות "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Schinus terebinthifolius ",
+            "typeName": "פלפלון דמוי-אלה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Koelreuteria bipinnata ",
+            "typeName": "פנסית דו-נוצתית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Koelreuteria paniculata ",
+            "typeName": "פנסית מכבדית "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": " Carica papaya",
+            "typeName": "פפיה מצויה "
+        },
+        {
+            "typeValue": "0",
+            "BinomialNomenclature": "Parkinsonia aculeata ",
+            "typeName": "פרקינסוניה שיכנית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Delonix regia ",
+            "typeName": "צאלון נאה "
+        },
+        {
+            "typeValue": "0",
+            "BinomialNomenclature": "Leucaena leucocephala ",
+            "typeName": "צחר כחלחל "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Ceiba Pantandra ",
+            "typeName": "צייבה מחומשת "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ilex cornuta ",
+            "typeName": "צינית מקרינה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Populus alba ",
+            "typeName": "צפצפה מכסיפה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Populus angulate ",
+            "typeName": "צפצפה מקוצעת "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Populus nigra 'Italica' ",
+            "typeName": "צפצפה שחורה 'איטלקית' "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Populus euphratica ",
+            "typeName": "צפצפת הפרת "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Cotinus coggygria ",
+            "typeName": "קוטינוס מזרחי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Colvillea racemosa ",
+            "typeName": "קולווילאה אשכולית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Cussonia spicata ",
+            "typeName": "קוסוניה משובלת "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Cupaniopsis anacardioides ",
+            "typeName": "קופניון אנקרדי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Corymbia torelliana ",
+            "typeName": "קורימביה (איקליפטוס) טורל "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Corymbia (Eucalyptus) citriodora ",
+            "typeName": "קורימביה (איקליפטוס) לימוני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Corymbia ficifolia ",
+            "typeName": "קורימביה (אקליפטוס) אדום "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Casuarina stricta ",
+            "typeName": "קזוארינה אשונה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Casuarina equisetifolia ",
+            "typeName": "קזוארינה שבטבטית "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Arbutus andrachne ",
+            "typeName": "קטלב מצוי "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Arbutus unedo ",
+            "typeName": "קטלב משונן "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Catalpa bignonioides ",
+            "typeName": "קטלפה ביגנונית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Kigelia pinnata ",
+            "typeName": "קיגליה מנוצה  "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Cinnamomum camphora ",
+            "typeName": "קינמון קמפורי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Callitris glaucophylla ",
+            "typeName": "קליטריס כחלחל "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Callistemon phoeniceus ",
+            "typeName": "קליסטמון אדום "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Callistemon viminalis ",
+            "typeName": "קליסטמון הנצרים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Callistermon spp. ",
+            "typeName": "קליסטמון מינים שונים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Callistemon citrinus ",
+            "typeName": "קליסטמון תרוג "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Xylosma salzmannii ",
+            "typeName": "קסילוסמת זלצמן "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Carya illinoinensis ",
+            "typeName": "קריית הפקן "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Citharexylum spinosum ",
+            "typeName": "קתרוסית מרובעת "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Robinia pseudo-acacia ",
+            "typeName": "רוביניה בת-שיטה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Ravenala madagascariensis ",
+            "typeName": "רוולנה מדגסקרית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Punica granatum ",
+            "typeName": "רימון מצוי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Betula pendula ",
+            "typeName": "שדר משתלשל "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Schotia latifolia ",
+            "typeName": "שוטיה רחבת-עלים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Prunus cerasifera ",
+            "typeName": "שזיף דובדבני 'אדום'/'שחור' "
+        },
+        {
+            "BinomialNomenclature": "'Atropurpurea'/'Nigra' "
+        },
+        {
+            "typeValue": "2",
+            "BinomialNomenclature": "Prunus spp. ",
+            "typeName": "שזיף מינים שונים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Prunus campanulata ",
+            "typeName": "שזיף פעמוני "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Zizphus spina-christi ",
+            "typeName": "שיזף מצוי "
+        },
+        {
+            "typeValue": "0",
+            "BinomialNomenclature": "Acacia saligna ",
+            "typeName": "שיטה כחלחלה "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Faidherbia albida ",
+            "typeName": "שיטה מלבינה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Acacia pendula ",
+            "typeName": "שיטה משתלשלת "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Acacia tortilis ",
+            "typeName": "שיטה סוככנית "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Acacia raddiana ",
+            "typeName": "שיטה סלילנית "
+        },
+        {
+            "typeValue": "1",
+            "BinomialNomenclature": "Vachellia farnesiana ",
+            "typeName": "שיטת המשוכות "
+        },
+        {
+            "typeValue": "5",
+            "BinomialNomenclature": "Vachellia gerrardii ",
+            "typeName": "שיטת הנגב "
+        },
+        {
+            "typeValue": "0",
+            "BinomialNomenclature": "Acacia salicina ",
+            "typeName": "שיטת עלי-ערבה "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Peltophorum africanum ",
+            "typeName": "שלטית אפריקנית "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Peltophorum dubium ",
+            "typeName": "שלטית מקומטת "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Schizolobium parahybum ",
+            "typeName": "שסע פרהיבי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Eriobotrya japonica ",
+            "typeName": "שסק יפני "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Amygdalus communis ",
+            "typeName": "שקד מצוי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Thuja spp. ",
+            "typeName": "תויה מינים שונים "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Morus alba  ",
+            "typeName": "תות לבן "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Morus nigra  ",
+            "typeName": "תות שחור "
+        },
+        {
+            "typeValue": "4",
+            "BinomialNomenclature": "Tamarindus indica ",
+            "typeName": "תמרינד הודי "
+        },
+        {
+            "typeValue": "3",
+            "BinomialNomenclature": "Thespesia populnea ",
+            "typeName": "תספזיה צפצפתית "
+        }
+    ]

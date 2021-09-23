@@ -1,17 +1,20 @@
-
 import React, { useEffect, useState } from 'react'
 import { useForm } from '../services/customHooks'
 import { Sheet } from './Sheet'
-import { TextField, Button, MenuItem, InputAdornment, Select, FormControl } from '@material-ui/core';
+import { TextField, Button, MenuItem, InputAdornment, Select, FormControl, Paper } from '@material-ui/core';
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import { formService } from '../services/formService';
 import { treeService } from '../services/treeService';
+import { CloudinaryUpload } from './CloudinaryUpload';
 
+//specious
 
 export const TreesForm = (...props) => {
 
-
+    const [type, setType] = useState('')
     const [form, handleChange] = useForm({
         quantity: '',
+        type: '',
         height: '',
         diameter: '',
         health: '',
@@ -22,15 +25,22 @@ export const TreesForm = (...props) => {
         totalValue: '',
         monetaryValue: '',
         movingPossibility: '',
-        movingReason: ''
+        movingReason: '',
+        idx: '',
+        rootsDiameter:''
     })
 
-
+    const onGetImgUrl = (imgUrl) => {
+        // return imgUrl
+        console.log(imgUrl);
+    }
 
     const submitForm = (ev) => {
         ev.preventDefault()
-        console.log('form', form);
-        treeService.save(form)
+        let treeCopy = { ...form }
+        treeCopy.type = type
+        console.log('form', treeCopy);
+        treeService.save(treeCopy)
     }
 
 
@@ -38,6 +48,38 @@ export const TreesForm = (...props) => {
         <div className="trees-form">
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>
                 <div className="trees-form flex column">
+                    <TextField
+                        required
+                        label="אינדקס"
+                        type="number"
+                        id="idx"
+                        name="idx"
+                        variant="filled"
+                        color="primary"
+                        onChange={(ev) => { handleChange(ev) }} />
+                    <Autocomplete
+                        id="type"
+                        value={form.type}
+                        options={formService.treTypes}
+                        onChange={(ev, newValue) => { setType(newValue.BinomialNomenclature) }} // TRY DOC 
+                        getOptionLabel={(option) => option.BinomialNomenclature}
+                        fullWidth
+                        PaperComponent={({ children }) => (
+                            <Paper style={{ background: "" }}>{children}</Paper>
+                        )}
+                        style={{ width: 200, marginTop: 20 }}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="מין העץ"
+                                variant="outlined"
+                                style={{ backgroundColor: "pink !important" }}
+                            // name={params.}
+                            />
+                        )}
+                        required
+                    />
+
                     <TextField
                         required
                         label="כמות"
@@ -65,7 +107,6 @@ export const TreesForm = (...props) => {
                         variant="filled"
                         color="primary"
                         onChange={(ev) => { handleChange(ev) }} />
-
                     <TextField
                         required
                         label="מיקום"
@@ -117,6 +158,15 @@ export const TreesForm = (...props) => {
 
 
                         onChange={(ev) => { handleChange(ev) }} />
+                        <TextField
+                            required
+                            label="קוטר שורשים "
+                            type="number"
+                            id="rootsDiameter"
+                            name="rootsDiameter"
+                            variant="filled"
+                            color="primary"
+                            onChange={(ev) => { handleChange(ev) }} />
                     <FormControl>
                         <Select
                             required
@@ -140,7 +190,9 @@ export const TreesForm = (...props) => {
                         </Select>
                     </FormControl>
                     <TextField
+                        multiline
                         required
+                        rows={4}
                         label="תיאור"
                         type="text"
                         id="description"
@@ -150,6 +202,8 @@ export const TreesForm = (...props) => {
                         onChange={(ev) => { handleChange(ev) }} />
                     <TextField
                         required
+                        multiline
+                        rows={2}
                         label="סיבת
                         כריתה או
                         העתקת
@@ -163,6 +217,7 @@ export const TreesForm = (...props) => {
                 </div>
                 <Button onClick={(ev) => submitForm(ev)} color="primary">סיום </Button>
             </form>
+            <CloudinaryUpload onGetImgUrl={onGetImgUrl} />
             <Sheet data={form} />
         </div>
     )

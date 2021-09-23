@@ -1,3 +1,7 @@
+import treTypes from '../data/treeTypes.json'
+
+
+const trees = treTypes
 
 const movingPossibility = [
     {
@@ -16,5 +20,7 @@ const movingPossibility = [
 ];
 
 export const formService = {
-    movingPossibility
+    movingPossibility,
+    treTypes,
+    trees
 }
