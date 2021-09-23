@@ -14,10 +14,10 @@ async function save(tree) {
     // // let addPet = await storageService.post(STORAGE_KEY, pet)
     // return addPet
 }
-async function query(pet) {
-    let updatedPet = await httpService.get(`tree/`)
-    console.log("🚀 ~ file: treeService.js ~ line 17 ~ query ~ updatedPet", updatedPet)
-    return updatedPet
+async function query() {
+    let trees = await httpService.get(`tree/`)
+    console.log("🚀 ~ file: treeService.js query ", trees)
+    return trees
 }
 // async function update(pet) {
 //     let updatedPet = await httpService.put(`pet/${pet._id}`, pet)

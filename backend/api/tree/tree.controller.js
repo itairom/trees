@@ -5,11 +5,11 @@ async function getTrees(req, res) {
     try {
         const filterBy = req.query
         console.log("🚀 ~ file: tree.controller.js ~ line 8 ~ getTrees ~ filterBy", filterBy)
+        const trees = await treeService.query( )
         // const pets = await petService.query( filterBy)
-        // res.send(pets)
-        res.send('trees backend')
+        res.send(trees)
     } catch (err) {
-        res.status(500).send({ err: 'failed to add pets' })
+        res.status(500).send({ err: 'failed to get Trees' })
     }
 }
 async function addTree(req, res) {

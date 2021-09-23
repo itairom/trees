@@ -5,6 +5,7 @@ import './assets/main.css'
 import './assets/style/main.scss'
 import { Home } from './pages/Home';
 import { About } from './pages/About';
+import { TreesSurvey } from './pages/TreesSurvey';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <AppHeader/>
       <Switch>
         <Route path="/about" component={ About } />
+        <Route path="/trees" component={ TreesSurvey } />
         <Route path="/" component={ Home } />
       </Switch>
     </div>

@@ -10,7 +10,6 @@ import { treeService } from '../services/treeService';
 export const TreesForm = (...props) => {
 
 
-
     const [form, handleChange] = useForm({
         quantity: '',
         height: '',
@@ -96,7 +95,7 @@ export const TreesForm = (...props) => {
                         onChange={(ev) => { handleChange(ev) }} />
                     <TextField
                         required
-                        label="ארץ העץ"
+                        label="ערך העץ"
                         type="number"
                         id="totalValue"
                         name="totalValue"

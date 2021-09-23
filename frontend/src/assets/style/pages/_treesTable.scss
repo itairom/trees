@@ -1,0 +1,22 @@
+.trees-table{
+    justify-content: center;
+    margin-top: 50px;
+    direction: rtl;
+    table{
+        border: 1px solid black;
+        tr{
+            th{
+                text-align: center;
+                padding: 6px;
+                background-color: #16a53f;
+                color: white;
+            }
+            
+            td{
+                text-align: center;
+                padding: 3px;
+                background-color: #b0b0b0;
+            }
+        }
+    }
+}

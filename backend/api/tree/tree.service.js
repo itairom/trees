@@ -9,21 +9,22 @@ async function query(filterBy = '') {
     let { sortBy } = filterBy
 
     // console.log("🚀 ~ file: pet.service.js ~ line 12 ~ query ~ sortBy", sortBy)
-    let sort = {}
-    if (sortBy === 'name') {
-        sort.name = 1
-        if (sortBy === 'createdAt') {
-            sort.name = -1
-        }
-    } else if (sortBy === 'likes') {
-        sort.likes = -1
-    }
+    // let sort = {}
+    // if (sortBy === 'name') {
+    //     sort.name = 1
+    //     if (sortBy === 'createdAt') {
+    //         sort.name = -1
+    //     }
+    // } else if (sortBy === 'likes') {
+    //     sort.likes = -1
+    // }
 
     // const criteria = _buildCriteria(filterBy)
 
     try {
         const collection = await dbService.getCollection('tree')
-        const pets = await collection.find(criteria).sort(sort).toArray()
+        const pets = await collection.find().toArray()
+        // console.log("🚀 ~ file: tree.service.js ~ line 27 ~ query ~ pets", pets)
         return pets
     } catch (err) {
         logger.error('cannot find pets', err)
