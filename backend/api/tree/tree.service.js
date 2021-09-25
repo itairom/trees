@@ -1,31 +1,32 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-// const ObjectId = require('mongodb').ObjectId
-// import { trees } from '../../data/trees.json'
 
-
-
-async function query(filterBy = '') {
-    let { sortBy } = filterBy
-
-    // console.log("🚀 ~ file: pet.service.js ~ line 12 ~ query ~ sortBy", sortBy)
-    // let sort = {}
-    // if (sortBy === 'name') {
-    //     sort.name = 1
-    //     if (sortBy === 'createdAt') {
-    //         sort.name = -1
-    //     }
-    // } else if (sortBy === 'likes') {
-    //     sort.likes = -1
-    // }
-
-    // const criteria = _buildCriteria(filterBy)
+async function query(tableId) {
+    console.log("tableID", tableId)
 
     try {
         const collection = await dbService.getCollection('tree')
-        const pets = await collection.find().toArray()
-        // console.log("🚀 ~ file: tree.service.js ~ line 27 ~ query ~ pets", pets)
-        return pets
+        const trees = await collection.find({ surveyId: tableId }).toArray()
+        console.log("🚀 ~ file: tree.service.js ~ line 11 ~ query ~ trees", trees)
+        return trees
+    } catch (err) {
+        logger.error('cannot find trees', err)
+        throw err
+    }
+}
+async function queryTableIdList(filterBy = '') {
+    let { sortBy } = filterBy
+
+
+    try {
+        const collection = await dbService.getCollection('tree')
+        const trees = await collection.find().toArray()
+        let tableIdList = []
+        trees.map((tree) => {
+            return tableIdList.push(tree.surveyId)
+        })
+        let uniqTableIdList = [...new Set(tableIdList)]
+        return uniqTableIdList
     } catch (err) {
         logger.error('cannot find pets', err)
         throw err
@@ -100,5 +101,5 @@ function _makeId(length = 5) {
 // }
 
 module.exports = {
-    query, save
+    query, save, queryTableIdList
 }

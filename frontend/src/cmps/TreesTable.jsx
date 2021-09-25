@@ -15,16 +15,18 @@ export const TreesTable = (...props) => {
         return (canopy + monetaryValue + location + health)
     }
 
-    // const calculateValue = (tree) => {
-    //     const { canopy, monetaryValue, location, health } = tree
-    //     return (canopy + monetaryValue + location + health)
-    // }
+    const calculateMonetaryValue = (tree) => {
+        const { canopy, monetaryValue, location, health } = tree
+        let sum = ((canopy + monetaryValue + location + health) / 5) * 20
+        return sum
+    }
 
     const ValueColor = (tree) => {
         let sum = calculateValue(tree)
         if (sum < 6) return 'yellow'
-        else if (sum > 6 && 12 < sum) return 'red'
-        else return 'green'
+        else if (sum > 6 && 12 < sum) return 'grey'
+        else if (sum > 13 && 17 < sum) return 'green'
+        else return 'red'
     }
 
     const { trees } = props
@@ -37,7 +39,6 @@ export const TreesTable = (...props) => {
                         העץ/פוליגון </th>
                     <th>מין העץ/תאור
                         הפוליגון</th>
-                    <th>אינדקס</th>
                     <th>כמות עצים</th>
                     <th>**גובה
                         העץ
@@ -59,6 +60,9 @@ export const TreesTable = (...props) => {
                         חופת
                         העץ
                         (0-5)</th>
+                    <th>סך ערכיות
+                        העץ/פוליגון
+                        (0-20)</th>
                     <th>***אזור
                         שורשים
                         מוגן
@@ -87,10 +91,11 @@ export const TreesTable = (...props) => {
                                 <td>{tree.canopy}</td>
                                 <td className={ValueColor(tree)}>{calculateValue(tree)}</td>
                                 <td>{tree.rootsDiameter}</td>
+                                <td>{calculateMonetaryValue(tree)}</td>
                                 <td>{tree.movingPossibility}</td>
                                 <td>{tree.description}</td>
-                                <td>כריתה</td> 
-                                <td>{tree.movingReason}</td>                                
+                                <td>כריתה</td>
+                                <td>{tree.movingReason}</td>
                             </tr>
                         )
                     })}

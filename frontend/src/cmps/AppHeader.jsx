@@ -14,7 +14,7 @@ export function AppHeader() {
             <nav className="main-nav ">
                 {!isMobile && <div className="left-nav">
                     <Link to='/trees'><span>Trees Survey</span></Link>
-                    <Link to='/home'><span>Form</span></Link>
+                    <Link to='/form'><span>טופס</span></Link>
                 </div>}
                 {isMobile && <div onClick={changeMobile} className="mobile-nav">
                     <Link to='/car'><span>Car</span></Link>

@@ -1,9 +1,21 @@
-import treTypes from '../data/treeTypes.json'
+import treeTypes from '../data/treeTypes.json';
+
+//  const treeTypes = [
+//     {
+//         typeValue: "3",
+//         BinomialNomenclature: " Persea americana",
+//         label: "אבוקדו אמריקני (זנים שונים)"
+//     },
+//     {
+//         typeValue: "3",
+//         BinomialNomenclature: "Juglans regia ",
+//         label: "אגוז המלך "
+//     }
+
+// ]
 
 
-const trees = treTypes
-
-const movingPossibility = [
+const movingPossibilityOptions = [
     {
         value: 'hign',
         label: 'גבוהה',
@@ -18,9 +30,28 @@ const movingPossibility = [
 
     }
 ];
+const recommendationOptions = [
+    {
+        value: 'preserve',
+        label: 'שימור',
+    },
+    {
+        value: 'relocation',
+        label: 'העתקה',
+    },
+    {
+        value: 'amputation',
+        label: 'כריתה',
+    },
+    {
+        value: 'notPossible',
+        label: 'לא ניתן',
+    }
+
+];
 
 export const formService = {
-    movingPossibility,
-    treTypes,
-    trees
+    movingPossibility: movingPossibilityOptions,
+    treeTypes,
+    recomandationOptions: recommendationOptions
 }

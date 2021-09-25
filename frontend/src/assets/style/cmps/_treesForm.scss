@@ -1,7 +1,25 @@
-.trees-form{
-    width: 200px;
-
-    .TextField{
-        margin-top: 20px;
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+    .current-survey{
+        display: flex;
     }
+
+    h1 {
+        width: 300px;
+    }
+    form {
+        width: 300px;
+
+        & * {
+            // margin-top: 10px;
+        }
+    }
+  
+
+
 }

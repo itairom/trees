@@ -3,22 +3,32 @@ const STORAGE_KEY = 'trees'
 
 async function getTrees(req, res) {
     try {
-        const filterBy = req.query
-        console.log("🚀 ~ file: tree.controller.js ~ line 8 ~ getTrees ~ filterBy", filterBy)
-        const trees = await treeService.query( )
-        // const pets = await petService.query( filterBy)
+        const currentTableId = req.query[0]
+        const trees = await treeService.query(currentTableId)
+        console.log("🚀 ~ file: tree.controller.js ~ line 8 ~ getTrees ~ trees", trees)
         res.send(trees)
     } catch (err) {
         res.status(500).send({ err: 'failed to get Trees' })
     }
 }
+
+async function getTableIdList(req, res) {
+    try {
+        console.log('in!');
+        // const filterBy = req.query
+        const trees = await treeService.queryTableIdList()
+        res.send(trees)
+    } catch (err) {
+        res.status(500).send({ err: 'failed to get Trees' })
+    }
+}
+
 async function addTree(req, res) {
     try {
         console.log(req.body);
         const pets = await treeService.save(req.body)
         res.send('add tree')
     } catch (err) {
-        // logger.error('failed to  add tree', err)
         res.status(500).send({ err: 'failed to add tree' })
     }
 }
@@ -46,5 +56,5 @@ async function addTree(req, res) {
 
 
 module.exports = {
-    getTrees, addTree
+    getTrees, addTree, getTableIdList
 }

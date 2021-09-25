@@ -3,9 +3,11 @@
     margin-top: 50px;
     direction: rtl;
     table{
-        border: 1px solid black;
+        // border: 1px solid black;
+        border-spacing: 0px;
         tr{
             th{
+                border: 1px black solid;
                 text-align: center;
                 padding: 6px;
                 background-color: #16a53f;
@@ -15,7 +17,7 @@
             td{
                 text-align: center;
                 padding: 3px;
-                background-color: #b0b0b0;
+                border: 1px black solid;
             }
         }
     }

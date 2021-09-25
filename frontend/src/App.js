@@ -6,6 +6,7 @@ import './assets/style/main.scss'
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { TreesSurvey } from './pages/TreesSurvey';
+import { TreesForm } from './cmps/TreesForm';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Switch>
         <Route path="/about" component={ About } />
         <Route path="/trees" component={ TreesSurvey } />
-        <Route path="/" component={ Home } />
+        <Route path="/form" component={ TreesForm } />
+        {/* <Route path="/" component={ Home } /> */}
       </Switch>
     </div>
   );
