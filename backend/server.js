@@ -27,16 +27,19 @@ const upload = multer({ storage: storage })
 let multiUpload = upload.fields([{ name: 'files', maxCount: 3 }])
 
 const app = express()
-const PORT = 3030
-
+const port = process.env.PORT || 3030;
 
 app.use(express.json())
 app.use(express.static('public'))
 app.use(cookieParser())
 
-app.listen(
-    PORT, console.log('listening')
-)
+app.get('/**', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
+
+app.listen(port, () => {
+    console.log(`App listening on port ${port}!`)
+});
 
 const corsOptions = {
     origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
