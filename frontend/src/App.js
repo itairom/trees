@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import {AppHeader } from './cmps/AppHeader'
 import './assets/main.css'
 import './assets/style/main.scss'
-import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { TreesSurvey } from './pages/TreesSurvey';
 import { TreesForm } from './cmps/TreesForm';

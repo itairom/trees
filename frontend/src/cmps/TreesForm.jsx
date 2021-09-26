@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from '../services/customHooks'
-import { Sheet } from './Sheet'
 import { TextField, Button, MenuItem, InputAdornment, Select, FormControl, Paper, InputLabel } from '@material-ui/core';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { formService } from '../services/formService';
 import { treeService } from '../services/treeService';
 import { CloudinaryUpload } from './CloudinaryUpload';
+import { storageService } from '../services/storageService';
 
 //specious
 
 export const TreesForm = (...props) => {
 
-    const [surveyId, setSurveyId] = useState('kfar saba')
+    const [surveyId, setSurveyId] = useState('')
+    const [newSurveyId, setNewTableIdList] = useState('')
+    const [survyIdList, setSurvyIdList] = useState([''])
+
     // const [CurrentSurveyId, setCurrentSurveyId] = useState('')
-    const [inputValue, setInputValue] = useState('');
     const [treeType, setType] = useState('')
     const [imgUrl, setImgUrl] = useState('')
     const [form, handleChange] = useForm({
@@ -35,13 +37,18 @@ export const TreesForm = (...props) => {
         recommendation: ''
     })
 
-    useEffect(()=>{
-        async function getSurveyIdList(){
-            await treeService.queryTableIdList()
-        }
-        getSurveyIdList()
+    useEffect(() => {
+        setSurveyId(storageService.loadFromStorage('surveyId'))
+    }, [])
 
-    },[])
+    useEffect(() => {
+        async function queryTrees() {
+            setSurvyIdList(await treeService.queryTableIdList())
+        }
+        queryTrees()
+    }, [surveyId])
+
+
     useEffect(() => {
         console.log('tree type', treeType);
     }, [treeType])
@@ -66,22 +73,52 @@ export const TreesForm = (...props) => {
         <div className="form-container">
             <h1>טופס סקר עצים </h1>
 
+            <div className="survey-control">
+                <FormControl>
+                    <InputLabel required id="movingPossibility">בחר טופס: </InputLabel>
+                    <Select
+                        required
+                        type="text"
+                        id="currentTableId"
+                        name="currentTableId"
+                        variant="filled"
+                        color="primary"
+                        value={surveyId}
+                        onChange={(ev) => { setSurveyId(ev.target.value) }}>
+                        {
+                            survyIdList.map((id) => (
+                                <MenuItem
+                                    key={id}
+                                    value={id}>
+                                    {id}
+                                </MenuItem>
+                            ))
+                        }
+                    </Select>
+                </FormControl>
+                <div className="current-survey">
+                    <p>טופס נוכחי: </p>
+                    <p>{surveyId}</p>
+                </div>
+                <div className="new-survey">
+                    <p>טופס חדש</p>
+                    <form action="" onSubmit={(ev) => {
+                        ev.preventDefault(ev)
+                        storageService.saveToStorage('surveyId', newSurveyId)
+                        setSurveyId(newSurveyId)
+                    }}
+                        className="flex">
+                        <input value={newSurveyId} onChange={(ev) => setNewTableIdList(ev.target.value)} type="text" />
+                        <button>בחר</button>
+                    </form>
+                    <div className="survey-list"></div>
+                </div>                    <form action="">
+                    <label htmlFor="new-survey">שם טופס: </label>
+                    <input id="new-survey" type="text" />
+                </form>
+            </div>
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>
 
-                <div className="survey-control">
-                    <div className="current-survey">
-                        <p>טופס נוכחי: </p>
-                        <p>{surveyId}</p>
-                    </div>
-                    <div className="survey-select">
-                        <p>בחר טופס: </p>
-
-                        <div className="survey-list"></div>
-                    </div>                    <form action="">
-                        <label htmlFor="new-survey">שם טופס: </label>
-                        <input id="new-survey" type="text" />
-                    </form>
-                </div>
 
                 <div className="trees-form flex column">
                     <TextField

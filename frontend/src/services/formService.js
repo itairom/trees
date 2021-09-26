@@ -11,7 +11,6 @@ import treeTypes from '../data/treeTypes.json';
 //         BinomialNomenclature: "Juglans regia ",
 //         label: "אגוז המלך "
 //     }
-
 // ]
 
 

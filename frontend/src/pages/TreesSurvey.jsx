@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { TreesImages } from '../cmps/TreesImages';
 import { TreesTable } from '../cmps/TreesTable';
 import { treeService } from '../services/treeService';
-import {  MenuItem, Select, FormControl, Paper, InputLabel } from '@material-ui/core';
+import {  MenuItem, Select, FormControl, InputLabel } from '@material-ui/core';
 
 
 
@@ -13,9 +13,7 @@ export const TreesSurvey = () => {
     let [tableIdList, setTableIdList] = useState([''])
 
 
-
     useEffect(() => {
-
         async function queryTrees() {
             setTableIdList(await treeService.queryTableIdList())
             setTrees(await treeService.query(currentTableId))

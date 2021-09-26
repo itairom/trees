@@ -29,8 +29,6 @@ export const TreesTable = (...props) => {
         else return 'red'
     }
 
-    const { trees } = props
-
     return (
         <section className="trees-table flex">
             <table>

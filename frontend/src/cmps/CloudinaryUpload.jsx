@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, {  useState } from "react"
 import { cloudinaryService } from "../services/cloudinaryService"
 
 export const CloudinaryUpload = (...props) => {
@@ -27,14 +27,6 @@ export const CloudinaryUpload = (...props) => {
     return (
         <section className="upload-container">
             <form action="#">
-                {/* <div>
-                    <label htmlFor="name">Name</label>
-                    <input
-                        required
-                        type="text"
-                        id="name"
-                        onChange={(ev) => { nameHandler(ev) }} />
-                </div> */}
                 <div>
                     <label htmlFor="file"></label>
                     <input

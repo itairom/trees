@@ -1,3 +1,14 @@
 9/22/2021, 5:20:05 PM - ERROR - cannot find pets | ReferenceError: criteria is not defined 
 9/22/2021, 5:21:45 PM - ERROR - cannot find pets | ReferenceError: pets is not defined 
 9/22/2021, 5:21:58 PM - ERROR - cannot find pets | ReferenceError: pets is not defined 
+9/26/2021, 2:26:34 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+9/26/2021, 2:26:34 PM - ERROR - cannot find pets | ReferenceError: logger is not defined 
+9/26/2021, 2:26:56 PM - ERROR - cannot find pets | ReferenceError: logger is not defined 
+9/26/2021, 2:26:56 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+9/26/2021, 2:27:03 PM - ERROR - cannot find pets | ReferenceError: logger is not defined 
+9/26/2021, 2:27:03 PM - ERROR - cannot find pets | ReferenceError: logger is not defined 
+9/26/2021, 2:27:03 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+9/26/2021, 2:27:14 PM - ERROR - cannot find pets | ReferenceError: logger is not defined 
+9/26/2021, 2:27:14 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+9/26/2021, 2:27:51 PM - ERROR - cannot find pets | ReferenceError: logger is not defined 
+9/26/2021, 2:27:51 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 

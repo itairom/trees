@@ -5,7 +5,6 @@ async function getTrees(req, res) {
     try {
         const currentTableId = req.query[0]
         const trees = await treeService.query(currentTableId)
-        console.log("🚀 ~ file: tree.controller.js ~ line 8 ~ getTrees ~ trees", trees)
         res.send(trees)
     } catch (err) {
         res.status(500).send({ err: 'failed to get Trees' })

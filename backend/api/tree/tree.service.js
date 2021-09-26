@@ -7,7 +7,6 @@ async function query(tableId) {
     try {
         const collection = await dbService.getCollection('tree')
         const trees = await collection.find({ surveyId: tableId }).toArray()
-        console.log("🚀 ~ file: tree.service.js ~ line 11 ~ query ~ trees", trees)
         return trees
     } catch (err) {
         logger.error('cannot find trees', err)
