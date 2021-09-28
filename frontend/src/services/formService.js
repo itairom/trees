@@ -28,6 +28,12 @@ const movingPossibilityOptions = [
         label: 'נמוכה',
 
     }
+    ,
+    {
+        value: 'notPossible',
+        label: 'לא ניתן',
+
+    }
 ];
 const recommendationOptions = [
     {
@@ -43,8 +49,8 @@ const recommendationOptions = [
         label: 'כריתה',
     },
     {
-        value: 'notPossible',
-        label: 'לא ניתן',
+        value: 'notDefined',
+        label: 'לא מוגדר',
     }
 
 ];

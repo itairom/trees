@@ -12,12 +12,12 @@ export const TreesTable = (...props) => {
 
     const calculateValue = (tree) => {
         const { canopy, monetaryValue, location, health } = tree
-        return (canopy + monetaryValue + location + health)
+        return (+canopy + +monetaryValue + +location + +health)
     }
 
     const calculateMonetaryValue = (tree) => {
         const { canopy, monetaryValue, location, health } = tree
-        let sum = ((canopy + monetaryValue + location + health) / 5) * 20
+        let sum = ((+canopy + +monetaryValue + +location + +health) / 5) * 20
         return sum
     }
 

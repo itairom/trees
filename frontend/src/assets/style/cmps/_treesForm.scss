@@ -3,9 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    
-    .current-survey{
+
+    .current-survey {
         display: flex;
     }
 
@@ -19,7 +18,34 @@
             // margin-top: 10px;
         }
     }
-  
 
-
+    .form-modal {
+        background-color: rgba(0, 0, 0, 0.671);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+        .modal-container {
+            // width: 300px;
+            position: fixed;
+            left: 0;
+            top: 20%;
+            .modal-header {
+                display: flex;
+                p {
+                    display: block;
+                    background-color: red;
+                    color: white;
+                    padding: 2px;
+                    border-radius: 50px;
+                }
+            }
+            img {
+            }
+                // width: 60%;
+                // height: 60%;
+            }
+        }
 }

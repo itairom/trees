@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useForm } from '../services/customHooks'
+import { useForm, useHandleModal } from '../services/customHooks'
 import { TextField, Button, MenuItem, InputAdornment, Select, FormControl, Paper, InputLabel } from '@material-ui/core';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { formService } from '../services/formService';
@@ -34,7 +34,12 @@ export const TreesForm = (...props) => {
         movingReason: '',
         idx: '',
         rootsDiameter: '',
-        recommendation: ''
+        recommendation: '',
+        isPalmTree: false
+    })
+
+    const [isModalShown, HandleiIsModalShown] = useHandleModal({
+        health: false
     })
 
     useEffect(() => {
@@ -96,11 +101,11 @@ export const TreesForm = (...props) => {
                         }
                     </Select>
                 </FormControl>
-                <div className="current-survey">
+                <div className="current-survey rtl">
                     <p>טופס נוכחי: </p>
                     <p>{surveyId}</p>
                 </div>
-                <div className="new-survey">
+                <div className="new-survey flex rtl">
                     <p>טופס חדש</p>
                     <form action="" onSubmit={(ev) => {
                         ev.preventDefault(ev)
@@ -112,19 +117,14 @@ export const TreesForm = (...props) => {
                         <button>בחר</button>
                     </form>
                     <div className="survey-list"></div>
-                </div>                    <form action="">
-                    <label htmlFor="new-survey">שם טופס: </label>
-                    <input id="new-survey" type="text" />
-                </form>
+                </div>
             </div>
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>
-
-
                 <div className="trees-form flex column">
                     <TextField
                         ran
                         required
-                        label="אינדקס"
+                        label="מספר עץ"
                         type="number"
                         id="idx"
                         name="idx"
@@ -172,7 +172,7 @@ export const TreesForm = (...props) => {
 
                     <TextField
                         required
-                        label="כמות"
+                        label="כמות עצים"
                         type="number"
                         id="quantity"
                         name="quantity"
@@ -181,13 +181,29 @@ export const TreesForm = (...props) => {
                         onChange={(ev) => { handleChange(ev) }} />
                     <TextField
                         required
-                        label="קוטר"
+                        label="קוטר הגזע"
                         type="number"
                         id="diameter"
                         name="diameter"
                         variant="filled"
                         color="primary"
                         onChange={(ev) => { handleChange(ev) }} />
+                    <div onClick={() => HandleiIsModalShown('health', !isModalShown.health)} className="health-container">מצב בריאותי</div>
+                    {isModalShown.health &&
+                        <div
+                            onClick={() => HandleiIsModalShown('health', !isModalShown.health)}
+                            className="form-modal health-modal"
+                        >
+                            <div className="modal-container ">
+{/* 
+                                <div className="modal-header ">
+                                <h4>מקרא מצב בריאותי</h4>
+                                <p>X</p>
+
+                            </div> */}
+                                <img src="/imgs/modal/healthModal.png" alt="מקרא מצב בריאותי" />
+                            </div>
+                        </div>}
                     <TextField
                         required
                         InputProps={{
@@ -204,9 +220,11 @@ export const TreesForm = (...props) => {
                         variant="filled"
                         color="primary"
                         onChange={(ev) => { handleChange(ev) }} />
+                    <div className="health-container">גובה העץ</div>
+
                     <TextField
                         required
-                        label="גובה"
+                        label="גובה העץ (מטר)"
                         type="number"
                         id="height"
                         name="height"
@@ -215,13 +233,14 @@ export const TreesForm = (...props) => {
                         onChange={(ev) => { handleChange(ev) }} />
                     <TextField
                         required
+                        placeholder="0-5"
                         InputProps={{
                             inputProps: {
                                 max: 5,
                                 min: 0
                             }
                         }}
-                        label="מיקום"
+                        label="מיקום העץ"
                         type="number"
                         id="location"
                         name="location"
@@ -230,6 +249,7 @@ export const TreesForm = (...props) => {
                         onChange={(ev) => { handleChange(ev) }} />
                     <TextField
                         required
+                        placeholder="0-5"
                         InputProps={{
                             inputProps: {
                                 max: 5,
@@ -245,36 +265,23 @@ export const TreesForm = (...props) => {
                         onChange={(ev) => { handleChange(ev) }} />
                     <TextField
                         required
+                        placeholder="0-5"
                         InputProps={{
                             inputProps: {
                                 max: 5,
                                 min: 0
                             }
                         }}
-                        label="ניקוד חופץ עץ"
+                        label="ניקוד חופת עץ"
                         type="number"
                         id="canopy"
                         name="canopy"
                         variant="filled"
                         color="primary"
                         onChange={(ev) => { handleChange(ev) }} />
-
                     <TextField
                         required
-                        label="שווי כספי"
-                        type="number"
-                        id="monetaryValue"
-                        name="monetaryValue"
-                        variant="filled"
-                        color="primary"
-                        InputProps={{
-                            // endAdornment: <InputAdornment position="start">₪</InputAdornment>,
-                            startAdornment: <InputAdornment position="end">₪</InputAdornment>,
-                        }}
-                        onChange={(ev) => { handleChange(ev) }} />
-                    <TextField
-                        required
-                        label="קוטר שורשים "
+                        label="אזור שורשים מוגן"
                         type="number"
                         id="rootsDiameter"
                         name="rootsDiameter"
@@ -308,7 +315,7 @@ export const TreesForm = (...props) => {
                         multiline
                         required
                         rows={4}
-                        label="תיאור"
+                        label="הערות"
                         type="text"
                         id="description"
                         name="description"
