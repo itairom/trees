@@ -27,38 +27,22 @@ const upload = multer({ storage: storage })
 let multiUpload = upload.fields([{ name: 'files', maxCount: 3 }])
 
 const app = express()
-const port = process.env.PORT || 3030;
+const PORT = 3030
+
 
 app.use(express.json())
 app.use(express.static('public'))
 app.use(cookieParser())
 
-// app.get('/**', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-// })
+app.listen(
+    PORT, console.log('listening')
+)
 
-// const corsOptions = {
-//     origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
-//     credentials: true
-// }
-// app.use(cors(corsOptions))
-
-
-if (process.env.NODE_ENV === 'production') {
-    // app.use(express.static(path.resolve(__dirname, 'public')))
-    app.use(express.static('public'));
-} else {
-    const corsOptions = {
-        origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
-        credentials: true
-    }
-    app.use(cors(corsOptions))
+const corsOptions = {
+    origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
+    credentials: true
 }
-
-app.listen(port, () => {
-    console.log(`App listening on port ${port}!`)
-});
-
+app.use(cors(corsOptions))
 
 const treeRoutes = require('./api/tree/tree.routes')
 app.use('/api/tree', treeRoutes)

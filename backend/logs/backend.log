@@ -12,3 +12,10 @@
 9/26/2021, 2:27:14 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
 9/26/2021, 2:27:51 PM - ERROR - cannot find pets | ReferenceError: logger is not defined 
 9/26/2021, 2:27:51 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+9/28/2021, 9:27:33 PM - ERROR - cannot find pets | MongoNetworkTimeoutError: connection timed out 
+9/28/2021, 9:28:03 PM - ERROR - cannot find pets | MongoNetworkTimeoutError: connection timed out 
+9/28/2021, 9:29:33 PM - ERROR - cannot find pets | MongoNetworkTimeoutError: connection timed out 
+9/28/2021, 9:30:03 PM - ERROR - cannot find pets | MongoNetworkTimeoutError: connection timed out 
+9/28/2021, 9:56:42 PM - ERROR - cannot find pets | MongoServerSelectionError: connection timed out 
+9/28/2021, 9:57:02 PM - ERROR - cannot find pets | MongoServerSelectionError: connection timed out 
+9/28/2021, 9:58:51 PM - ERROR - cannot find pets | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
