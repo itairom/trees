@@ -1,0 +1,44 @@
+.choose-survey {
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    // width: 500px;
+    .new-survey {
+        font-size: 2em;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: brown;
+        color: white;
+    }
+    .existing-survey {
+        font-size: 2em;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgb(15, 116, 156);
+        color: white;
+    }
+}
+
+.new-survey {
+    display: flex;
+    flex-direction: column;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        > label {
+            margin-top: 20px;
+        }
+    }
+    
+    .add-btn{
+        margin-top: 20px;
+        background-color: rgb(13, 70, 8);
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}

@@ -6,15 +6,17 @@ import { formService } from '../services/formService';
 import { treeService } from '../services/treeService';
 import { CloudinaryUpload } from './CloudinaryUpload';
 import { storageService } from '../services/storageService';
+import { useDispatch, useSelector } from 'react-redux';
 
 //specious
 
 export const TreesForm = (...props) => {
-
+    
+    // const dispatch = useDispatch()
+    const { currentSurvey } = useSelector(state => state.carModule)
     const [surveyId, setSurveyId] = useState('')
     const [newSurveyId, setNewTableIdList] = useState('')
     const [survyIdList, setSurvyIdList] = useState([''])
-
     // const [CurrentSurveyId, setCurrentSurveyId] = useState('')
     const [treeType, setType] = useState('')
     const [imgUrl, setImgUrl] = useState('')
@@ -43,7 +45,9 @@ export const TreesForm = (...props) => {
     })
 
     useEffect(() => {
-        setSurveyId(storageService.loadFromStorage('surveyId'))
+        console.log('currentSurvey',currentSurvey);
+        // setSurveyId(storageService.loadFromStorage('surveyId'))
+        setSurveyId(currentSurvey?.surveyTitle)
     }, [])
 
     useEffect(() => {
@@ -67,7 +71,7 @@ export const TreesForm = (...props) => {
         ev.preventDefault()
         let treeCopy = { ...form }
         treeCopy.type = treeType
-        treeCopy.surveyId = surveyId
+        treeCopy.surveyId = currentSurvey
         treeCopy.imgUrl = imgUrl
         console.log('form', treeCopy);
         treeService.save(treeCopy)
@@ -76,7 +80,6 @@ export const TreesForm = (...props) => {
 
     return (
         <div className="form-container">
-            <h1>טופס סקר עצים </h1>
 
             <div className="survey-control">
                 <FormControl>

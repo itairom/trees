@@ -2,11 +2,17 @@
 const initialState = {
     cars: [],
     filterBy: null,
-    isDark: false
+    isDark: false,
+    currentSurvey:{}
 }
 
 export default function CarReducer(state = initialState, action) {
     switch (action.type) {
+        case 'SET_CURRENT_SURVEY':
+            return {
+                ...state,
+                currentSurvey: action.survey
+            }
         case 'SET_CARS':
             return {
                 ...state,
