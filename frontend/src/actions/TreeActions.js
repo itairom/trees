@@ -5,6 +5,7 @@ const _removeCar = (carId) => ({ type: 'REMOVE_CAR', carId });
 const _setCars = (cars) => ({ type: 'SET_CARS', cars });
 const _setFilter = (filterBy) => ({ type: 'SET_FILTER', filterBy });
 const _toggleDark = () => ({ type: 'TOGGLE_DARK' });
+const _toggleIsTreePreviewShowen = () => ({ type: 'TOGGLE_IS_PREVIEW_TREE' });
 const _setCurrentSurvey = (survey) => ({ type: 'SET_CURRENT_SURVEY', survey });
 
 // THUNK
@@ -28,6 +29,9 @@ export function setCurrentSurvey(survey) {
 }
 export function toggleDark() {
     return (dispatch) => dispatch(_toggleDark())
+}
+export function toggleIsTreePreviewShowen() {
+    return (dispatch) => dispatch(_toggleIsTreePreviewShowen())
 }
 
 export function saveCar(car) {

@@ -7,11 +7,11 @@ import thunk from 'redux-thunk';
 
 import * as serviceWorker from './serviceWorker';
 
-import CarReducer from './reducers/CarReducer';
+import TreeReducer from './reducers/TreeReducer';
 import App from './App';
 
 const rootReducer = combineReducers({
-    carModule: CarReducer,
+    TreeModule: TreeReducer,
 });
 
 

@@ -15,7 +15,7 @@ export const TreesSurvey = () => {
 
     useEffect(() => {
         async function queryTrees() {
-            setTableIdList(await treeService.queryTableIdList())
+            setTableIdList(await treeService.querySurveyIdList())
             setTrees(await treeService.query(currentTableId))
         }
         queryTrees()

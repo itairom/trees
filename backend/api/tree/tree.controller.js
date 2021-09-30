@@ -11,11 +11,21 @@ async function getTrees(req, res) {
     }
 }
 
-async function getTableIdList(req, res) {
+async function querySurveyIdList(req, res) {
     try {
-        console.log('in!');
         // const filterBy = req.query
-        const trees = await treeService.queryTableIdList()
+        const trees = await treeService.querySurveyIdList()
+        res.send(trees)
+    } catch (err) {
+        res.status(500).send({ err: 'failed to get Trees' })
+    }
+}
+async function getSurveyTrees(req, res) {
+    try {
+        console.log('call getSurveyTrees');
+        const surveyId = req.query[0]
+        console.log("🚀  surveyId", surveyId)
+        const trees = await treeService.querySurveyTrees(surveyId)
         res.send(trees)
     } catch (err) {
         res.status(500).send({ err: 'failed to get Trees' })
@@ -55,5 +65,5 @@ async function addTree(req, res) {
 
 
 module.exports = {
-    getTrees, addTree, getTableIdList
+    getTrees, addTree, querySurveyIdList, getSurveyTrees
 }

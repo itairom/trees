@@ -1,0 +1,19 @@
+.other-trees {
+    background-color: bisque;
+    .current-trees {
+        .tree-index {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            p {
+                text-align: center;
+                width: 50px;
+                height: 50px;
+                padding: 10px;
+                background-color: rgb(0, 82, 0);
+                color: white;
+                border-radius: 50%;
+            }
+        }
+    }
+}

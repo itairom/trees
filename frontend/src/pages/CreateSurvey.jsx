@@ -2,7 +2,9 @@ import React, { useCallback } from 'react'
 import { useForm } from '../services/customHooks'
 import { Link,useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCurrentSurvey } from '../actions/CarActions'
+import { setCurrentSurvey } from '../actions/TreeActions'
+import { storageService } from '../services/storageService';
+
 
 export const CreateSurvey = () => {
 
@@ -10,7 +12,7 @@ export const CreateSurvey = () => {
     const history = useHistory();
     const handleOnClick = useCallback(() => history.push('/survey_editor'), [history]);
     const dispatch = useDispatch()
-    const { currentSurvey } = useSelector(state => state.carModule)
+    const { currentSurvey } = useSelector(state => state.TreeModule)
 
     const [survey, handleChange] = useForm({
         surveyTitle: '',
@@ -20,6 +22,8 @@ export const CreateSurvey = () => {
 
     const addNewSurvey = async () => {
         await dispatch(setCurrentSurvey(survey))
+        storageService.saveToStorage('surveyId', survey)
+
         handleOnClick()
     }
 

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useForm, useHandleModal } from '../services/customHooks'
-import { TextField, Button, MenuItem, InputAdornment, Select, FormControl, Paper, InputLabel } from '@material-ui/core';
+import { TextField, Button, MenuItem, Select, FormControl, Paper, InputLabel } from '@material-ui/core';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { formService } from '../services/formService';
 import { treeService } from '../services/treeService';
 import { CloudinaryUpload } from './CloudinaryUpload';
-import { storageService } from '../services/storageService';
-import { useDispatch, useSelector } from 'react-redux';
+// import { storageService } from '../services/storageService';
+import {  useSelector } from 'react-redux';
 
 //specious
 
 export const TreesForm = (...props) => {
     
     // const dispatch = useDispatch()
-    const { currentSurvey } = useSelector(state => state.carModule)
+    const { currentSurvey } = useSelector(state => state.TreeModule)
     const [surveyId, setSurveyId] = useState('')
     const [newSurveyId, setNewTableIdList] = useState('')
     const [survyIdList, setSurvyIdList] = useState([''])
@@ -52,7 +52,7 @@ export const TreesForm = (...props) => {
 
     useEffect(() => {
         async function queryTrees() {
-            setSurvyIdList(await treeService.queryTableIdList())
+            setSurvyIdList(await treeService.querySurveyIdList())
         }
         queryTrees()
     }, [surveyId])
@@ -81,47 +81,7 @@ export const TreesForm = (...props) => {
     return (
         <div className="form-container">
 
-            <div className="survey-control">
-                <FormControl>
-                    <InputLabel required id="movingPossibility">בחר טופס: </InputLabel>
-                    <Select
-                        required
-                        type="text"
-                        id="currentTableId"
-                        name="currentTableId"
-                        variant="filled"
-                        color="primary"
-                        value={surveyId}
-                        onChange={(ev) => { setSurveyId(ev.target.value) }}>
-                        {
-                            survyIdList.map((id) => (
-                                <MenuItem
-                                    key={id}
-                                    value={id}>
-                                    {id}
-                                </MenuItem>
-                            ))
-                        }
-                    </Select>
-                </FormControl>
-                <div className="current-survey rtl">
-                    <p>טופס נוכחי: </p>
-                    <p>{surveyId}</p>
-                </div>
-                <div className="new-survey flex rtl">
-                    <p>טופס חדש</p>
-                    <form action="" onSubmit={(ev) => {
-                        ev.preventDefault(ev)
-                        storageService.saveToStorage('surveyId', newSurveyId)
-                        setSurveyId(newSurveyId)
-                    }}
-                        className="flex">
-                        <input value={newSurveyId} onChange={(ev) => setNewTableIdList(ev.target.value)} type="text" />
-                        <button>בחר</button>
-                    </form>
-                    <div className="survey-list"></div>
-                </div>
-            </div>
+             
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>
                 <div className="trees-form flex column">
                     <TextField

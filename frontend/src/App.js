@@ -9,6 +9,7 @@ import { TreesForm } from './cmps/TreesForm';
 import { ChooseSurvey } from './pages/ChooseSurvey';
 import { CreateSurvey } from './pages/CreateSurvey';
 import { SurveyEditor } from './pages/SurveyEditor';
+import { Home } from './pages/Home';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path="/survey_editor" component={ SurveyEditor } />
         <Route path="/choose_survey" component={ ChooseSurvey } />
         <Route path="/create_survey" component={ CreateSurvey } />
-        {/* <Route path="/" component={ Home } /> */}
+        <Route path="/" component={ Home } />
       </Switch>
     </div>
   );

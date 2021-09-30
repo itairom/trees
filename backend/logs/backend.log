@@ -19,3 +19,9 @@
 9/28/2021, 9:56:42 PM - ERROR - cannot find pets | MongoServerSelectionError: connection timed out 
 9/28/2021, 9:57:02 PM - ERROR - cannot find pets | MongoServerSelectionError: connection timed out 
 9/28/2021, 9:58:51 PM - ERROR - cannot find pets | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+9/30/2021, 9:40:21 AM - ERROR - cannot find pets | ReferenceError: surveyId is not defined 
+9/30/2021, 9:40:37 AM - ERROR - cannot find pets | ReferenceError: surveyId is not defined 
+9/30/2021, 9:40:45 AM - ERROR - cannot find pets | ReferenceError: surveyId is not defined 
+9/30/2021, 9:42:25 AM - ERROR - cannot find pets | ReferenceError: surveyId is not defined 
+9/30/2021, 9:45:17 AM - ERROR - cannot find trees | ReferenceError: surveyId is not defined 
+9/30/2021, 9:47:01 AM - ERROR - cannot find trees | ReferenceError: surveyTitle is not defined 

@@ -7,11 +7,6 @@ async function save(tree) {
             console.log(res);
         })
 
-    // if (tree._id) {
-
-    // }
-    // // let addPet = await storageService.post(STORAGE_KEY, pet)
-    // return addPet
 }
 async function query(tableId) {
     let trees = await httpService.get(`tree/`,tableId)
@@ -19,8 +14,13 @@ async function query(tableId) {
     return trees
 }
 
-async function queryTableIdList() {
-    let trees = await httpService.get(`tree/tableid`)
+async function querySurveyIdList() {
+    let trees = await httpService.get(`tree/survey_id_list`)
+    console.log("🥳", trees)
+    return trees
+}
+async function querySurveyTrees(surveyId) {
+    let trees = await httpService.get(`tree/survey_trees`,surveyId)
     console.log("🥳", trees)
     return trees
 }
@@ -33,5 +33,6 @@ async function queryTableIdList() {
 export const treeService = {
     save,
     query,
-    queryTableIdList
+    querySurveyIdList,
+    querySurveyTrees
 }

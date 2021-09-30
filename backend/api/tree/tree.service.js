@@ -13,21 +13,33 @@ async function query(tableId) {
         throw err
     }
 }
-async function queryTableIdList(filterBy = '') {
-    let { sortBy } = filterBy
+async function querySurveyIdList() {
+
 
 
     try {
         const collection = await dbService.getCollection('tree')
         const trees = await collection.find().toArray()
+
         let tableIdList = []
         trees.map((tree) => {
-            return tableIdList.push(tree.surveyId)
+            return tableIdList.push(tree.surveyId.surveyTitle)
         })
         let uniqTableIdList = [...new Set(tableIdList)]
         return uniqTableIdList
     } catch (err) {
         logger.error('cannot find pets', err)
+        throw err
+    }
+}
+async function querySurveyTrees(id) {
+    try {
+        const collection = await dbService.getCollection('tree')
+        const trees = await collection.find({ 'surveyId.surveyTitle': id }).toArray()
+        // console.log("🚀 ~ file: tree.service.js ~ line 41 ~ querySurveyTrees ~ trees", trees)
+        return trees
+    } catch (err) {
+        logger.error('cannot find trees', err)
         throw err
     }
 }
@@ -59,14 +71,6 @@ async function save(tree) {
 //         .then(entities => entities.find(entity => entity._id === entityId))
 // }
 
-function _makeId(length = 5) {
-    var text = ''
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (var i = 0; i < length; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
-    return text
-}
 
 // function _buildCriteria(filterBy) {
 //     // console.log("🚀 ~ file: pet.service.js ~ line 79 ~ _buildCriteria ~ filterBy", filterBy)
@@ -100,5 +104,5 @@ function _makeId(length = 5) {
 // }
 
 module.exports = {
-    query, save, queryTableIdList
+    query, save, querySurveyIdList, querySurveyTrees
 }

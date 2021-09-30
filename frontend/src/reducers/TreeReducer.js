@@ -3,10 +3,11 @@ const initialState = {
     cars: [],
     filterBy: null,
     isDark: false,
-    currentSurvey:{}
+    currentSurvey:{},
+    isTreePreviewShowen:false
 }
 
-export default function CarReducer(state = initialState, action) {
+export default function TreeReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_CURRENT_SURVEY':
             return {
@@ -23,6 +24,11 @@ export default function CarReducer(state = initialState, action) {
             return {
                 ...state,
                 isDark: !state.isDark
+            }
+        case 'TOGGLE_IS_PREVIEW_TREE':
+            return {
+                ...state,
+                isTreePreviewShowen: !state.isTreePreviewShowen
             }
         case 'SET_FILTER':
             return {
