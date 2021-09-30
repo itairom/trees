@@ -7,6 +7,7 @@ import { treeService } from '../services/treeService';
 import { CloudinaryUpload } from './CloudinaryUpload';
 // import { storageService } from '../services/storageService';
 import {  useSelector } from 'react-redux';
+import { FormAutocomplete } from './FormAutocomplete';
 
 //specious
 
@@ -45,7 +46,6 @@ export const TreesForm = (...props) => {
     })
 
     useEffect(() => {
-        console.log('currentSurvey',currentSurvey);
         // setSurveyId(storageService.loadFromStorage('surveyId'))
         setSurveyId(currentSurvey?.surveyTitle)
     }, [])
@@ -59,11 +59,9 @@ export const TreesForm = (...props) => {
 
 
     useEffect(() => {
-        console.log('tree type', treeType);
     }, [treeType])
 
     const onGetImgUrl = (img) => {
-        console.log(img);
         setImgUrl(img)
     }
 
@@ -73,8 +71,12 @@ export const TreesForm = (...props) => {
         treeCopy.type = treeType
         treeCopy.surveyId = currentSurvey
         treeCopy.imgUrl = imgUrl
-        console.log('form', treeCopy);
         treeService.save(treeCopy)
+    }
+
+    const onSetTreeType=(treeTypeObj)=>{
+        console.log(treeTypeObj);
+        setType(treeTypeObj);
     }
 
 
@@ -84,6 +86,7 @@ export const TreesForm = (...props) => {
              
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>
                 <div className="trees-form flex column">
+                    <FormAutocomplete onSetTreeType={onSetTreeType} />
                     <TextField
                         ran
                         required
@@ -94,45 +97,6 @@ export const TreesForm = (...props) => {
                         variant="filled"
                         color="primary"
                         onChange={(ev) => { handleChange(ev) }} />
-                    <Autocomplete
-                        id="type"
-                        value={treeType}
-                        inputValue={treeType}
-                        options={formService.treeTypes}
-                        onChange={(ev, newValue) => { setType(newValue.BinomialNomenclature) }} // TRY DOC 
-                        // getOptionLabel={(option) => option.BinomialNomenclature}
-                        getOptionLabel={(option) => typeof option === 'string'
-                            || option instanceof String ? option.BinomialNomenclature : ""}
-                        fullWidth
-                        PaperComponent={({ children }) => (
-                            <Paper style={{ background: "" }}>{children}</Paper>
-                        )}
-                        // style={{ width: 200, marginTop: 20 }}
-                        renderInput={(params) => (
-                            <TextField
-                                {...params}
-                                label="מין העץ"
-                                variant="outlined"
-                                style={{ backgroundColor: "pink !important" }}
-                            // name={params.}
-                            />
-                        )}
-                        required
-                    />
-                    {/* <Autocomplete
-                        value={treeType}
-                        onChange={(ev, newValue) => {
-                             setType(newValue.BinomialNomenclature) }} // TRY DOC 
-                        inputValue={inputValue}
-                        onInputChange={(event, newInputValue) => {
-                            setInputValue(newInputValue);
-                        }}
-                        id="controllable-states-demo"
-                        options={formService.treeTypes}
-                        sx={{ width: 300 }}
-                        renderInput={(params) => <TextField {...params} label="Controllable" />}
-                    /> */}
-
                     <TextField
                         required
                         label="כמות עצים"
@@ -204,22 +168,6 @@ export const TreesForm = (...props) => {
                             }
                         }}
                         label="מיקום העץ"
-                        type="number"
-                        id="location"
-                        name="location"
-                        variant="filled"
-                        color="primary"
-                        onChange={(ev) => { handleChange(ev) }} />
-                    <TextField
-                        required
-                        placeholder="0-5"
-                        InputProps={{
-                            inputProps: {
-                                max: 5,
-                                min: 0
-                            }
-                        }}
-                        label="ערך מין העץ"
                         type="number"
                         id="location"
                         name="location"

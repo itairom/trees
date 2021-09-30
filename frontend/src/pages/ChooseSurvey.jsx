@@ -1,70 +1,74 @@
-import { Link } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
-import { TreesImages } from '../cmps/TreesImages';
-import { TreesTable } from '../cmps/TreesTable';
+import { Link, useHistory } from 'react-router-dom'
+import React, { useCallback, useEffect, useState } from 'react'
 import { treeService } from '../services/treeService';
-import {  MenuItem, Select, FormControl, InputLabel } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { MenuItem, Select, FormControl, InputLabel } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentSurvey } from '../actions/TreeActions';
 
 
 
 export const ChooseSurvey = () => {
 
-    let dispatch =useDispatch()
-    let [trees, setTrees] = useState([])
-    let [tableIdList, setTableIdList] = useState([''])
+    let dispatch = useDispatch()
+    const history = useHistory();
+    // let [trees, setTrees] = useState([])
+    let [surveyIdList, setSurveyIdList] = useState([''])
     let [currentSurveyId, setCurrentSurveyId] = useState('kfar saba')
+    const handleOnClickNext = useCallback(() => history.push('/survey_editor'), [history]);
+    const handleOnClickBack = useCallback(() => history.push('/'), [history]);
+    const { currentSurvey } = useSelector(state => state.TreeModule)
+
 
     useEffect(() => {
         async function queryTrees() {
-            setTableIdList(await treeService.querySurveyIdList())
-            setTrees(await treeService.query(currentSurveyId))
+            setSurveyIdList(await treeService.querySurveyIdList())
+            // setTrees(await treeService.query(currentSurveyId))
         }
         queryTrees()
     }, [])
-    
+
     useEffect(() => {
 
-        dispatch(setCurrentSurvey(currentSurveyId))
-
-        // async function queryTrees() {
-        // console.log('currentTableId',currentTableId);
-        // setTrees(await treeService.query(currentTableId))
-        // }
-        // queryTrees()
+        let filterdList = surveyIdList.filter(tree => { return tree.surveyTitle === currentSurveyId })
+        dispatch(setCurrentSurvey(filterdList[0]))
     }, [currentSurveyId])
 
 
 
-    return (
-        <section className="choose-section">
 
-            <div className=""></div>
+    return (
+        <section className="choose-section flex">
             <h1>בחר סקר</h1>
             <FormControl>
-                    {/* <InputLabel required id="movingPossibility"></InputLabel> */}
-                    <Select
-                        required
-                        type="text"
-                        id="currentTableId"
-                        name="currentTableId"
-                        variant="filled"
-                        color="primary"
-                        value={currentSurveyId}
-                        onChange={(ev) => { setCurrentSurveyId(ev.target.value) }}
-                        >
-                        {
-                            tableIdList.map((id) => (
-                                <MenuItem
-                                    key={id}
-                                    value={id}>
-                                    {id}
-                                </MenuItem>
-                            ))
-                        }
-                    </Select>
-                </FormControl>
+                <InputLabel required id="movingPossibility"></InputLabel>
+                <Select
+                    required
+                    type="text"
+                    id="currentTableId"
+                    name="currentTableId"
+                    variant="filled"
+                    color="primary"
+                    value={currentSurveyId}
+                    onChange={(ev) => { setCurrentSurveyId(ev.target.value) }} >
+                    {
+                        surveyIdList.map((id) => (
+                            <MenuItem
+                                key={id.surveyTitle}
+                                value={id.surveyTitle}>
+                                {id.surveyTitle}
+                            </MenuItem>
+                        ))
+                    }
+                </Select>
+            </FormControl>
+            <div className="next-btn"
+                onClick={() => { handleOnClickNext() }} >
+                <p>המשך</p>
+            </div>
+            <div className="back-btn"
+                onClick={() => { handleOnClickBack() }} >
+                <p>חזור</p>
+            </div>
         </section>
     )
 }

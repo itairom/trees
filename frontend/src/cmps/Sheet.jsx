@@ -13,15 +13,12 @@ export const Sheet = ({data}) => {
     
     
     const submitForm = (ev) => {
-        console.log(data);
         const JsonForm = JSON.stringify(data)
-        console.log("🚀 ~ file: Sheet.jsx ~ line 19 ~ submitForm ~ JsonForm", JsonForm)
         setForm(JsonForm)
         createSheet()
     }
     
     const createSheet = () => {
-        console.log('create sheet');
         const date = new Date(Date.now())
         let localSheet = XLSX.utils.book_new()
         // let data = [['hello', 'frienf'], ['bomba', 'shen']]

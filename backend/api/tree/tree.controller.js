@@ -4,6 +4,7 @@ const STORAGE_KEY = 'trees'
 async function getTrees(req, res) {
     try {
         const currentTableId = req.query[0]
+        console.log("🚀 ~ file: tree.controller.js ~ line 7 ~ getTrees ~ currentTableId", currentTableId)
         const trees = await treeService.query(currentTableId)
         res.send(trees)
     } catch (err) {

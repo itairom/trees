@@ -9,7 +9,6 @@ export const TreePreview = ({ tree }) => {
 
 
     useEffect(() => {
-        // console.log('tree',tree);
     })
 
     return (

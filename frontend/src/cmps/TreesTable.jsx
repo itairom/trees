@@ -79,13 +79,14 @@ export const TreesTable = (...props) => {
                         return (
                             <tr key={tree._id}>
                                 {tree.idx && <td>{tree.idx}</td>}
-                                <td>{tree.type}</td>
+                                <td>{tree.type.label}</td>
                                 <td>{tree.quantity}</td>
                                 <td>{tree.height}</td>
                                 <td>{tree.diameter}</td>
                                 <td>{tree.health}</td>
                                 <td>{tree.location}</td>
-                                <td>{tree.monetaryValue}</td>
+                                <td>{tree.type.typeValue}</td>
+                                {/* <td>{tree.monetaryValue}</td> */}
                                 <td>{tree.canopy}</td>
                                 <td className={ValueColor(tree)}>{calculateValue(tree)}</td>
                                 <td>{tree.rootsDiameter}</td>

@@ -14,21 +14,18 @@ async function query(tableId) {
     }
 }
 async function querySurveyIdList() {
-
-
-
     try {
         const collection = await dbService.getCollection('tree')
         const trees = await collection.find().toArray()
 
-        let tableIdList = []
+        let surveyIdList = []
         trees.map((tree) => {
-            return tableIdList.push(tree.surveyId.surveyTitle)
+            return surveyIdList.push(tree.surveyId)
         })
-        let uniqTableIdList = [...new Set(tableIdList)]
-        return uniqTableIdList
+        const uniqueSurveyIdList = [...surveyIdList.reduce((map, obj) => map.set(obj.surveyTitle, obj), new Map()).values()]
+        return uniqueSurveyIdList
     } catch (err) {
-        logger.error('cannot find pets', err)
+        logger.error('cannot  querySurveyIdList', err)
         throw err
     }
 }
