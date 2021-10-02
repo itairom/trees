@@ -1,23 +1,45 @@
 .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
 
-    .current-survey {
+    // .current-survey {
+    //     display: flex;
+    // }
+
+    .input-container {
+        direction: rtl;
+
         display: flex;
-    }
+        flex-direction: column;
+        align-items: flex-start;
 
-    h1 {
-        width: 300px;
-    }
-    form {
-        width: 300px;
+        color: #202124;
+        border: 1px solid #dadce0;
+        border-radius: 10px;
+        padding: 24px;
 
-        & * {
-            // margin-top: 10px;
+        // .MuiInputBase-input:invalid{
+        //     width: 100%;
+        // }
+
+        p {
+            margin-bottom: 10px;
         }
+        margin-bottom: 10px;
     }
+
+    // h1 {
+    //     width: 300px;
+    // }
+    // form {
+    //     width: 300px;
+
+    //     & * {
+    //         // margin-top: 10px;
+    //     }
+    // }
 
     .form-modal {
         background-color: rgba(0, 0, 0, 0.671);
@@ -44,9 +66,9 @@
             }
             img {
             }
-                // width: 60%;
-                width: 99vw;
-                // height: 60%;
-            }
+            // width: 60%;
+            width: 99vw;
+            // height: 60%;
         }
+    }
 }

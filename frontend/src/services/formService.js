@@ -1,4 +1,5 @@
 import treeTypes from '../data/treeTypes.json';
+import palmstreeTypes from '../data/palmstreeTypes.json';
 
 //  const treeTypes = [
 //     {
@@ -58,5 +59,6 @@ const recommendationOptions = [
 export const formService = {
     movingPossibility: movingPossibilityOptions,
     treeTypes,
+    palmstreeTypes,
     recomandationOptions: recommendationOptions
 }

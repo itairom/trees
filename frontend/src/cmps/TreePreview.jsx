@@ -13,13 +13,13 @@ export const TreePreview = ({ tree }) => {
 
     return (
         <section className="main-container tree-preview">
-            <p>{tree.type}</p>
+            <p>{tree.type.typeValue}</p>
             <p>{tree.quantity}</p>
             <p>{tree.height}</p>
             <p>{tree.diameter}</p>
             <p>{tree.health}</p>
             <p>{tree.location}</p>
-            <p>{tree.monetaryValue}</p>
+            <p>{tree.type.typeValue}</p>
             <p>{tree.canopy}</p>
             {/* <p className={ValueColor(tree)}>{calculateValue(tree)}</p> */}
             <p>{tree.rootsDiameter}</p>

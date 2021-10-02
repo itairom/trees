@@ -12,7 +12,8 @@ export const useForm = (initialState, cb = () => { }) => {
     function (ev) {
 
       const field = ev.target.name
-      const value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value
+      let value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value
+      value = (ev.target.type === 'checkbox') ? ev.target.checked : value
       setFields(prevFields => ({ ...prevFields, [field]: value }))
     },
     setFields

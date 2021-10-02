@@ -1,6 +1,5 @@
 
 const initialState = {
-    cars: [],
     filterBy: null,
     isDark: false,
     currentSurvey:{},
@@ -14,11 +13,7 @@ export default function TreeReducer(state = initialState, action) {
                 ...state,
                 currentSurvey: action.survey
             }
-        case 'SET_CARS':
-            return {
-                ...state,
-                cars: action.cars
-            }
+
         case 'TOGGLE_DARK':
             console.log('toggle');
             return {
@@ -30,29 +25,7 @@ export default function TreeReducer(state = initialState, action) {
                 ...state,
                 isTreePreviewShowen: !state.isTreePreviewShowen
             }
-        case 'SET_FILTER':
-            return {
-                ...state,
-                filterBy: action.filterBy
-            }
-        case 'ADD_CAR':
-            return {
-                ...state,
-                cars: [...state.cars, action.car]
-            }
-        case 'UPDATE_CAR':
-            return {
-                ...state,
-                cars: state.cars.map(car => {
-                    if (car._id === action.car._id) return action.car;
-                    return car;
-                })
-            }
-        case 'REMOVE_CAR':
-            return {
-                ...state,
-                cars: state.cars.filter(car => car._id !== action.carId)
-            }
+
         default:
             return state;
     }

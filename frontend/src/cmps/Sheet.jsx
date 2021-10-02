@@ -27,7 +27,6 @@ export const Sheet = ({data}) => {
             CreatedDate: date.getDate().toString()
         }
         localSheet.SheetNames.push('New')
-        console.log("🚀 ~ file: Sheet.jsx ~ line 1 ~ createSheet ~ form", form)
         
         let dts = XLSX.utils.json_to_sheet(form)
         // let dts = XLSX.utils.aoa_to_sheet(data)

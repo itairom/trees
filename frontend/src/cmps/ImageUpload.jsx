@@ -9,15 +9,10 @@ export const ImageUpload = () => {
 
     const sendFile = ev => {
         ev.preventDefault()
-
-
-        console.log(file);
         axios.post('http://localhost:3030/upload', file, { params: { id: name } })
             .then(res => {
-                console.log(res);
             })
             .catch(err => {
-                console.error(err);
             })
     }
 
@@ -28,7 +23,6 @@ export const ImageUpload = () => {
             data.append('files', file,)
         })
         // const file = ev.target.files[0]
-        console.log(data);
         setFile(data)
     }
 

@@ -5,6 +5,7 @@ import { treeService } from '../services/treeService';
 import { MenuItem, Select, FormControl, InputLabel } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { storageService } from '../services/storageService';
+import { TreesTypesTable } from '../cmps/TreesTypesTable';
 
 
 
@@ -20,17 +21,13 @@ export const TreesSurvey = () => {
 
     useEffect(() => {
 
-        console.log('currentSurvey table', currentSurvey);
-        
-        
         async function queryTrees() {
-                
+
             setTableIdList(await treeService.querySurveyIdList())
             setTrees(await treeService.queryTrees(currentSurvey.surveyTitle))
 
             if (Object.keys(currentSurvey).length === 0) {
-                let storageId= storageService.loadFromStorage('surveyId')
-                console.log("🚀 ~ file: TreesSurvey.jsx ~ line 26 ~ useEffect ~ storageId", storageId)
+                let storageId = storageService.loadFromStorage('surveyId')
                 setTrees(await treeService.queryTrees(storageId.surveyTitle))
             }
         }
@@ -41,34 +38,10 @@ export const TreesSurvey = () => {
     return (
 
         <section className="main-container trees-survey flex">
-            <h1><span>{currentSurvey.surveyTitle}</span> טבלה סקר</h1>
-            {/* <div className="select-table">
-                <p>בחר טבלה: </p>
-                <FormControl>
-                    <InputLabel required id="movingPossibility">בחר טבלה: </InputLabel>
-                    <Select
-                        required
-                        type="text"
-                        id="currentTableId"
-                        name="currentTableId"
-                        variant="filled"
-                        color="primary"
-                        value={currentTableId}
-                        onChange={(ev) => { setCurrentTableId(ev.target.value) }}>
-                        {
-                            tableIdList.map((id) => (
-                                <MenuItem
-                                    key={id}
-                                    value={id}>
-                                    {id}
-                                </MenuItem>
-                            ))
-                        }
-                    </Select>
-                </FormControl>
-            </div> */}
-            <TreesTable  trees={trees} />
-            <TreesImages   trees={trees} />
+            <h1><span>{currentSurvey?.surveyTitle}</span> טבלה סקר</h1>
+            <TreesTable trees={trees} />
+            <TreesImages trees={trees} />
+            {/* <TreesTypesTable trees={trees} /> */}
         </section>
 
 

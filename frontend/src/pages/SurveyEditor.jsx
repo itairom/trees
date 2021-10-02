@@ -6,34 +6,36 @@ import { storageService } from '../services/storageService';
 import { TreePreview } from '../cmps/TreePreview';
 import { toggleIsTreePreviewShowen } from '../actions/TreeActions';
 
-
-
-
 export const SurveyEditor = () => {
 
     const dispatch = useDispatch()
     const { currentSurvey, isTreePreviewShowen } = useSelector(state => state.TreeModule)
-    const [isAddingTree, setIsAddingTree] = useState(false)
+    const [isAddingTree, setIsAddingTree] = useState(true)
+    // const [isAddingTree, setIsAddingTree] = useState(false)
     const [currentSurveyTrees, setCurrentSurveyTrees] = useState([])
-    // const [isChangeSurvey, setIsChangeSurvey] = useState(false)
     const [currentPreviewTree, setCurrentPreviewTree] = useState(false)
+    const [localCurrentSurvey, setLocalCurrentSurvey] = useState('')
 
     useEffect(() => {
         const querySurveyTrees = async () => {
+
             let trees = await treeService.querySurveyTrees(currentSurvey.surveyTitle)
             setCurrentSurveyTrees(trees)
+
+            if (Object.keys(currentSurvey).length === 0) {
+                const storageTreeId = storageService.loadFromStorage('surveyId')
+                let trees = await treeService.querySurveyTrees(storageTreeId.surveyTitle)
+                setLocalCurrentSurvey(storageTreeId)
+                setCurrentSurveyTrees(trees)
+            }
         }
         querySurveyTrees()
     }, [])
 
-    useEffect(() => {
-        console.log('currentSurvey', currentSurvey);
-    }, [currentSurvey])
-
     return (
-        <section className="main-container ">
-            <h1><span>{currentSurvey.surveyTitle}</span> טופס סקר עצים </h1>
-
+        <section className="main-container rtl">
+            {/* <h1><span>{currentSurvey.surveyTitle}</span> טופס סקר עצים </h1> */}
+            <h1>טופס סקר עצים <span>{localCurrentSurvey.surveyTitle}</span>  </h1>
             <div className="add-tree">
                 <p onClick={(ev) => {
                     ev.preventDefault()
@@ -50,19 +52,14 @@ export const SurveyEditor = () => {
                             className="tree-index"
                             onClick={() => {
                                 setCurrentPreviewTree(tree)
-                                // setIsTreePreviewShowen(true)
                                 dispatch(toggleIsTreePreviewShowen())
-
-                            }}
-                        >
+                            }} >
                             <p>{tree.idx}</p>
                         </div>
                     })}
                     {isTreePreviewShowen && <TreePreview tree={currentPreviewTree} />}
                 </div>}
             </div>
-
-
         </section>
     )
 }

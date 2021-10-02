@@ -40,7 +40,7 @@ export const ChooseSurvey = () => {
         <section className="choose-section flex">
             <h1>בחר סקר</h1>
             <FormControl>
-                <InputLabel required id="movingPossibility"></InputLabel>
+                <InputLabel required id="movingPossibility">בחר</InputLabel>
                 <Select
                     required
                     type="text"
@@ -49,10 +49,14 @@ export const ChooseSurvey = () => {
                     variant="filled"
                     color="primary"
                     value={currentSurveyId}
+                    // defaultValue="juju"
+                    label="לחץ כאן"
+                    placeholder="לחץ כאן"
                     onChange={(ev) => { setCurrentSurveyId(ev.target.value) }} >
                     {
                         surveyIdList.map((id) => (
                             <MenuItem
+                                
                                 key={id.surveyTitle}
                                 value={id.surveyTitle}>
                                 {id.surveyTitle}

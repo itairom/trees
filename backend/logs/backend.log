@@ -37,3 +37,4 @@
 9/30/2021, 1:52:35 PM - ERROR - cannot  querySurveyIdList | ReferenceError: uniqueSurveyIdList is not defined 
 9/30/2021, 1:52:56 PM - ERROR - cannot  querySurveyIdList | ReferenceError: surveyId is not defined 
 9/30/2021, 2:04:00 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'set' of undefined 
+9/30/2021, 8:37:10 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-00.z1890.mongodb.net 

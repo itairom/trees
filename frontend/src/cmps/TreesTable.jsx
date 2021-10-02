@@ -6,20 +6,25 @@ import React, { useEffect } from "react"
 export const TreesTable = (...props) => {
 
     useEffect(() => {
-        console.log('PROPS', props);
     }, [props])
 
 
     const calculateValue = (tree) => {
-        const { canopy, monetaryValue, location, health } = tree
-        return (+canopy + +monetaryValue + +location + +health)
+        const { canopy, location, health } = tree
+        const { typeValue } = tree.type
+        return (+canopy + +typeValue + +location + +health)
     }
 
     const calculateMonetaryValue = (tree) => {
-        const { canopy, monetaryValue, location, health } = tree
-        let sum = ((+canopy + +monetaryValue + +location + +health) / 5) * 20
+        let sum = (calculateValue(tree) / 5) * 20
         return sum
     }
+    // const calculateMonetaryValue = (tree) => {
+    //     const { canopy, location, health } = tree
+    //     const { typeValue } = tree.type
+    //     let sum = ((+canopy + +typeValue + +location + +health) / 5) * 20
+    //     return sum
+    // }
 
     const ValueColor = (tree) => {
         let sum = calculateValue(tree)
@@ -93,16 +98,13 @@ export const TreesTable = (...props) => {
                                 <td>{calculateMonetaryValue(tree)}</td>
                                 <td>{tree.movingPossibility}</td>
                                 <td>{tree.description}</td>
-                                <td>כריתה</td>
+                                <td>{tree.recommendation}</td>
                                 <td>{tree.movingReason}</td>
                             </tr>
                         )
                     })}
                 </tbody>
-
             </table>
-
-
         </section>
     )
 

@@ -6,19 +6,21 @@ import { formService } from '../services/formService';
 import { treeService } from '../services/treeService';
 import { CloudinaryUpload } from './CloudinaryUpload';
 // import { storageService } from '../services/storageService';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { FormAutocomplete } from './FormAutocomplete';
 
-//specious
 
 export const TreesForm = (...props) => {
-    
+
     // const dispatch = useDispatch()
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const [surveyId, setSurveyId] = useState('')
-    const [newSurveyId, setNewTableIdList] = useState('')
-    const [survyIdList, setSurvyIdList] = useState([''])
-    // const [CurrentSurveyId, setCurrentSurveyId] = useState('')
+    // const [newSurveyId, setNewTableIdList] = useState('')
+    // const [survyIdList, setSurvyIdList] = useState([''])
+    const [treeTypeOptions, setTreeTypeOptions] = useState([])
+
+    // const [isPalmTree, setIsPalmTree] = useState(false)
+
     const [treeType, setType] = useState('')
     const [imgUrl, setImgUrl] = useState('')
     const [form, handleChange] = useForm({
@@ -30,9 +32,6 @@ export const TreesForm = (...props) => {
         location: '',
         canopy: '',
         description: '',
-        comments: '',
-        totalValue: '',
-        monetaryValue: '',
         movingPossibility: '',
         movingReason: '',
         idx: '',
@@ -47,12 +46,13 @@ export const TreesForm = (...props) => {
 
     useEffect(() => {
         // setSurveyId(storageService.loadFromStorage('surveyId'))
+        setTreeTypeOptions(formService.treeTypes)
         setSurveyId(currentSurvey?.surveyTitle)
     }, [])
 
     useEffect(() => {
         async function queryTrees() {
-            setSurvyIdList(await treeService.querySurveyIdList())
+            // setSurvyIdList(await treeService.querySurveyIdList())
         }
         queryTrees()
     }, [surveyId])
@@ -74,29 +74,47 @@ export const TreesForm = (...props) => {
         treeService.save(treeCopy)
     }
 
-    const onSetTreeType=(treeTypeObj)=>{
-        console.log(treeTypeObj);
+    const onSetTreeType = (treeTypeObj) => {
         setType(treeTypeObj);
+    }
+
+    const setIsPalmTree = (ev) => {
+        handleChange(ev)
+        if (ev.target.checked) {
+            setTreeTypeOptions(formService.palmstreeTypes)
+        }
+        else {
+            setTreeTypeOptions(formService.treeTypes)
+        }
     }
 
 
     return (
         <div className="form-container">
 
-             
+
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>
                 <div className="trees-form flex column">
-                    <FormAutocomplete onSetTreeType={onSetTreeType} />
-                    <TextField
-                        ran
-                        required
-                        label="מספר עץ"
-                        type="number"
-                        id="idx"
-                        name="idx"
-                        variant="filled"
-                        color="primary"
-                        onChange={(ev) => { handleChange(ev) }} />
+                    <div className="type-form">
+                        <FormAutocomplete options={treeTypeOptions} onSetTreeType={onSetTreeType} />
+                        <label htmlFor="isPalmTree">
+                            ? עץ תמר
+                            <input type="checkbox" name="isPalmTree" id="isPalmTree" onChange={(ev) => { setIsPalmTree(ev) }} />
+                        </label>
+                    </div>
+                    <div className="input-container">
+                        <p>מספר עץ</p>
+                        <TextField
+                            ran
+                            required
+                            dir="rtl"
+                            label="מספר עץ"
+                            variant="standard"
+                            type="number"
+                            id="idx"
+                            name="idx"
+                            onChange={(ev) => { handleChange(ev) }} />
+                    </div>
                     <TextField
                         required
                         label="כמות עצים"
@@ -122,7 +140,7 @@ export const TreesForm = (...props) => {
                             className="form-modal health-modal"
                         >
                             <div className="modal-container ">
-{/* 
+                                {/* 
                                 <div className="modal-header ">
                                 <h4>מקרא מצב בריאותי</h4>
                                 <p>X</p>
@@ -214,8 +232,8 @@ export const TreesForm = (...props) => {
                             {
                                 formService.movingPossibility.map((option) => (
                                     <MenuItem
-                                        key={option.value}
-                                        value={option.value}>
+                                        key={option.label}
+                                        value={option.label}>
                                         {option.label}
                                     </MenuItem>
                                 ))
@@ -261,8 +279,8 @@ export const TreesForm = (...props) => {
                             {
                                 formService.recomandationOptions.map((option) => (
                                     <MenuItem
-                                        key={option.value}
-                                        value={option.value}>
+                                        key={option.label}
+                                        value={option.label}>
                                         {option.label}
                                     </MenuItem>
                                 ))

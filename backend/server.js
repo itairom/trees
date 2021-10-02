@@ -73,14 +73,3 @@ app.post('/upload', multiUpload, async (req, res) => {
     pdfService.buildAnimalsPDF(filename, id)
 
 })
-// app.post('/upload', upload.single('file'), async (req, res) => {
-//     doc.pipe(fs.createWriteStream('output.pdf'));
-
-//     doc.font('fonts/PalatinoBold.ttf')
-//         .fontSize(25)
-//         .text('Some text with an embedded font!', 100, 100);
-
-//     doc.end();
-//     console.log('finish doc');
-
-// })
