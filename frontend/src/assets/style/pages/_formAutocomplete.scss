@@ -1,6 +1,24 @@
-.autocomplete-container
-{
+.autocomplete-container {
     z-index: 3;
-    background-color: aqua;
+    border: 1px #dadce0 solid; 
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
     font-size: 1.5em;
+    margin-top: 10px;
+    .tree-option {
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(243, 243, 243);
+        }
+    }
+}
+
+.autocomplete-form {
+    margin-bottom: 10px;
+    input {
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #202124;
+    }
 }

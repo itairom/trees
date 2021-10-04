@@ -13,21 +13,29 @@
 
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        // align-items: flex-start;
 
         color: #202124;
         border: 1px solid #dadce0;
         border-radius: 10px;
         padding: 24px;
 
-        // .MuiInputBase-input:invalid{
-        //     width: 100%;
-        // }
+        .MuiInputLabel-formControl{
+            right: 0;
+        }
 
         p {
             margin-bottom: 10px;
         }
         margin-bottom: 10px;
+
+        .MuiInputLabel-formControl {
+            /* top: 0; */
+            /* left: 0; */
+            position: absolute;
+            transform: translate(0, 24px) scale(1);
+        }
+
     }
 
     // h1 {
