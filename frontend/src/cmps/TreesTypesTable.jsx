@@ -30,13 +30,32 @@ export const TreesTypesTable = ({ trees }) => {
         else return 'red'
     }
 
-    const mapTreeValue = (trees) => { // work on it
-        let reduceTrees = trees?.reduce((prev, val) => {
 
-            return (val.type.BinomialNomenclature)
-        }, [])
+
+    const mapTreeValue = (trees) => { // work on it
+        let reduceTrees = trees.reduce(function (obj, name) {
+            obj[name.type.label] = {}
+            // obj[name.type.label] = {
+            //     red:0,
+            //     green:0,
+            //     grey:0,
+            //     yellow:0
+            // }
+            let field = ValueColor(name)
+            obj[name.type.label][field] = obj[name.type.label][field] ? obj[name.type.label][field]++ : 1;
+            // obj[name.type.label][field]++
+            return obj;
+        }, {});
         console.log('reduceTrees', reduceTrees);
     }
+
+    // const mapTreeValue = (trees) => { // work on it
+    //     let reduceTrees = trees.reduce(function (obj, name) {
+    //         obj[name.type.BinomialNomenclature] = obj[name.type.BinomialNomenclature] ? ++obj[name.type.BinomialNomenclature] : 1;
+    //         return obj;
+    //     }, {});
+    //     console.log('reduceTrees', reduceTrees);
+    // }
 
     return (
         <section className="trees-table flex">

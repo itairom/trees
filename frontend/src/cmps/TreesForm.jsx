@@ -119,7 +119,7 @@ export const TreesForm = (...props) => {
                         <p>כמות עצים</p>
                         <TextField
                             required
-                            label="כמות עצים"
+                            // label="כמות עצים"
                             type="number"
                             id="quantity"
                             name="quantity"
@@ -131,7 +131,7 @@ export const TreesForm = (...props) => {
                         <p>קוטר הגזע</p>
                         <TextField
                             required
-                            label="קוטר הגזע"
+                            // label="קוטר הגזע"
                             type="number"
                             id="diameter"
                             name="diameter"
@@ -151,7 +151,7 @@ export const TreesForm = (...props) => {
                                     min: 0
                                 }
                             }}
-                            label="מצב בריאותי"
+                            // label="מצב בריאותי"
                             placeholder="0-5"
                             type="number"
                             id="health"
@@ -322,7 +322,7 @@ export const TreesForm = (...props) => {
                     </div>
                 </div>
                 <CloudinaryUpload onGetImgUrl={onGetImgUrl} />
-                <Button onClick={(ev) => submitForm(ev)} color="primary">סיום </Button>
+                <Button onClick={(ev) => submitForm(ev)} color="primary" variant="outlined">הוסף עץ </Button>
             </form>
             {/* <Sheet data={form} /> */}
         </div>

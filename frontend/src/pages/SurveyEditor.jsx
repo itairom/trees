@@ -37,10 +37,10 @@ export const SurveyEditor = () => {
             {/* <h1><span>{currentSurvey.surveyTitle}</span> טופס סקר עצים </h1> */}
             <h1>טופס סקר עצים <span>{localCurrentSurvey.surveyTitle}</span>  </h1>
             <div className="add-tree">
-                <p onClick={(ev) => {
+                {<p onClick={(ev) => {
                     ev.preventDefault()
                     setIsAddingTree(true)
-                }}>הוסף עץ</p>
+                }}>הוסף עץ</p> && !isAddingTree}
                 {isAddingTree && <TreesForm />}
             </div>
             <div className="other-trees">
@@ -55,6 +55,7 @@ export const SurveyEditor = () => {
                                 dispatch(toggleIsTreePreviewShowen())
                             }} >
                             <p>{tree.idx}</p>
+                            <img src="imgs/treeLogo.png" alt="index"  />
                         </div>
                     })}
                     {isTreePreviewShowen && <TreePreview tree={currentPreviewTree} />}

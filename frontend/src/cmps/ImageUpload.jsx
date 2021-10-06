@@ -9,12 +9,20 @@ export const ImageUpload = () => {
 
     const sendFile = ev => {
         ev.preventDefault()
-        axios.post('http://localhost:3030/upload', file, { params: { id: name } })
+        axios.post('http://localhost:3030/upload', file)
             .then(res => {
             })
             .catch(err => {
             })
     }
+    // const sendFile = ev => {
+    //     ev.preventDefault()
+    //     axios.post('http://localhost:3030/upload', file, { params: { id: name } })
+    //         .then(res => {
+    //         })
+    //         .catch(err => {
+    //         })
+    // }
 
     const fileHandler = ev => {
         const data = new FormData()
@@ -23,26 +31,27 @@ export const ImageUpload = () => {
             data.append('files', file,)
         })
         // const file = ev.target.files[0]
-        setFile(data)
+        // setFile(data)
+        sendFile(data)
     }
 
-    const nameHandler = ev => {
-        const { value } = ev.target
-        setName(value)
-    }
+    // const nameHandler = ev => {
+    //     const { value } = ev.target
+    //     setName(value)
+    // }
 
 
     return (
         <section className="upload-container">
             <form action="#">
-                <div>
+                {/* <div>
                     <label htmlFor="name">Name</label>
                     <input
                         required
                         type="text"
                         id="name"
                         onChange={(ev) => { nameHandler(ev) }} />
-                </div>
+                </div> */}
                 <div>
                     <label htmlFor="file"></label>
                     <input

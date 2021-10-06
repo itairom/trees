@@ -41,7 +41,7 @@ export const TreesSurvey = () => {
             <h1><span>{currentSurvey?.surveyTitle}</span> טבלה סקר</h1>
             <TreesTable trees={trees} />
             <TreesImages trees={trees} />
-            {/* <TreesTypesTable trees={trees} /> */}
+            <TreesTypesTable trees={trees} />
         </section>
 
 

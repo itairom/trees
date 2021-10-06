@@ -4,7 +4,6 @@ const STORAGE_KEY = 'trees'
 async function getTrees(req, res) {
     try {
         const currentTableId = req.query[0]
-        console.log("🚀 ~ file: tree.controller.js ~ line 7 ~ getTrees ~ currentTableId", currentTableId)
         const trees = await treeService.query(currentTableId)
         res.send(trees)
     } catch (err) {
@@ -23,9 +22,7 @@ async function querySurveyIdList(req, res) {
 }
 async function getSurveyTrees(req, res) {
     try {
-        console.log('call getSurveyTrees');
         const surveyId = req.query[0]
-        console.log("🚀  surveyId", surveyId)
         const trees = await treeService.querySurveyTrees(surveyId)
         res.send(trees)
     } catch (err) {
@@ -35,7 +32,6 @@ async function getSurveyTrees(req, res) {
 
 async function addTree(req, res) {
     try {
-        console.log(req.body);
         const pets = await treeService.save(req.body)
         res.send('add tree')
     } catch (err) {

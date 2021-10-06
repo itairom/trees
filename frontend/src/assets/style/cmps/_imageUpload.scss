@@ -1,5 +1,31 @@
-.upload-container{
-    direction: ltr;
-    // width: 400px;
-    background-color: beige;
+.upload-container {
+    direction: rtl;
+    margin-bottom: 10px;
+    #file-upload-button {
+        border: none;
+        background-color: none;
+    }
+    .upload-btn {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+
+
+    label {
+        font-size: 1.25em;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: 700;
+        color: white;
+        background-color: rgb(255, 42, 42);
+        display: inline-block;
+        // &:hover {
+        //     background-color: red;
+        // }
+    }
 }

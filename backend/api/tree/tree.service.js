@@ -2,7 +2,6 @@ const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 
 async function query(tableId) {
-    console.log("tableID", tableId)
 
     try {
         const collection = await dbService.getCollection('tree')
@@ -70,7 +69,6 @@ async function save(tree) {
 
 
 // function _buildCriteria(filterBy) {
-//     // console.log("🚀 ~ file: pet.service.js ~ line 79 ~ _buildCriteria ~ filterBy", filterBy)
 
 //     if (!filterBy) return {}
 
