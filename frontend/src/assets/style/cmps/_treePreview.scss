@@ -1,6 +1,41 @@
 .tree-preview {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    background-color: aqua;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 150px;
+    top: 1480px;
+    background-color: beige;
+
+    img {
+        width: 200px;
+    }
+
+    .close-preview {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        background-color: red;
+        color: #ffff;
+        left: 10px;
+        text-align: center;
+        padding: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .tree-info {
+        display: flex;
+        flex-direction: column;
+    }
+    @include for-mobile-layout {
+        position: fixed;
+        background-color: rgb(233, 227, 32);
+        top: 50%;
+        left: 0;
+    }
 }

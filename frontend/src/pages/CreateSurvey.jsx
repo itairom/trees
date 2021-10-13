@@ -48,7 +48,7 @@ export const CreateSurvey = () => {
                         onChange={(ev) => { handleChange(ev) }}
                         value={survey.surveyDate} />
                 </label>
-                <div className="add-btn" onClick={() => { addNewSurvey() }}>הוסף סקר</div>
+                <div className="add-btn button" onClick={() => { addNewSurvey() }}>הוסף סקר</div>
 
                 <Link to="/choose_survey" >
                     <div className="existing-survey">חזרה</div>

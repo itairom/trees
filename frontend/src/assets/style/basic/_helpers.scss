@@ -4,15 +4,23 @@
   text-align: center;
 }
 
-.rtl{
+.button {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 2rem;
+  min-width: 150px;
+  text-align: center;
+}
+
+.rtl {
   direction: rtl;
 }
 
 .flex {
-
   display: flex;
 
-  >*.full {
+  > *.full {
     flex: 1;
   }
 
@@ -72,19 +80,19 @@
 
 // COLORS
 
-.red{
-background-color: red;
+.red {
+  background-color: red;
 }
 
-.yellow{
-background-color: yellow;
+.yellow {
+  background-color: yellow;
 }
 
-.green{
+.green {
   background-color: green;
 }
 
-.grey{
+.grey {
   background-color: rgb(79, 79, 79);
   color: white;
 }

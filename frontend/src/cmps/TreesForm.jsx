@@ -1,29 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useForm, useHandleModal } from '../services/customHooks'
-import { TextField, Button, MenuItem, Select, FormControl, Paper, InputLabel } from '@material-ui/core';
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import { Button, MenuItem, Select, FormControl } from '@material-ui/core';
 import { formService } from '../services/formService';
 import { treeService } from '../services/treeService';
 import { CloudinaryUpload } from './CloudinaryUpload';
-// import { storageService } from '../services/storageService';
 import { useSelector } from 'react-redux';
 import { FormAutocomplete } from './FormAutocomplete';
-
+import Input from './form/input';
 
 export const TreesForm = (...props) => {
 
-    // const dispatch = useDispatch()
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const [surveyId, setSurveyId] = useState('')
-    // const [newSurveyId, setNewTableIdList] = useState('')
-    // const [survyIdList, setSurvyIdList] = useState([''])
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
-
-    // const [isPalmTree, setIsPalmTree] = useState(false)
-
     const [treeType, setType] = useState('')
     const [imgUrl, setImgUrl] = useState('')
-    const [form, handleChange] = useForm({
+
+    const initialFValues = {
         quantity: '',
         type: '',
         height: '',
@@ -38,28 +31,81 @@ export const TreesForm = (...props) => {
         rootsDiameter: '',
         recommendation: '',
         isPalmTree: false
-    })
+    }
+
+    const validate = (fieldValues = values) => {
+        console.log("🚀 ~ file: TreesForm.jsx ~ line 38 ~ validate ~ fieldValues", fieldValues)
+        let temp = { ...errors }
+        if ('health' in fieldValues)
+            temp.health = isLessThenFiveInput(fieldValues.health)
+        if ('canopy' in fieldValues)
+            temp.canopy = isLessThenFiveInput(fieldValues.canopy)
+        if ('location' in fieldValues)
+            temp.location = isLessThenFiveInput(fieldValues.location)
+        if ('mobile' in fieldValues)
+            temp.mobile = isLessThenFiveInput(fieldValues.mobile)
+        if ('quantity' in fieldValues)
+            temp.quantity = isEmptyInput(fieldValues.quantity)
+        if ('idx' in fieldValues)
+            temp.idx = isEmptyInput(fieldValues.idx)
+        if ('diameter' in fieldValues)
+            temp.diameter = isEmptyInput(fieldValues.diameter)
+        if ('height' in fieldValues)
+            temp.height = isEmptyInput(fieldValues.height)
+        if ('rootsDiameter' in fieldValues)
+            temp.rootsDiameter = isEmptyInput(fieldValues.rootsDiameter)
+        if ('movingPossibility' in fieldValues)
+            temp.movingPossibility = isEmptyInput(fieldValues.movingPossibility)
+        if ('description' in fieldValues)
+            temp.description = isEmptyInput(fieldValues.description)
+        if ('movingReason' in fieldValues)
+            temp.movingReason = isEmptyInput(fieldValues.movingReason)
+        if ('recommendation' in fieldValues)
+            temp.recommendation = isEmptyInput(fieldValues.recommendation)
+        if (!imgUrl )
+            alert('יש לבחור תמונה')
+
+        setErrors({
+            ...temp
+        })
+
+        if (fieldValues == values)
+            return Object.values(temp).every(x => x === "")
+    }
+
+    const isLessThenFiveInput = (field) => {
+        return (field <= 5 && field >= 0) ? "" : "קלט צריך להיות בין 0 ל 5"
+    }
+    const isEmptyInput = (field) => {
+        const length = (field + '').length
+        return (length > 0) ? "" : "הכנס ערך"
+    }
+
+    const {
+        values,
+        setValues,
+        errors,
+        setErrors,
+        handleInputChange,
+        resetForm
+    } = useForm(initialFValues, true, validate);
 
     const [isModalShown, HandleiIsModalShown] = useHandleModal({
-        health: false
+        health: '',
+        location: '',
+        canopy: ''
     })
 
     useEffect(() => {
-        // setSurveyId(storageService.loadFromStorage('surveyId'))
         setTreeTypeOptions(formService.treeTypes)
         setSurveyId(currentSurvey?.surveyTitle)
     }, [])
 
     useEffect(() => {
         async function queryTrees() {
-            // setSurvyIdList(await treeService.querySurveyIdList())
         }
         queryTrees()
     }, [surveyId])
-
-
-    useEffect(() => {
-    }, [treeType])
 
     const onGetImgUrl = (img) => {
         setImgUrl(img)
@@ -67,11 +113,15 @@ export const TreesForm = (...props) => {
 
     const submitForm = (ev) => {
         ev.preventDefault()
-        let treeCopy = { ...form }
+        let treeCopy = { ...values }
         treeCopy.type = treeType
         treeCopy.surveyId = currentSurvey
         treeCopy.imgUrl = imgUrl
-        treeService.save(treeCopy)
+        if (validate()) {
+            console.log('SUBMIT');
+            treeService.save(treeCopy)
+            resetForm()
+        }
     }
 
     const onSetTreeType = (treeTypeObj) => {
@@ -79,7 +129,7 @@ export const TreesForm = (...props) => {
     }
 
     const setIsPalmTree = (ev) => {
-        handleChange(ev)
+        handleInputChange(ev)
         if (ev.target.checked) {
             setTreeTypeOptions(formService.palmstreeTypes)
         }
@@ -87,7 +137,6 @@ export const TreesForm = (...props) => {
             setTreeTypeOptions(formService.treeTypes)
         }
     }
-
 
     return (
         <div className="form-container">
@@ -104,61 +153,45 @@ export const TreesForm = (...props) => {
                     </div>
                     <div className="input-container">
                         <p>מספר עץ</p>
-                        <TextField
-                            ran
-                            required
-                            dir="rtl"
-                            // label="מספר עץ"
-                            variant="standard"
-                            type="number"
-                            id="idx"
+                        <Input
+                            error={errors.idx}
                             name="idx"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
                         <p>כמות עצים</p>
-                        <TextField
-                            required
-                            // label="כמות עצים"
-                            type="number"
+                        <Input
+                            error={errors.quantity}
                             id="quantity"
                             name="quantity"
-                            variant="standard"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
                         <p>קוטר הגזע</p>
-                        <TextField
-                            required
-                            // label="קוטר הגזע"
-                            type="number"
+                        <Input
+                            error={errors.diameter}
                             id="diameter"
                             name="diameter"
                             variant="standard"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
 
                     <div className="input-container">
                         <p onClick={() => HandleiIsModalShown('health', !isModalShown.health)} >מצב בריאותי</p>
-                        {/* <p onClick={() => HandleiIsModalShown('health', !isModalShown.health)} className="health-container">מצב בריאותי</p> */}
-                        <TextField
-                            required
+                        <Input
+                            error={errors.health}
                             InputProps={{
                                 inputProps: {
                                     max: 5,
                                     min: 0
                                 }
                             }}
-                            // label="מצב בריאותי"
                             placeholder="0-5"
-                            type="number"
                             id="health"
                             name="health"
                             variant="standard"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange}
+                        />
                         {isModalShown.health &&
                             <div
                                 onClick={() => HandleiIsModalShown('health', !isModalShown.health)}
@@ -167,27 +200,20 @@ export const TreesForm = (...props) => {
                                     <img src="/imgs/modal/healthModal.png" alt="מקרא מצב בריאותי" />
                                 </div>
                             </div>}
-
                     </div>
-
-
                     <div className="input-container">
                         <p>גובה העץ</p>
-                        {/* <div className="health-container">גובה העץ</div> */}
-                        <TextField
-                            required
-                            // label="גובה העץ (מטר)"
-                            type="number"
+                        <Input
+                            error={errors.height}
                             id="height"
                             name="height"
                             variant="standard"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
                         <p>מיקום העץ</p>
-                        <TextField
-                            required
+                        <Input
+                            error={errors.location}
                             placeholder="0-5"
                             InputProps={{
                                 inputProps: {
@@ -195,18 +221,14 @@ export const TreesForm = (...props) => {
                                     min: 0
                                 }
                             }}
-                            // label="מיקום העץ"
-                            type="number"
                             id="location"
                             name="location"
-                            variant="standard"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
                         <p>ניקוד חופת העץ</p>
-                        <TextField
-                            required
+                        <Input
+                            error={errors.canopy}
                             placeholder="0-5"
                             InputProps={{
                                 inputProps: {
@@ -214,109 +236,80 @@ export const TreesForm = (...props) => {
                                     min: 0
                                 }
                             }}
-                            // label="ניקוד חופת עץ"
-                            type="number"
                             id="canopy"
                             name="canopy"
-                            variant="standard"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
                         <p>אזור שורשים מוגן</p>
-                        <TextField
-                            required
-                            // label="אזור שורשים מוגן"
-                            type="number"
+                        <Input
+                            error={errors.rootsDiameter}
                             id="rootsDiameter"
                             name="rootsDiameter"
-                            variant="standard"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
                         <p>היתכנות העתקה</p>
                         <FormControl>
-                            {/* <InputLabel required id="movingPossibility">היתכנות העתקה</InputLabel> */}
                             <Select
-                                required
-                                // label="היתכנות העתקה"
+                                // error={errors.movingPossibility}
                                 type="text"
                                 id="movingPossibility"
                                 name="movingPossibility"
-                                variant="standard"
-                                color="primary"
-                                value={form.movingPossibility}
-                                onChange={(ev) => { handleChange(ev) }}>
-                                {
-                                    formService.movingPossibility.map((option) => (
-                                        <MenuItem
-                                            key={option.label}
-                                            value={option.label}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))
-                                }
+                                value={values.movingPossibility}
+                                onChange={handleInputChange}>
+                                {formService.movingPossibility.map((option) => (
+                                    <MenuItem
+                                        key={option.label}
+                                        value={option.label}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
                             </Select>
-
                         </FormControl>
                     </div>
                     <div className="input-container">
                         <p>הערות</p>
-                        <TextField
+                        <Input
+                            error={errors.description}
                             multiline
-                            required
-                            rows={4}
-                            // label="הערות"
+                            rows={2}
                             type="text"
                             id="description"
                             name="description"
-                            variant="outlined"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
                         <p>סיבת כריתה או
                             העתקת
                             העץ</p>
-                        <TextField
-                            required
+                        <Input
+                            error={errors.movingReason}
                             multiline
                             rows={2}
-                            //             label="סיבת
-                            // כריתה או
-                            // העתקת
-                            // העץ "
                             type="text"
                             id="movingReason"
                             name="movingReason"
-                            variant="outlined"
-                            color="primary"
-                            onChange={(ev) => { handleChange(ev) }} />
+                            onChange={handleInputChange} />
                     </div>
 
                     <div className="input-container">
                         <p>המלצה</p>
                         <FormControl >
-                            {/* <InputLabel required id="recommendation">המלצה</InputLabel> */}
                             <Select
-                                required
+                                // error={errors.recommendation}
                                 type="text"
                                 id="recommendation"
                                 name="recommendation"
-                                variant="standard"
-                                // color="primary"
-                                value={form.recommendation}
-                                onChange={(ev) => { handleChange(ev) }}>
-                                {
-                                    formService.recomandationOptions.map((option) => (
-                                        <MenuItem
-                                            key={option.label}
-                                            value={option.label}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))
-                                }
+                                value={values.recommendation}
+                                onChange={handleInputChange}>
+                                {formService.recomandationOptions.map((option) => (
+                                    <MenuItem
+                                        key={option.label}
+                                        value={option.label}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
                             </Select>
                         </FormControl>
                     </div>
@@ -324,7 +317,6 @@ export const TreesForm = (...props) => {
                 <CloudinaryUpload onGetImgUrl={onGetImgUrl} />
                 <Button onClick={(ev) => submitForm(ev)} color="primary" variant="outlined">הוסף עץ </Button>
             </form>
-            {/* <Sheet data={form} /> */}
         </div>
     )
 }
