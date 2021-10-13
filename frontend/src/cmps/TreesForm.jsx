@@ -37,13 +37,13 @@ export const TreesForm = () => {
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
         if ('health' in fieldValues)
-            temp.health = isLessThenFiveInput(fieldValues.health)
+            temp.health = isLessThenFiveInput(fieldValues.health) || isEmptyInput(fieldValues.health)
         if ('canopy' in fieldValues)
-            temp.canopy = isLessThenFiveInput(fieldValues.canopy)
+            temp.canopy = isLessThenFiveInput(fieldValues.canopy) || isEmptyInput(fieldValues.canopy)
         if ('location' in fieldValues)
-            temp.location = isLessThenFiveInput(fieldValues.location)
+            temp.location = isLessThenFiveInput(fieldValues.location) || isEmptyInput(fieldValues.location)
         if ('mobile' in fieldValues)
-            temp.mobile = isLessThenFiveInput(fieldValues.mobile)
+            temp.mobile = isLessThenFiveInput(fieldValues.mobile) || isEmptyInput(fieldValues.mobile)
         if ('quantity' in fieldValues)
             temp.quantity = isEmptyInput(fieldValues.quantity)
         if ('idx' in fieldValues)
@@ -67,7 +67,7 @@ export const TreesForm = () => {
             ...temp
         })
 
-        if (fieldValues == values)
+        if (fieldValues === values)
             return Object.values(temp).every(x => x === "")
     }
 
@@ -101,7 +101,7 @@ export const TreesForm = () => {
     }, [])
 
     useEffect(() => {
-        console.log('surveyId',surveyId);
+        console.log('surveyId', surveyId);
         if (Object.keys(surveyId).length === 0) {
             let storageId = storageService.loadFromStorage('surveyId')
             setSurveyId(storageId)

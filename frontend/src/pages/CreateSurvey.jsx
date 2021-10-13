@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { useForm } from '../services/customHooks'
+import { useFormCreateSurvey } from '../services/customHooks'
 import { Link,useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentSurvey } from '../actions/TreeActions'
@@ -14,7 +14,7 @@ export const CreateSurvey = () => {
     const dispatch = useDispatch()
     const { currentSurvey } = useSelector(state => state.TreeModule)
 
-    const [survey, handleChange] = useForm({
+    const [survey, handleChange] = useFormCreateSurvey({
         surveyTitle: '',
         surveyDate: '',
         surveySummary: ''

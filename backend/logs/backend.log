@@ -42,3 +42,5 @@
 10/6/2021, 6:23:40 PM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
 10/6/2021, 7:07:21 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-00.z1890.mongodb.net 
 10/6/2021, 7:17:55 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-00.z1890.mongodb.net 
+10/13/2021, 3:49:32 PM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
+10/13/2021, 3:49:35 PM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 

@@ -4,6 +4,7 @@ import { treeService } from '../services/treeService';
 import { MenuItem, Select, FormControl, InputLabel } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentSurvey } from '../actions/TreeActions';
+import { storageService } from '../services/storageService';
 
 
 
@@ -17,7 +18,7 @@ export const ChooseSurvey = () => {
     const handleOnClickNext = useCallback(() => history.push('/survey_editor'), [history]);
     const handleOnClickBack = useCallback(() => history.push('/'), [history]);
     const { currentSurvey } = useSelector(state => state.TreeModule)
-
+ 
 
     useEffect(() => {
         async function queryTrees() {
@@ -30,6 +31,7 @@ export const ChooseSurvey = () => {
     useEffect(() => {
 
         let filterdList = surveyIdList.filter(tree => { return tree.surveyTitle === currentSurveyId })
+        storageService.saveToStorage('surveyId',filterdList[0])
         dispatch(setCurrentSurvey(filterdList[0]))
     }, [currentSurveyId])
 
