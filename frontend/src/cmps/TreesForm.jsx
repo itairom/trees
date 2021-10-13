@@ -7,8 +7,9 @@ import { CloudinaryUpload } from './CloudinaryUpload';
 import { useSelector } from 'react-redux';
 import { FormAutocomplete } from './FormAutocomplete';
 import Input from './form/input';
+import { storageService } from '../services/storageService';
 
-export const TreesForm = (...props) => {
+export const TreesForm = () => {
 
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const [surveyId, setSurveyId] = useState('')
@@ -34,7 +35,6 @@ export const TreesForm = (...props) => {
     }
 
     const validate = (fieldValues = values) => {
-        console.log("🚀 ~ file: TreesForm.jsx ~ line 38 ~ validate ~ fieldValues", fieldValues)
         let temp = { ...errors }
         if ('health' in fieldValues)
             temp.health = isLessThenFiveInput(fieldValues.health)
@@ -62,8 +62,6 @@ export const TreesForm = (...props) => {
             temp.movingReason = isEmptyInput(fieldValues.movingReason)
         if ('recommendation' in fieldValues)
             temp.recommendation = isEmptyInput(fieldValues.recommendation)
-        if (!imgUrl )
-            alert('יש לבחור תמונה')
 
         setErrors({
             ...temp
@@ -99,12 +97,15 @@ export const TreesForm = (...props) => {
     useEffect(() => {
         setTreeTypeOptions(formService.treeTypes)
         setSurveyId(currentSurvey?.surveyTitle)
+        console.log(currentSurvey);
     }, [])
 
     useEffect(() => {
-        async function queryTrees() {
+        console.log('surveyId',surveyId);
+        if (Object.keys(surveyId).length === 0) {
+            let storageId = storageService.loadFromStorage('surveyId')
+            setSurveyId(storageId)
         }
-        queryTrees()
     }, [surveyId])
 
     const onGetImgUrl = (img) => {
@@ -113,9 +114,10 @@ export const TreesForm = (...props) => {
 
     const submitForm = (ev) => {
         ev.preventDefault()
+        if (!imgUrl) alert('יש לבחור תמונה')
         let treeCopy = { ...values }
         treeCopy.type = treeType
-        treeCopy.surveyId = currentSurvey
+        treeCopy.surveyId = surveyId
         treeCopy.imgUrl = imgUrl
         if (validate()) {
             console.log('SUBMIT');
@@ -140,15 +142,13 @@ export const TreesForm = (...props) => {
 
     return (
         <div className="form-container">
-
-
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>
                 <div className="trees-form flex column">
                     <div className="type-form ">
                         <FormAutocomplete options={treeTypeOptions} onSetTreeType={onSetTreeType} />
                         <label htmlFor="isPalmTree rtl">
                             <input type="checkbox" name="isPalmTree" id="isPalmTree" onChange={(ev) => { setIsPalmTree(ev) }} />
-                            עץ תמר
+                            עץ דקל
                         </label>
                     </div>
                     <div className="input-container">
@@ -156,13 +156,14 @@ export const TreesForm = (...props) => {
                         <Input
                             error={errors.idx}
                             name="idx"
+                            value={values.idx}
                             onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
                         <p>כמות עצים</p>
                         <Input
                             error={errors.quantity}
-                            id="quantity"
+                            value={values.quantity}
                             name="quantity"
                             onChange={handleInputChange} />
                     </div>
@@ -170,7 +171,7 @@ export const TreesForm = (...props) => {
                         <p>קוטר הגזע</p>
                         <Input
                             error={errors.diameter}
-                            id="diameter"
+                            value={values.diameter}
                             name="diameter"
                             variant="standard"
                             onChange={handleInputChange} />
@@ -180,6 +181,7 @@ export const TreesForm = (...props) => {
                         <p onClick={() => HandleiIsModalShown('health', !isModalShown.health)} >מצב בריאותי</p>
                         <Input
                             error={errors.health}
+                            value={values.health}
                             InputProps={{
                                 inputProps: {
                                     max: 5,

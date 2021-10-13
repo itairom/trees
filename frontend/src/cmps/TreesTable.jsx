@@ -1,13 +1,10 @@
 import React, { useEffect } from "react"
-
-
-
+import ReactToExcel from 'react-html-table-to-excel'
 
 export const TreesTable = (...props) => {
 
     useEffect(() => {
     }, [props])
-
 
     const calculateValue = (tree) => {
         const { canopy, location, health } = tree
@@ -19,12 +16,6 @@ export const TreesTable = (...props) => {
         let sum = (calculateValue(tree) / 5) * 20
         return sum
     }
-    // const calculateMonetaryValue = (tree) => {
-    //     const { canopy, location, health } = tree
-    //     const { typeValue } = tree.type
-    //     let sum = ((+canopy + +typeValue + +location + +health) / 5) * 20
-    //     return sum
-    // }
 
     const ValueColor = (tree) => {
         let sum = calculateValue(tree)
@@ -35,8 +26,9 @@ export const TreesTable = (...props) => {
     }
 
     return (
-        <section className="trees-table flex">
-            <table>
+        <section className="trees-table ">
+
+            <table id="main-table">
                 <tr>
                     <th>מספר
                         העץ/פוליגון </th>
@@ -91,7 +83,6 @@ export const TreesTable = (...props) => {
                                 <td>{tree.health}</td>
                                 <td>{tree.location}</td>
                                 <td>{tree.type.typeValue}</td>
-                                {/* <td>{tree.monetaryValue}</td> */}
                                 <td>{tree.canopy}</td>
                                 <td className={ValueColor(tree)}>{calculateValue(tree)}</td>
                                 <td>{tree.rootsDiameter}</td>
@@ -105,6 +96,13 @@ export const TreesTable = (...props) => {
                     })}
                 </tbody>
             </table>
+            <ReactToExcel
+                className="download-table "
+                table="main-table"
+                filename="טבלת סקר עצים"
+                sheet="טבלת סקר עצים"
+                buttonText="הורדה"
+            />
         </section>
     )
 
