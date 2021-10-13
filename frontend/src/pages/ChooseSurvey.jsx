@@ -65,11 +65,11 @@ export const ChooseSurvey = () => {
                     }
                 </Select>
             </FormControl>
-            <div className="next-btn"
+            <div className="next-btn button"
                 onClick={() => { handleOnClickNext() }} >
                 <p>המשך</p>
             </div>
-            <div className="back-btn"
+            <div className="back-btn button"
                 onClick={() => { handleOnClickBack() }} >
                 <p>חזור</p>
             </div>

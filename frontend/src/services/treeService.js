@@ -16,12 +16,10 @@ async function queryTrees(tableId) {
 
 async function querySurveyIdList() {
     let trees = await httpService.get(`tree/survey_id_list`)
-    console.log("🥳", trees)
     return trees
 }
 async function querySurveyTrees(surveyId) {
     let trees = await httpService.get(`tree/survey_trees`,surveyId)
-    console.log("🥳", trees)
     return trees
 }
 

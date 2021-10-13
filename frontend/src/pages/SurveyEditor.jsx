@@ -55,7 +55,7 @@ export const SurveyEditor = () => {
                                 dispatch(toggleIsTreePreviewShowen())
                             }} >
                             <p>{tree.idx}</p>
-                            <img src="imgs/treeLogo.png" alt="index"  />
+                            <img src="imgs/treeLogo.png" alt="index" />
                         </div>
                     })}
                     {isTreePreviewShowen && <TreePreview tree={currentPreviewTree} />}

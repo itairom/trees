@@ -24,10 +24,10 @@ export const TreesTypesTable = ({ trees }) => {
 
     const ValueColor = (tree) => {
         let sum = calculateValue(tree)
-        if (sum < 6) return 'yellow'
-        else if (sum > 6 && 12 < sum) return 'grey'
-        else if (sum > 13 && 17 < sum) return 'green'
-        else return 'red'
+        if (sum < 6) return 'ערכיות נמוכה'
+        else if (sum > 6 && 12 < sum) return 'ערכיות בינונית'
+        else if (sum > 13 && 17 < sum) return 'ערכיות גבוהה'
+        else return 'גבוהה מאוד'
     }
 
 
@@ -36,13 +36,15 @@ export const TreesTypesTable = ({ trees }) => {
         let reduceTrees = trees.reduce(function (obj, name) {
             obj[name.type.label] = {}
             // obj[name.type.label] = {
-            //     red:0,
-            //     green:0,
+            //     גבוהה מאוד:0,
+            //     בערכיות גבוהה:0,
             //     grey:0,
-            //     yellow:0
+            //     ערכיות נמוכה:0
             // }
+
             let field = ValueColor(name)
             obj[name.type.label][field] = obj[name.type.label][field] ? obj[name.type.label][field]++ : 1;
+
             // obj[name.type.label][field]++
             return obj;
         }, {});

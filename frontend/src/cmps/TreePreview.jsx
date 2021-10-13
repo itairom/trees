@@ -13,26 +13,25 @@ export const TreePreview = ({ tree }) => {
 
     return (
         <section className="main-container tree-preview">
-            <p>{tree.type.typeValue}</p>
-            <p>{tree.quantity}</p>
-            <p>{tree.height}</p>
-            <p>{tree.diameter}</p>
-            <p>{tree.health}</p>
-            <p>{tree.location}</p>
-            <p>{tree.type.typeValue}</p>
-            <p>{tree.canopy}</p>
-            {/* <p className={ValueColor(tree)}>{calculateValue(tree)}</p> */}
-            <p>{tree.rootsDiameter}</p>
-            {/* <p>{calculateMonetaryValue(tree)}</p> */}
-            <p>{tree.movingPossibility}</p>
-            <p>{tree.description}</p>
-            <p>{tree.movingReason}</p>
+            <div className="preview-info">
+                <p>מספר עץ: <span></span>{tree.type.index}</p>
+                <p> סוג עץ: <span></span>{tree.type.typeValue}</p>
+                <p>קוטר גזע: <span></span>{tree.diameter}</p>
+                <p>מצב בריאותי: <span></span>{tree.health}</p>
+                <p>גובה העץ: <span></span>{tree.height}</p>
+                <p>מיקום העץ: <span></span>{tree.location}</p>
+                <p>ניקוד חופת העץ: <span></span>{tree.canopy}</p>
+                <p>היתכנות העתקה: <span></span>{tree.movingPossibility}</p>
+                <p>המלצה: <span></span>{tree.recommendation}</p>
+            </div>
+            <img src={tree.imgUrl} alt="tree image" />
             <div
+                className="close-preview"
                 onClick={(ev) => {
                     ev.preventDefault()
                     dispatch(toggleIsTreePreviewShowen())
                 }}
-                className="close-preview">X</div>
+            ><span>X</span></div>
         </section>
     )
 }

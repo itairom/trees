@@ -14,8 +14,6 @@
         z-index: -1;
     }
 
-
-
     label {
         font-size: 1.25em;
         padding: 10px;
@@ -24,6 +22,7 @@
         color: white;
         background-color: rgb(255, 42, 42);
         display: inline-block;
+        cursor: pointer;
         // &:hover {
         //     background-color: red;
         // }
