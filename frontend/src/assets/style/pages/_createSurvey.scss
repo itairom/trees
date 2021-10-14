@@ -1,8 +1,11 @@
 .home-container {
+
     flex-direction: column;
     align-items: center;
-    // justify-content: center;
-    // width: 500px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.666);
+    background-image: url('/imgs/wallpaper.jpg');
+    background-blend-mode: overlay;
     .new-survey {
         font-size: 2em;
         margin-top: 20px;

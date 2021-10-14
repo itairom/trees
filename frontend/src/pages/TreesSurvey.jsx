@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import html2pdf from 'html2pdf.js'
 import { TreesImages } from '../cmps/TreesImages';
 import { TreesTable } from '../cmps/TreesTable';
 import { treeService } from '../services/treeService';
@@ -29,8 +30,13 @@ export const TreesSurvey = () => {
     }, [])
 
 
+    // const downloadAsPdf = () => {
+    //     let el = document.querySelector('#main-survey')
+    //     html2pdf(el);
+    // }
+
     return (
-        <section className="main-container trees-survey flex">
+        <section id="main-survey" className="main-container trees-survey flex">
             <h1><span>{currentSurvey?.surveyTitle}</span> טבלה סקר</h1>
             <TreesTable trees={trees} />
             <TreesImages trees={trees} />

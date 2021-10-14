@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { FormAutocomplete } from './FormAutocomplete';
 import Input from './form/input';
 import { storageService } from '../services/storageService';
+import FormModal from './form/FormModal';
 
 export const TreesForm = () => {
 
@@ -145,11 +146,11 @@ export const TreesForm = () => {
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>
                 <div className="trees-form flex column">
                     <div className="type-form ">
-                        <FormAutocomplete options={treeTypeOptions} onSetTreeType={onSetTreeType} />
                         <label htmlFor="isPalmTree rtl">
                             <input type="checkbox" name="isPalmTree" id="isPalmTree" onChange={(ev) => { setIsPalmTree(ev) }} />
                             עץ דקל
                         </label>
+                        <FormAutocomplete options={treeTypeOptions} onSetTreeType={onSetTreeType} />
                     </div>
                     <div className="input-container">
                         <p>מספר עץ</p>
@@ -172,13 +173,14 @@ export const TreesForm = () => {
                         <Input
                             error={errors.diameter}
                             value={values.diameter}
+                            placeholder="קוטר בס״מ של הגזע"
                             name="diameter"
                             variant="standard"
                             onChange={handleInputChange} />
                     </div>
 
                     <div className="input-container">
-                        <p onClick={() => HandleiIsModalShown('health', !isModalShown.health)} >מצב בריאותי</p>
+                        <p onClick={() => HandleiIsModalShown('health', !isModalShown.health)} >*מצב בריאותי</p>
                         <Input
                             error={errors.health}
                             value={values.health}
@@ -192,16 +194,15 @@ export const TreesForm = () => {
                             id="health"
                             name="health"
                             variant="standard"
-                            onChange={handleInputChange}
-                        />
+                            onChange={handleInputChange} />
                         {isModalShown.health &&
-                            <div
-                                onClick={() => HandleiIsModalShown('health', !isModalShown.health)}
-                                className="form-modal health-modal" >
-                                <div className="modal-container ">
-                                    <img src="/imgs/modal/healthModal.png" alt="מקרא מצב בריאותי" />
-                                </div>
-                            </div>}
+                            <FormModal
+                                HandleiIsModalShown={HandleiIsModalShown}
+                                modal={{
+                                    type: 'health',
+                                    isShowen: isModalShown.health
+                                }}
+                                imgSrc="/imgs/modal/healthModal.png" />}
                     </div>
                     <div className="input-container">
                         <p>גובה העץ</p>
@@ -210,10 +211,12 @@ export const TreesForm = () => {
                             id="height"
                             name="height"
                             variant="standard"
+                            placeholder="גובה העץ במטרים"
                             onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
-                        <p>מיקום העץ</p>
+                        <p onClick={() => HandleiIsModalShown('location', !isModalShown.location)} > *מיקום העץ</p>
+
                         <Input
                             error={errors.location}
                             placeholder="0-5"
@@ -226,9 +229,18 @@ export const TreesForm = () => {
                             id="location"
                             name="location"
                             onChange={handleInputChange} />
+
+                        {isModalShown.location &&
+                            <FormModal
+                                HandleiIsModalShown={HandleiIsModalShown}
+                                modal={{
+                                    type: 'location',
+                                    isShowen: isModalShown.location
+                                }}
+                                imgSrc="/imgs/modal/locationModal.png" />}
                     </div>
                     <div className="input-container">
-                        <p>ניקוד חופת העץ</p>
+                        <p onClick={() => HandleiIsModalShown('canopy', !isModalShown.canopy)} >*ניקוד חופת העץ</p>
                         <Input
                             error={errors.canopy}
                             placeholder="0-5"
@@ -241,11 +253,20 @@ export const TreesForm = () => {
                             id="canopy"
                             name="canopy"
                             onChange={handleInputChange} />
+                        {isModalShown.canopy &&
+                            <FormModal
+                                HandleiIsModalShown={HandleiIsModalShown}
+                                modal={{
+                                    type: 'canopy',
+                                    isShowen: isModalShown.canopy
+                                }}
+                                imgSrc="/imgs/modal/canopyModal.png" />}
                     </div>
                     <div className="input-container">
                         <p>אזור שורשים מוגן</p>
                         <Input
                             error={errors.rootsDiameter}
+                            placeholder="אזור שורשים מוגן במטרים"
                             id="rootsDiameter"
                             name="rootsDiameter"
                             onChange={handleInputChange} />
@@ -271,31 +292,6 @@ export const TreesForm = () => {
                         </FormControl>
                     </div>
                     <div className="input-container">
-                        <p>הערות</p>
-                        <Input
-                            error={errors.description}
-                            multiline
-                            rows={2}
-                            type="text"
-                            id="description"
-                            name="description"
-                            onChange={handleInputChange} />
-                    </div>
-                    <div className="input-container">
-                        <p>סיבת כריתה או
-                            העתקת
-                            העץ</p>
-                        <Input
-                            error={errors.movingReason}
-                            multiline
-                            rows={2}
-                            type="text"
-                            id="movingReason"
-                            name="movingReason"
-                            onChange={handleInputChange} />
-                    </div>
-
-                    <div className="input-container">
                         <p>המלצה</p>
                         <FormControl >
                             <Select
@@ -314,6 +310,30 @@ export const TreesForm = () => {
                                 ))}
                             </Select>
                         </FormControl>
+                    </div>
+                    <div className="input-container">
+                        <p>סיבת כריתה או
+                            העתקת
+                            העץ</p>
+                        <Input
+                            error={errors.movingReason}
+                            multiline
+                            rows={2}
+                            type="text"
+                            id="movingReason"
+                            name="movingReason"
+                            onChange={handleInputChange} />
+                    </div>
+                    <div className="input-container">
+                        <p>הערות</p>
+                        <Input
+                            error={errors.description}
+                            multiline
+                            rows={2}
+                            type="text"
+                            id="description"
+                            name="description"
+                            onChange={handleInputChange} />
                     </div>
                 </div>
                 <CloudinaryUpload onGetImgUrl={onGetImgUrl} />

@@ -19,9 +19,9 @@ export const TreesTable = (...props) => {
 
     const ValueColor = (tree) => {
         let sum = calculateValue(tree)
-        if (sum < 6) return 'yellow'
-        else if (sum > 6 && 12 < sum) return 'grey'
-        else if (sum > 13 && 17 < sum) return 'green'
+        if (sum <= 6) return 'yellow'
+        else if (sum > 6 && 14 > sum) return 'grey'
+        else if (sum > 13 && 17 > sum) return 'green'
         else return 'red'
     }
 

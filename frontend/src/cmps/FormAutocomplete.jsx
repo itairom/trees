@@ -28,7 +28,7 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
     }
 
     return (
-        <section className="`autocomplete-form` ">
+        <section className="autocomplete-form">
             <input onChange={(ev) => { setSearch(ev.target.value) }} value={search} type="text" placeholder=" מין העץ" onClick={() => { setDisplay(!display) }} />
             {display &&
                 <div className="autocomplete-container">

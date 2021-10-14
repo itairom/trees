@@ -1,6 +1,6 @@
 .main-nav {
     display: flex;
-    background-color: rgb(186, 121, 247);
+    background-color: rgb(27, 91, 42);
     padding: 10px 50px;
     justify-content: space-between;
     align-items: center;
@@ -14,7 +14,9 @@
     display: block;
 
     a{
-        margin-right: 10px;
+        font-size: 1.5rem;
+        color: white;
+        margin-right: 50px;
     }
 
     @include for-mobile-layout {

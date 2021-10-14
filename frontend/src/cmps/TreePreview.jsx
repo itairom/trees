@@ -14,15 +14,15 @@ export const TreePreview = ({ tree }) => {
     return (
         <section className="main-container tree-preview">
             <div className="preview-info">
-                <p>מספר עץ: <span></span>{tree.type.index}</p>
-                <p> סוג עץ: <span></span>{tree.type.typeValue}</p>
-                <p>קוטר גזע: <span></span>{tree.diameter}</p>
-                <p>מצב בריאותי: <span></span>{tree.health}</p>
-                <p>גובה העץ: <span></span>{tree.height}</p>
-                <p>מיקום העץ: <span></span>{tree.location}</p>
-                <p>ניקוד חופת העץ: <span></span>{tree.canopy}</p>
-                <p>היתכנות העתקה: <span></span>{tree.movingPossibility}</p>
-                <p>המלצה: <span></span>{tree.recommendation}</p>
+                <p>מספר עץ: {tree.idx}</p>
+                <p> סוג עץ: {tree.type.typeValue}</p>
+                <p>קוטר גזע: {tree.diameter}</p>
+                <p>מצב בריאותי: {tree.health}</p>
+                <p>גובה העץ: {tree.height}</p>
+                <p>מיקום העץ: {tree.location}</p>
+                <p>ניקוד חופת העץ: {tree.canopy}</p>
+                <p>היתכנות העתקה: {tree.movingPossibility}</p>
+                <p>המלצה: {tree.recommendation}</p>
             </div>
             <img src={tree.imgUrl} alt="tree image" />
             <div
