@@ -14,20 +14,30 @@ export const TreesSurvey = () => {
     let [trees, setTrees] = useState([])
     // let [currentTableId, setCurrentTableId] = useState('')
     let [tableIdList, setTableIdList] = useState([''])
-
+    const [localSurveyId, setLocalSurveyId] = useState('')
 
     useEffect(() => {
 
         async function queryTrees() {
             setTableIdList(await treeService.querySurveyIdList())
-            setTrees(await treeService.queryTrees(currentSurvey.surveyTitle))
+            setTrees(await treeService.queryTrees(currentSurvey?.surveyTitle))
             if (Object.keys(currentSurvey).length === 0) {
                 let storageId = storageService.loadFromStorage('surveyId')
-                setTrees(await treeService.queryTrees(storageId.surveyTitle))
+                setTrees(await treeService.queryTrees(storageId?.surveyTitle))
+                setLocalSurveyId(storageId)
             }
         }
         queryTrees()
     }, [])
+
+    useEffect(() => {
+        async function queryTrees() {
+            if (Object.keys(currentSurvey).length === 0) {
+                setTrees(await treeService.queryTrees(localSurveyId?.surveyTitle))
+            }
+        }
+        queryTrees()
+    }, [localSurveyId])
 
 
     // const downloadAsPdf = () => {
@@ -37,7 +47,8 @@ export const TreesSurvey = () => {
 
     return (
         <section id="main-survey" className="main-container trees-survey flex">
-            <h1><span>{currentSurvey?.surveyTitle}</span> טבלה סקר</h1>
+            <h1>טבלה סקר <span>{currentSurvey?.surveyTitle||localSurveyId?.surveyTitle}</span></h1>
+
             <TreesTable trees={trees} />
             <TreesImages trees={trees} />
             <TreesTypesTable trees={trees} />
