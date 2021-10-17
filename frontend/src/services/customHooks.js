@@ -5,6 +5,8 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
   const [values, setValues] = useState(initialFValues);
   const [errors, setErrors] = useState({});
 
+
+
   const handleInputChange = ev => {
     const { name } = ev.target
     let value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value
@@ -18,6 +20,7 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
   }
 
   const resetForm = () => {
+    console.log('RESET');
     setValues(initialFValues);
     setErrors({})
   }
@@ -33,6 +36,8 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
 
   }
 }
+
+
 export const useFormCreateSurvey = (initialState, cb = () => { }) => {
   const [fields, setFields] = useState(initialState)
   const [errors, setErrors] = useState({});

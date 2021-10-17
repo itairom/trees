@@ -10,6 +10,16 @@ async function getTrees(req, res) {
         res.status(500).send({ err: 'failed to get Trees' })
     }
 }
+async function removeTree(req, res) {
+    try {
+        const currentTreeId = req.params.treeId
+        console.log("🚀 ~ file: tree.controller.js ~ line 16 ~ removeTree ~ currentTreeId", currentTreeId)
+        const removedTree = await treeService.removeTree(currentTreeId)
+        res.send('remove tree',removedTree)
+    } catch (err) {
+        res.status(500).send({ err: 'failed to remove tree' })
+    }
+}
 
 async function querySurveyIdList(req, res) {
     try {
@@ -62,5 +72,5 @@ async function addTree(req, res) {
 
 
 module.exports = {
-    getTrees, addTree, querySurveyIdList, getSurveyTrees
+    getTrees, addTree, querySurveyIdList, getSurveyTrees, removeTree
 }

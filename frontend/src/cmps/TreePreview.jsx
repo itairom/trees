@@ -1,15 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toggleIsTreePreviewShowen } from '../actions/TreeActions'
+import { treeService } from '../services/treeService'
 
 export const TreePreview = ({ tree }) => {
 
     const dispatch = useDispatch()
     // const { currentSurvey,isTreePreviewShowen } = useSelector(state => state.TreeModule)
+    const [isRemove, setIsRemove] = useState(false)
 
 
     useEffect(() => {
     })
+
+    const onRemoveTree = () => {
+        treeService.removeTree(tree._id)
+    }
 
     return (
         <section className="main-container tree-preview">
@@ -25,6 +31,16 @@ export const TreePreview = ({ tree }) => {
                 <p>המלצה: {tree.recommendation}</p>
             </div>
             <img src={tree.imgUrl} alt="tree image" />
+            <div
+                className="remove-btn"
+                onClick={() => { setIsRemove(true) }}>
+                <span>הסר עץ</span>
+            </div>
+            {isRemove && <div className="remove-modal">
+                <p>האם למחוק ?</p>
+                <p onClick={() => { onRemoveTree() }}>מחק</p>
+                <p onClick={() => { setIsRemove(false) }}>חזור</p>
+            </div>}
             <div
                 className="close-preview"
                 onClick={(ev) => {

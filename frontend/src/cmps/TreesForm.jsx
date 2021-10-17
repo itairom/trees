@@ -10,7 +10,7 @@ import Input from './form/input';
 import { storageService } from '../services/storageService';
 import FormModal from './form/FormModal';
 
-export const TreesForm = () => {
+export const TreesForm = ({ querySurveyTrees }) => {
 
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const [surveyId, setSurveyId] = useState('')
@@ -98,14 +98,14 @@ export const TreesForm = () => {
     useEffect(() => {
         setTreeTypeOptions(formService.treeTypes)
         setSurveyId(currentSurvey?.surveyTitle)
-        console.log(currentSurvey);
     }, [])
 
     useEffect(() => {
-        console.log('surveyId', surveyId);
         if (Object.keys(surveyId).length === 0) {
             let storageId = storageService.loadFromStorage('surveyId')
-            setSurveyId(storageId)
+            if (storageId) {
+                setSurveyId(storageId)
+            }
         }
     }, [surveyId])
 
@@ -123,7 +123,9 @@ export const TreesForm = () => {
         if (validate()) {
             console.log('SUBMIT');
             treeService.save(treeCopy)
+            querySurveyTrees()
             resetForm()
+
         }
     }
 
@@ -140,6 +142,9 @@ export const TreesForm = () => {
             setTreeTypeOptions(formService.treeTypes)
         }
     }
+
+
+
 
     return (
         <div className="form-container">
@@ -208,7 +213,6 @@ export const TreesForm = () => {
                         <p>גובה העץ</p>
                         <Input
                             error={errors.height}
-                            id="height"
                             name="height"
                             variant="standard"
                             placeholder="גובה העץ במטרים"

@@ -1,12 +1,18 @@
-import React, { useEffect } from "react"
+import { keys } from "@material-ui/core/styles/createBreakpoints"
+import React, { useEffect, useState } from "react"
+import { utilService } from "../services/utilService"
 
 
 
 
 export const TreesTypesTable = ({ trees }) => {
 
+
+    const [treeTypeObj, setTreeTypeObj] = useState([])
+    const [treeTypeKeysArr, setTreeTypeKeysArr] = useState([])
+    const [totalvaluesArr, setTotalvaluesArr] = useState({})
+
     useEffect(() => {
-        console.log('PROPS trees', trees);
         mapTreeValue(trees)
     }, [trees])
 
@@ -17,47 +23,60 @@ export const TreesTypesTable = ({ trees }) => {
         return (+canopy + +typeValue + +location + +health)
     }
 
-    const calculateMonetaryValue = (tree) => {
-        let sum = (calculateValue(tree) / 5) * 20
-        return sum
-    }
+    // const calculateMonetaryValue = (tree) => {
+    //     let sum = (calculateValue(tree) / 5) * 20
+    //     return sum
+    // }
 
     const ValueColor = (tree) => {
         let sum = calculateValue(tree)
-        if (sum < 6) return 'ערכיות נמוכה'
-        else if (sum > 6 && 12 < sum) return 'ערכיות בינונית'
-        else if (sum > 13 && 17 < sum) return 'ערכיות גבוהה'
-        else return 'גבוהה מאוד'
+        if (sum <= 6) return 'lowPriority'
+        else if (sum > 6 && 14 > sum) return 'mediumPriority'
+        else if (sum > 13 && 17 > sum) return 'highPriority'
+        else return 'veryHighPriority'
     }
 
 
-
-    const mapTreeValue = (trees) => { // work on it
-        let reduceTrees = trees.reduce(function (obj, name) {
-            obj[name.type.label] = {}
-            // obj[name.type.label] = {
-            //     גבוהה מאוד:0,
-            //     בערכיות גבוהה:0,
-            //     grey:0,
-            //     ערכיות נמוכה:0
-            // }
-
-            let field = ValueColor(name)
-            obj[name.type.label][field] = obj[name.type.label][field] ? obj[name.type.label][field]++ : 1;
-
-            // obj[name.type.label][field]++
-            return obj;
-        }, {});
-        console.log('reduceTrees', reduceTrees);
+    const getTotalvaluesArr = () => {
+        return (
+            {
+                lowPriority: 0,
+                mediumPriority: 0,
+                highPriority: 0,
+                veryHighPriority: 0
+            }
+        )
     }
 
-    // const mapTreeValue = (trees) => { // work on it
-    //     let reduceTrees = trees.reduce(function (obj, name) {
-    //         obj[name.type.BinomialNomenclature] = obj[name.type.BinomialNomenclature] ? ++obj[name.type.BinomialNomenclature] : 1;
-    //         return obj;
-    //     }, {});
-    //     console.log('reduceTrees', reduceTrees);
-    // }
+
+    const mapTreeValue = (trees) => { // improve the code!
+        let localTotalvaluesArr = getTotalvaluesArr()
+        let typeObj = {}
+        for (let i = 0; i < trees.length; i++) {
+            let NTL = trees[i].type.label
+            let value = ValueColor(trees[i])
+            if (!typeObj.hasOwnProperty(NTL)) {
+                let NTL = trees[i].type.label
+                typeObj[NTL] = {
+                    'highPriority': 0,
+                    'lowPriority': 0,
+                    'mediumPriority': 0,
+                    'veryHighPriority': 0,
+                    'total': 0
+                }
+            }
+            ++localTotalvaluesArr[value]
+            ++typeObj[NTL][value]
+            ++typeObj[NTL]['total']
+        }
+
+        // console.log("🚀 ~ file: TreesTypesTable.jsx ~ line 54 ~ mapTreeValue ~ localTotalvaluesArr", localTotalvaluesArr)
+        const treeKeys = Object.keys(typeObj)
+        const objToArr = Object.values(typeObj)
+        setTreeTypeObj(objToArr)
+        setTreeTypeKeysArr(treeKeys)
+        setTotalvaluesArr(localTotalvaluesArr)
+    }
 
     return (
         <section className="trees-table flex">
@@ -65,24 +84,33 @@ export const TreesTypesTable = ({ trees }) => {
                 <tr>
                     <th>מין העץ/תאור
                         הפוליגון</th>
-                    <th>גבוהה מאוד *ערכיות</th>
-                    <th>**ערכיות גבוהה </th>
+                    <th>veryHighPriority *ערכיות</th>
+                    <th>**highPriority </th>
                     <th>בינונית ***ערכיות</th>
                     <th>נמוכה ****ערכיות</th>
                     <th>סה״כ</th>
                 </tr>
                 <tbody>
-                    {trees?.map((tree) => {
+                    {treeTypeKeysArr && treeTypeObj?.map((tree, idx) => {
                         return (
                             <tr key={tree._id}>
-                                {tree.idx && <td>{tree.idx}</td>}
-                                {/* <td>{tree.monetaryValue}</td> */}
-                                <td>{tree.canopy}</td>
-                                <td className={ValueColor(tree)}>{calculateValue(tree)}</td>
-                                <td>{calculateMonetaryValue(tree)}</td>
+                                {<td>{treeTypeKeysArr[idx]}</td>}
+                                {<td>{tree['veryHighPriority']}</td>}
+                                {<td>{tree['highPriority']}</td>}
+                                {<td>{tree['mediumPriority']}</td>}
+                                {<td>{tree['lowPriority']}</td>}
+                                {<td>{tree['total']}</td>}
                             </tr>
                         )
                     })}
+                    <tr key='total-values'>
+                        {<td>סה״ב</td>}
+                        {<td>{totalvaluesArr['veryHighPriority']}</td>}
+                        {<td>{totalvaluesArr['highPriority']}</td>}
+                        {<td>{totalvaluesArr['mediumPriority']}</td>}
+                        {<td>{totalvaluesArr['lowPriority']}</td>}
+                        {<td>{Object.values(totalvaluesArr).reduce((a, b) => a + b, 0)}</td>}
+                    </tr>
                 </tbody>
             </table>
         </section>

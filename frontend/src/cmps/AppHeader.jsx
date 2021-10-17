@@ -10,7 +10,6 @@ export function AppHeader() {
 
     useEffect(() => {
         let storageId = storageService.loadFromStorage('surveyId')
-        console.log(storageId);
         if(storageId){
             setLocalSurveyId(storageId.surveyTitle)
         }

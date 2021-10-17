@@ -17,20 +17,28 @@ export const SurveyEditor = () => {
     const [localCurrentSurvey, setLocalCurrentSurvey] = useState('')
 
     useEffect(() => {
-        const querySurveyTrees = async () => {
+        querySurveyTrees()
+    }, [])
 
-            let trees = await treeService.querySurveyTrees(currentSurvey.surveyTitle)
-            setCurrentSurveyTrees(trees)
+    useEffect(() => {
+        console.log('currentSurveyTrees', currentSurveyTrees);
+    }, [currentSurveyTrees])
 
-            if (Object.keys(currentSurvey).length === 0) {
-                const storageTreeId = storageService.loadFromStorage('surveyId')
+    const querySurveyTrees = async () => {
+
+        let trees = await treeService.querySurveyTrees(currentSurvey.surveyTitle)
+        setCurrentSurveyTrees(trees)
+        if (Object.keys(currentSurvey).length === 0) {
+            const storageTreeId = storageService.loadFromStorage('surveyId')
+            if (storageTreeId) {
                 let trees = await treeService.querySurveyTrees(storageTreeId.surveyTitle)
                 setLocalCurrentSurvey(storageTreeId)
                 setCurrentSurveyTrees(trees)
             }
         }
-        querySurveyTrees()
-    }, [])
+    }
+
+
 
     return (
         <section className="main-container rtl">
@@ -41,7 +49,7 @@ export const SurveyEditor = () => {
                     ev.preventDefault()
                     setIsAddingTree(true)
                 }}>הוסף עץ</p> && !isAddingTree}
-                {isAddingTree && <TreesForm />}
+                {isAddingTree && <TreesForm querySurveyTrees={querySurveyTrees} />}
             </div>
             <div className="other-trees">
                 <h3>עצים נוספים</h3>

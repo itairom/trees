@@ -22,9 +22,11 @@ export const TreesSurvey = () => {
             setTableIdList(await treeService.querySurveyIdList())
             setTrees(await treeService.queryTrees(currentSurvey?.surveyTitle))
             if (Object.keys(currentSurvey).length === 0) {
-                let storageId = storageService.loadFromStorage('surveyId')
-                setTrees(await treeService.queryTrees(storageId?.surveyTitle))
-                setLocalSurveyId(storageId)
+                let storageId = await storageService.loadFromStorage('surveyId')
+                if (storageId) {
+                    setTrees(await treeService.queryTrees(storageId?.surveyTitle))
+                    setLocalSurveyId(storageId)
+                }
             }
         }
         queryTrees()
@@ -47,7 +49,7 @@ export const TreesSurvey = () => {
 
     return (
         <section id="main-survey" className="main-container trees-survey flex">
-            <h1>טבלה סקר <span>{currentSurvey?.surveyTitle||localSurveyId?.surveyTitle}</span></h1>
+            <h1>טבלה סקר <span>{currentSurvey?.surveyTitle || localSurveyId?.surveyTitle}</span></h1>
 
             <TreesTable trees={trees} />
             <TreesImages trees={trees} />

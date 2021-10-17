@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson')
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 
@@ -9,6 +10,17 @@ async function query(tableId) {
         return trees
     } catch (err) {
         logger.error('cannot find trees', err)
+        throw err
+    }
+}
+
+async function removeTree(treeId) {
+    try {
+        const collection = await dbService.getCollection('tree')
+        const removeMsg = await collection.deleteOne({ "_id":ObjectId(treeId) })
+        return removeMsg
+    } catch (err) {
+        logger.error('cannot remove tree', err)
         throw err
     }
 }
@@ -99,5 +111,5 @@ async function save(tree) {
 // }
 
 module.exports = {
-    query, save, querySurveyIdList, querySurveyTrees
+    query, save, querySurveyIdList, querySurveyTrees,removeTree
 }
