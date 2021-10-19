@@ -12,9 +12,19 @@ export const TreesTable = (...props) => {
         return (+canopy + +typeValue + +location + +health)
     }
 
-    const calculateMonetaryValue = (tree) => {
-        let sum = (calculateValue(tree) / 5) * 20
-        return sum
+    // const calculateMonetaryValue = (tree) => {
+    //     let sum = (calculateValue(tree) / 5) * 20
+    //     return sum
+    // }
+
+    const calculateTreeValue = (tree) => {
+        const sum = (((tree.location * +tree.type.typeValue * tree.health) / 5) * (Math.pow((tree.diameter / 2), 2) * 3.14) / 5) * 20
+        return tree.quantity*sum.toFixed(2)
+    }
+
+    const calculatePalmTreeValue = (tree) => {
+        const sum = (tree.height * ((tree.location/5 * +tree.type.typeValue/5 * +tree.health/5) )) * 1500
+        return tree.quantity*sum.toFixed(2)
     }
 
     const ValueColor = (tree) => {
@@ -86,7 +96,8 @@ export const TreesTable = (...props) => {
                                 <td>{tree.canopy}</td>
                                 <td className={ValueColor(tree)}>{calculateValue(tree)}</td>
                                 <td>{tree.rootsDiameter}</td>
-                                <td>{calculateMonetaryValue(tree)}</td>
+                                {!tree.isPalmTree && <td>{calculateTreeValue(tree)}</td>}
+                                {tree.isPalmTree && <td>{calculatePalmTreeValue(tree)}</td>}
                                 <td>{tree.movingPossibility}</td>
                                 <td>{tree.description}</td>
                                 <td>{tree.recommendation}</td>

@@ -6,6 +6,7 @@ const router = express.Router()
 
 router.get('/', getSurveyTrees)
 router.get('/', getTrees)
+// router.get('/id', getTreeById)
 router.delete('/:treeId', removeTree)
 router.get('/survey_id_list', querySurveyIdList)
 router.get('/survey_trees', getSurveyTrees)

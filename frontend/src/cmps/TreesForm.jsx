@@ -89,10 +89,11 @@ export const TreesForm = ({ querySurveyTrees }) => {
         resetForm
     } = useForm(initialFValues, true, validate);
 
-    const [isModalShown, HandleiIsModalShown] = useHandleModal({
+    const [isModalShown, HandleIsModalShown] = useHandleModal({
         health: '',
         location: '',
-        canopy: ''
+        canopy: '',
+        isAddingTree: ''
     })
 
     useEffect(() => {
@@ -115,7 +116,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
 
     const submitForm = (ev) => {
         ev.preventDefault()
-        if (!imgUrl) alert('יש לבחור תמונה')
+        // if (!imgUrl) alert('יש לבחור תמונה')
         let treeCopy = { ...values }
         treeCopy.type = treeType
         treeCopy.surveyId = surveyId
@@ -123,6 +124,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
         if (validate()) {
             console.log('SUBMIT');
             treeService.save(treeCopy)
+            HandleIsModalShown(!isModalShown.health)
             querySurveyTrees()
             resetForm()
 
@@ -185,7 +187,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                     </div>
 
                     <div className="input-container">
-                        <p onClick={() => HandleiIsModalShown('health', !isModalShown.health)} >*מצב בריאותי</p>
+                        <p onClick={() => HandleIsModalShown('health', !isModalShown.health)} >*מצב בריאותי</p>
                         <Input
                             error={errors.health}
                             value={values.health}
@@ -202,7 +204,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                             onChange={handleInputChange} />
                         {isModalShown.health &&
                             <FormModal
-                                HandleiIsModalShown={HandleiIsModalShown}
+                                HandleiIsModalShown={HandleIsModalShown}
                                 modal={{
                                     type: 'health',
                                     isShowen: isModalShown.health
@@ -219,7 +221,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                             onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
-                        <p onClick={() => HandleiIsModalShown('location', !isModalShown.location)} > *מיקום העץ</p>
+                        <p onClick={() => HandleIsModalShown('location', !isModalShown.location)} > *מיקום העץ</p>
 
                         <Input
                             error={errors.location}
@@ -236,7 +238,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
 
                         {isModalShown.location &&
                             <FormModal
-                                HandleiIsModalShown={HandleiIsModalShown}
+                                HandleiIsModalShown={HandleIsModalShown}
                                 modal={{
                                     type: 'location',
                                     isShowen: isModalShown.location
@@ -244,7 +246,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                                 imgSrc="/imgs/modal/locationModal.png" />}
                     </div>
                     <div className="input-container">
-                        <p onClick={() => HandleiIsModalShown('canopy', !isModalShown.canopy)} >*ניקוד חופת העץ</p>
+                        <p onClick={() => HandleIsModalShown('canopy', !isModalShown.canopy)} >*ניקוד חופת העץ</p>
                         <Input
                             error={errors.canopy}
                             placeholder="0-5"
@@ -259,7 +261,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                             onChange={handleInputChange} />
                         {isModalShown.canopy &&
                             <FormModal
-                                HandleiIsModalShown={HandleiIsModalShown}
+                                HandleiIsModalShown={HandleIsModalShown}
                                 modal={{
                                     type: 'canopy',
                                     isShowen: isModalShown.canopy
@@ -342,6 +344,13 @@ export const TreesForm = ({ querySurveyTrees }) => {
                 </div>
                 <CloudinaryUpload onGetImgUrl={onGetImgUrl} />
                 <Button onClick={(ev) => submitForm(ev)} color="primary" variant="outlined">הוסף עץ </Button>
+                {isModalShown.isAddingTree &&
+                    <div
+                        onClick={() => { HandleIsModalShown(!isModalShown.health) }}
+                        className="adding-modal">
+                        <div className="background"></div>
+                        <h1>העץ נוסף בהצלחה!</h1>
+                    </div>}
             </form>
         </div>
     )

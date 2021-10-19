@@ -15,7 +15,6 @@ export const SurveyEditor = () => {
     const [currentSurveyTrees, setCurrentSurveyTrees] = useState([])
     const [currentPreviewTree, setCurrentPreviewTree] = useState(false)
     const [localCurrentSurvey, setLocalCurrentSurvey] = useState('')
-
     useEffect(() => {
         querySurveyTrees()
     }, [])
