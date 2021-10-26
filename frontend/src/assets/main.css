@@ -138,6 +138,7 @@ footer {
     font-weight: 600;
     color: #232323;
     border: 0;
+    cursor: pointer;
 }
 .dark{
     background-color: #373737;

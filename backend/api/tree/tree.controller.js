@@ -12,17 +12,16 @@ async function getTrees(req, res) {
 }
 async function getTreeById(req, res) {
     try {
-        const currentTableId = req.query[0]
-        const trees = await treeService.query(currentTableId)
-        res.send(trees)
+        const { treeId } = req.params
+        const tree = await treeService.queryTreeById(treeId)
+        res.send(tree)
     } catch (err) {
-        res.status(500).send({ err: 'failed to get Trees' })
+        res.status(500).send({ err: 'failed to get Tree by ID' })
     }
 }
 async function removeTree(req, res) {
     try {
         const currentTreeId = req.params.treeId
-        console.log("🚀 ~ file: tree.controller.js ~ line 16 ~ removeTree ~ currentTreeId", currentTreeId)
         const removedTree = await treeService.removeTree(currentTreeId)
         res.send('remove tree', removedTree)
     } catch (err) {
@@ -32,7 +31,6 @@ async function removeTree(req, res) {
 
 async function querySurveyIdList(req, res) {
     try {
-        // const filterBy = req.query
         const trees = await treeService.querySurveyIdList()
         res.send(trees)
     } catch (err) {
@@ -51,8 +49,8 @@ async function getSurveyTrees(req, res) {
 
 async function addTree(req, res) {
     try {
-        const pets = await treeService.save(req.body)
-        res.send('add tree')
+        const tree = await treeService.save(req.body)
+        res.send(tree)
     } catch (err) {
         res.status(500).send({ err: 'failed to add tree' })
     }
@@ -65,17 +63,6 @@ async function addTree(req, res) {
 //     } catch (err) {
 //         logger.error('Failed to get pet by id', err)
 //         res.status(500).send({ err: 'Failed to get pet by id' })
-//     }
-// }
-
-// async function updatePet(req, res) {
-//     try {
-//         const pet = req.body
-//         const savedPet = await petService.save(pet)
-//         res.send(savedPet)
-//     } catch (err) {
-//         logger.error(`Failed to update pet: ${pet._id}`, err)
-//         res.status(500).send({ err: 'Failed to update pet' })
 //     }
 // }
 

@@ -102,7 +102,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
     }, [])
 
     useEffect(() => {
-        if (Object.keys(surveyId).length === 0) {
+        if (!surveyId||Object.keys(surveyId).length === 0) {
             let storageId = storageService.loadFromStorage('surveyId')
             if (storageId) {
                 setSurveyId(storageId)
@@ -110,25 +110,20 @@ export const TreesForm = ({ querySurveyTrees }) => {
         }
     }, [surveyId])
 
-    const onGetImgUrl = (img) => {
-        setImgUrl(img)
+    const onResetForm = () => {
+        resetForm()
+        const inputsRef = document.querySelectorAll('input')
+        const textareaRef = document.querySelectorAll('textarea')
+        inputsRef.forEach(input => {
+            input.value = ''
+        })
+        textareaRef.forEach(textarea => {
+            textarea.value = ''
+        })
     }
 
-    const submitForm = (ev) => {
-        ev.preventDefault()
-        // if (!imgUrl) alert('יש לבחור תמונה')
-        let treeCopy = { ...values }
-        treeCopy.type = treeType
-        treeCopy.surveyId = surveyId
-        treeCopy.imgUrl = imgUrl
-        if (validate()) {
-            console.log('SUBMIT');
-            treeService.save(treeCopy)
-            HandleIsModalShown(!isModalShown.health)
-            querySurveyTrees()
-            resetForm()
-
-        }
+    const onGetImgUrl = (img) => {
+        setImgUrl(img)
     }
 
     const onSetTreeType = (treeTypeObj) => {
@@ -145,9 +140,22 @@ export const TreesForm = ({ querySurveyTrees }) => {
         }
     }
 
-
-
-
+    const submitForm = (ev) => {
+        ev.preventDefault()
+        // if (!imgUrl) alert('יש לבחור תמונה')
+        const treeCopy = { ...values }
+        treeCopy.type = treeType
+        treeCopy.surveyId = surveyId
+        treeCopy.imgUrl = imgUrl
+        if (validate()) {
+            console.log('SUBMIT');
+            treeService.save(treeCopy)
+            HandleIsModalShown(!isModalShown.health)
+            querySurveyTrees()
+            onResetForm()
+        }
+        window.scrollTo(0, 0)
+    }
     return (
         <div className="form-container">
             <form dir="rtl" action="#" onSubmit={(ev) => submitForm(ev)}>

@@ -9,7 +9,8 @@ export const TreesImages = (...props) => {
                 return (
                     <div key={tree._id} className="image-card">
                         <p >{tree.idx}</p>
-                        {tree.imgUrl && <img key={tree._id} src={tree.imgUrl} alt="tree" />}
+                        {tree.imgUrl !== '' && <img key={tree._id} src={tree.imgUrl} alt="tree" />}
+                        {tree.imgUrl === '' && <img key={tree._id} src="imgs/tree_silhouette.png" alt="tree" />}
                     </div>
                 )
             })}

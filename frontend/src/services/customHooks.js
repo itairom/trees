@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react'
 
 export function useForm(initialFValues, validateOnChange = false, validate) {
-
   const [values, setValues] = useState(initialFValues);
   const [errors, setErrors] = useState({});
-
-
 
   const handleInputChange = ev => {
     const { name } = ev.target
@@ -20,11 +17,9 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
   }
 
   const resetForm = () => {
-    console.log('RESET');
     setValues(initialFValues);
     setErrors({})
   }
-
 
   return {
     values,
@@ -33,10 +28,8 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
     setErrors,
     handleInputChange,
     resetForm
-
   }
 }
-
 
 export const useFormCreateSurvey = (initialState, cb = () => { }) => {
   const [fields, setFields] = useState(initialState)
@@ -91,10 +84,6 @@ export const useHandleModal = (initialState, cb = () => { }) => {
   return [
     fields,
     function (field, value) {
-
-      console.log('(field,value)', field, value);
-      // const field = ev.target.name
-      // const value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value
       setFields(prevFields => ({ ...prevFields, [field]: value }))
     },
     setFields

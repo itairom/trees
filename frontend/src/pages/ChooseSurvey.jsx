@@ -12,27 +12,27 @@ export const ChooseSurvey = () => {
 
     let dispatch = useDispatch()
     const history = useHistory();
-    // let [trees, setTrees] = useState([])
     let [surveyIdList, setSurveyIdList] = useState([''])
     let [currentSurveyId, setCurrentSurveyId] = useState('kfar saba')
     const handleOnClickNext = useCallback(() => history.push('/survey_editor'), [history]);
     const handleOnClickBack = useCallback(() => history.push('/'), [history]);
     const { currentSurvey } = useSelector(state => state.TreeModule)
- 
+
 
     useEffect(() => {
-        async function queryTrees() {
-            setSurveyIdList(await treeService.querySurveyIdList())
-            // setTrees(await treeService.query(currentSurveyId))
-        }
-        queryTrees()
+        (async () => {
+            const resp = await treeService.querySurveyIdList()
+            setSurveyIdList(resp)
+        })()
     }, [])
 
     useEffect(() => {
-
         let filterdList = surveyIdList.filter(tree => { return tree.surveyTitle === currentSurveyId })
-        storageService.saveToStorage('surveyId',filterdList[0])
-        dispatch(setCurrentSurvey(filterdList[0]))
+        if(filterdList[0]){
+            storageService.saveToStorage('surveyId', filterdList[0])
+            dispatch(setCurrentSurvey(filterdList[0]))
+        }
+      
     }, [currentSurveyId])
 
 
@@ -56,9 +56,9 @@ export const ChooseSurvey = () => {
                     placeholder="לחץ כאן"
                     onChange={(ev) => { setCurrentSurveyId(ev.target.value) }} >
                     {
-                        surveyIdList.map((id) => (
+                        surveyIdList?.map((id) => (
                             <MenuItem
-                                
+
                                 key={id.surveyTitle}
                                 value={id.surveyTitle}>
                                 {id.surveyTitle}

@@ -1,40 +1,52 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router'
 import { toggleIsTreePreviewShowen } from '../actions/TreeActions'
 import { treeService } from '../services/treeService'
 
-export const TreePreview = ({ tree }) => {
+export const TreePreview = ({ tree, querySurveyTrees }) => {
 
     const dispatch = useDispatch()
-    // const { currentSurvey,isTreePreviewShowen } = useSelector(state => state.TreeModule)
     const [isRemove, setIsRemove] = useState(false)
-
+    const history = useHistory()
 
     useEffect(() => {
     })
 
     const onRemoveTree = () => {
         treeService.removeTree(tree._id)
+        querySurveyTrees()
     }
 
     return (
         <section className="main-container tree-preview">
             <div className="preview-info">
-                <p>מספר עץ: {tree.idx}</p>
-                <p> סוג עץ: {tree.type.typeValue}</p>
-                <p>קוטר גזע: {tree.diameter}</p>
-                <p>מצב בריאותי: {tree.health}</p>
-                <p>גובה העץ: {tree.height}</p>
-                <p>מיקום העץ: {tree.location}</p>
-                <p>ניקוד חופת העץ: {tree.canopy}</p>
-                <p>היתכנות העתקה: {tree.movingPossibility}</p>
-                <p>המלצה: {tree.recommendation}</p>
+                <p>מספר עץ: {tree?.idx}</p>
+                <p> סוג עץ: {tree?.type.typeValue}</p>
+                <p>קוטר גזע: {tree?.diameter}</p>
+                <p>מצב בריאותי: {tree?.health}</p>
+                <p>גובה העץ: {tree?.height}</p>
+                <p>מיקום העץ: {tree?.location}</p>
+                <p>ניקוד חופת העץ: {tree?.canopy}</p>
+                <p>היתכנות העתקה: {tree?.movingPossibility}</p>
+                <p>המלצה: {tree?.recommendation}</p>
             </div>
-            <img src={tree.imgUrl} alt="tree image" />
-            <div
-                className="remove-btn"
-                onClick={() => { setIsRemove(true) }}>
-                <span>הסר עץ</span>
+            {tree.imgUrl !== '' && <img src={tree?.imgUrl} alt="tree image" />}
+            {tree.imgUrl === '' && <img src='imgs/tree_silhouette.png' alt="tree image" />}
+            <div className="options">
+                <div
+                    className="remove-btn btn"
+                    onClick={() => { setIsRemove(true) }}>
+                    <span>מחק</span>
+                </div>
+                <div
+                    className="update-btn btn"
+                    onClick={() => {
+                        history.push(`/tree_update/${tree._id}`)
+                    }}>
+                    <span>עדכן</span>
+                </div>
+
             </div>
             {isRemove && <div className="remove-modal">
                 <p>האם למחוק ?</p>

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { formService } from '../services/formService'
+import React, { useCallback, useEffect, useState } from 'react'
+
 
 export const FormAutocomplete = ({ onSetTreeType, options }) => {
 
@@ -14,6 +14,18 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
     }, [options])
 
 
+    const debounce = (func) => {
+        let timer
+        return function (...args) {
+            const context = this
+            if (timer) clearTimeout(timer)
+            timer = setTimeout(() => {
+                timer = null
+                func.apply(context, args)
+            }, 1000)
+        }
+    }
+
 
     useEffect(() => {
         onSetTreeType(treeObj)
@@ -22,6 +34,8 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
 
 
 
+    const onSetSearch = useCallback(debounce(setSearch))
+
     const setTree = (tree) => {
         setTreeObj(tree)
         setSearch(tree.label)
@@ -29,7 +43,7 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
 
     return (
         <section className="autocomplete-form">
-            <input onChange={(ev) => { setSearch(ev.target.value) }} value={search} type="text" placeholder=" מין העץ" onClick={() => { setDisplay(!display) }} />
+            <input onChange={(ev) => { onSetSearch(ev.target.value) }} value={search} type="text" placeholder=" מין העץ" onClick={() => { setDisplay(!display) }} />
             {display &&
                 <div className="autocomplete-container">
                     {options.filter((option) => option?.label?.includes(search)).map((v, i) => {

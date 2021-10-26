@@ -12,6 +12,10 @@ async function queryTrees(tableId) {
     let trees = await httpService.get(`tree/`,tableId)
     return trees
 }
+async function getTreeById(treeId) {
+    let tree = await httpService.get(`tree/${treeId}`)
+    return tree
+}
 async function removeTree(treeId) {
     console.log("🚀 ~ file: treeService.js ~ line 16 ~ removeTree ~ treeId", treeId)
     let removedTree = await httpService.delete(`tree/${treeId}`)
@@ -37,5 +41,6 @@ export const treeService = {
     queryTrees,
     querySurveyIdList,
     querySurveyTrees,
-    removeTree
+    removeTree,
+    getTreeById
 }

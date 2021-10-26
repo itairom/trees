@@ -17,10 +17,20 @@ async function query(tableId) {
 async function removeTree(treeId) {
     try {
         const collection = await dbService.getCollection('tree')
-        const removeMsg = await collection.deleteOne({ "_id":ObjectId(treeId) })
+        const removeMsg = await collection.deleteOne({ "_id": ObjectId(treeId) })
         return removeMsg
     } catch (err) {
         logger.error('cannot remove tree', err)
+        throw err
+    }
+}
+async function queryTreeById(treeId) {
+    try {
+        const collection = await dbService.getCollection('tree')
+        const tree = await collection.findOne({ "_id": ObjectId(treeId) })
+        return tree
+    } catch (err) {
+        logger.error('cannot get tree by Id', err)
         throw err
     }
 }
@@ -44,7 +54,6 @@ async function querySurveyTrees(id) {
     try {
         const collection = await dbService.getCollection('tree')
         const trees = await collection.find({ 'surveyId.surveyTitle': id }).toArray()
-        // console.log("🚀 ~ file: tree.service.js ~ line 41 ~ querySurveyTrees ~ trees", trees)
         return trees
     } catch (err) {
         logger.error('cannot find trees', err)
@@ -54,21 +63,19 @@ async function querySurveyTrees(id) {
 
 async function save(tree) {
     let savedTree = { ...tree }
-
-
     const collection = await dbService.getCollection('tree')
     try {
         if (tree._id) {
+            delete savedTree['_id']
             //update
-            savedTree.updatedAt = Date.now()
-            await collection.updateOne({ _id: tree._id }, { $set: savedTree })
+            await collection.updateOne({ "_id": ObjectId(tree._id) }, { $set: { ...savedTree } })
         } else {
             //create
             savedTree.createdAt = Date.now()
             await collection.insertOne(savedTree)
         }
     } catch (err) {
-        logger.error('cannot save pet', err)
+        logger.error('cannot save tree', err)
         throw err
     }
     return savedTree
@@ -111,5 +118,5 @@ async function save(tree) {
 // }
 
 module.exports = {
-    query, save, querySurveyIdList, querySurveyTrees,removeTree
+    query, queryTreeById, save, querySurveyIdList, querySurveyTrees, removeTree
 }

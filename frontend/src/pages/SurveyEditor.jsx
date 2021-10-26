@@ -15,16 +15,19 @@ export const SurveyEditor = () => {
     const [currentSurveyTrees, setCurrentSurveyTrees] = useState([])
     const [currentPreviewTree, setCurrentPreviewTree] = useState(false)
     const [localCurrentSurvey, setLocalCurrentSurvey] = useState('')
+
+
     useEffect(() => {
         querySurveyTrees()
     }, [])
 
-    useEffect(() => {
-        console.log('currentSurveyTrees', currentSurveyTrees);
-    }, [currentSurveyTrees])
+    // useEffect(() => {
+    //     console.log('currentSurveyTrees', currentSurveyTrees);
+
+    // }, [currentSurveyTrees])
 
     const querySurveyTrees = async () => {
-
+        console.log('query()');
         let trees = await treeService.querySurveyTrees(currentSurvey.surveyTitle)
         setCurrentSurveyTrees(trees)
         if (Object.keys(currentSurvey).length === 0) {
@@ -36,8 +39,6 @@ export const SurveyEditor = () => {
             }
         }
     }
-
-
 
     return (
         <section className="main-container rtl">
@@ -65,7 +66,7 @@ export const SurveyEditor = () => {
                             <img src="imgs/treeLogo.png" alt="index" />
                         </div>
                     })}
-                    {isTreePreviewShowen && <TreePreview tree={currentPreviewTree} />}
+                    {isTreePreviewShowen && <TreePreview tree={currentPreviewTree} querySurveyTrees={querySurveyTrees} />}
                 </div>}
             </div>
         </section>

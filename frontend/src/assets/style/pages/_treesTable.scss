@@ -1,3 +1,8 @@
+#main-table{
+    th{
+        background-color: green;
+    }
+}
 .trees-table{
     justify-content: center;
     margin-top: 50px;
@@ -10,7 +15,6 @@
                 border: 1px black solid;
                 text-align: center;
                 padding: 6px;
-                background-color: #16a53f;
                 color: white;
             }
             
@@ -19,6 +23,12 @@
                 padding: 3px;
                 border: 1px black solid;
             }
+        }
+
+        .edit-btn{
+            margin:10px;
+            background-color: brown;
+            color: white;
         }
     }
 

@@ -84,11 +84,11 @@ export const TreesTypesTable = ({ trees }) => {
                 <tr>
                     <th>מין העץ/תאור
                         הפוליגון</th>
-                    <th>veryHighPriority *ערכיות</th>
-                    <th>**highPriority </th>
-                    <th>בינונית ***ערכיות</th>
-                    <th>נמוכה ****ערכיות</th>
-                    <th>סה״כ</th>
+                    <th className="red">ערכיות גבוהה מאוד **</th>
+                    <th className="green">ערכיות גבוהה **</th>
+                    <th className="grey">ערכיות בינונית **</th>
+                    <th className="yellow">ערכיות נמוכה **</th>
+                    <th className="">סה״כ</th>
                 </tr>
                 <tbody>
                     {treeTypeKeysArr && treeTypeObj?.map((tree, idx) => {

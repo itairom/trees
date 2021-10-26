@@ -1,10 +1,13 @@
 import React, { useEffect } from "react"
 import ReactToExcel from 'react-html-table-to-excel'
+import { useHistory } from "react-router"
 
-export const TreesTable = (...props) => {
+export const TreesTable = ({trees}) => {
 
+    const history =useHistory()
     useEffect(() => {
-    }, [props])
+        console.log(trees);
+    }, [trees])
 
     const calculateValue = (tree) => {
         const { canopy, location, health } = tree
@@ -19,12 +22,12 @@ export const TreesTable = (...props) => {
 
     const calculateTreeValue = (tree) => {
         const sum = (((tree.location * +tree.type.typeValue * tree.health) / 5) * (Math.pow((tree.diameter / 2), 2) * 3.14) / 5) * 20
-        return tree.quantity*sum.toFixed(2)
+        return tree.quantity * sum.toFixed(2)
     }
 
     const calculatePalmTreeValue = (tree) => {
-        const sum = (tree.height * ((tree.location/5 * +tree.type.typeValue/5 * +tree.health/5) )) * 1500
-        return tree.quantity*sum.toFixed(2)
+        const sum = (tree.height * ((tree.location / 5 * +tree.type.typeValue / 5 * +tree.health / 5))) * 1500
+        return tree.quantity * sum.toFixed(2)
     }
 
     const ValueColor = (tree) => {
@@ -82,7 +85,7 @@ export const TreesTable = (...props) => {
                     <th>סיבת כריתה או העתקת העץ</th>
                 </tr>
                 <tbody>
-                    {props[0].trees?.map((tree) => {
+                    {trees?.map((tree) => {
                         return (
                             <tr key={tree._id}>
                                 {tree.idx && <td>{tree.idx}</td>}
@@ -102,6 +105,9 @@ export const TreesTable = (...props) => {
                                 <td>{tree.description}</td>
                                 <td>{tree.recommendation}</td>
                                 <td>{tree.movingReason}</td>
+                                <div
+                                    onClick={() => {history.push(`tree_update/${tree._id}`) }}
+                                    className="edit-btn btn">עריכה</div >
                             </tr>
                         )
                     })}

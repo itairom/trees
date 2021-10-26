@@ -27,12 +27,14 @@ export function AppHeader() {
                 {!isMobile && <div className="left-nav">
                     <Link to='/trees'><span>סקר עצים סופי</span></Link>
                     <Link to='/'><span>טופס סקר עצים</span></Link>
+                    <Link to='/survey_editor'><span>הוספת עץ</span></Link>
                     <a className="current-survey"><span>סקר </span>{localSurveyId}</a>
                 </div>}
                 {isMobile && <div onClick={changeMobile} className="mobile-nav">
                     <p>סקר <span>{localSurveyId}</span></p>
                     <Link to='/trees'><span>סקר עצים סופי</span></Link>
                     <Link to='/'><span>טופס סקר עצים</span></Link>
+                    <Link to='/survey_editor'><span>הוספת עץ</span></Link>
                 </div>}
                 {isMobile && <div className="background-menu" onClick={changeMobile}></div>}
                 <Menu onClick={changeMobile} className="menu-btn" />
