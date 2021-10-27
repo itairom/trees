@@ -10,12 +10,22 @@
     background-color: beige;
 
     .remove-modal {
-        position: fixed;
-        padding: 10px;
-        background-color: forestgreen;
-        bottom: 0;
+        position: absolute;
+        padding: 20px;
+        background-color: #e3e3e3;
+        bottom: 64px;
+        border: 1px black solid;
+        border-radius: 29px;
+        text-align: center;    
+    
         div {
             display: flex;
+
+            // margin: 10px 0;
+            p{
+                margin: 5px;
+            }
+            justify-content: space-between;
         }
     }
 

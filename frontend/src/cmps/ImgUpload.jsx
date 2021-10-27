@@ -34,6 +34,7 @@ export const ImgUpload = ({ onGetImgUrl }) => {
             onChange={onChange}
             maxNumber={maxNumber}
             dataURLKey="data_url"
+            onClick={(ev) => { ev.stopPropagation() }}
         >
             {({
                 imageList,
@@ -45,11 +46,20 @@ export const ImgUpload = ({ onGetImgUrl }) => {
                 dragProps
             }) => (
                 // write your building UI
-                <div className="upload__image-wrapper ">
+                <div
+                    onClick={(ev) => {
+                        ev.stopPropagation()
+                        ev.preventDefault()
+                    }}
+                    className="upload__image-wrapper ">
                     <button
                         className="upload-btn btn"
                         style={isDragging ? { color: "red" } : null}
-                        onClick={onImageUpload}
+                        onClick={(ev) => {
+                            ev.preventDefault()
+                            ev.stopPropagation()
+                            onImageUpload()
+                        }}
                         {...dragProps}
                     >
                         הוסף תמונה
