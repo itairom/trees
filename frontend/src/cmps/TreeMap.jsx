@@ -40,7 +40,7 @@ export default function TreeMap() {
         // Important! Always set the container height explicitly
         <div style={{ height: '500px', width: '500px' }}>
             {coords && <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyCjgSA6k35JXYD432_rlZHX-gR5IX1WTKA" }}
+                bootstrapURLKeys={{ key: "" }}
                 yesIWantToUseGoogleMapApiInternals
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom} >
