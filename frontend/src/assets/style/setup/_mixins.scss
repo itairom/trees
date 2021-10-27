@@ -7,13 +7,13 @@
 }
 
 @mixin for-narrow-layout {
-    @media (min-width: $mobile-breakpoint + 40) {
+    @media (min-width: $narrow-breakpoint + 40) {
         @content;
     }
 }
 
 @mixin for-normal-layout {
-    @media (min-width: $narrow-breakpoint + 40) {
+    @media (min-width: $normal-breakpoint + 40) {
         @content;
     }
 }

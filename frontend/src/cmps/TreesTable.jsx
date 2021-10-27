@@ -1,24 +1,28 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import ReactToExcel from 'react-html-table-to-excel'
 import { useHistory } from "react-router"
+import useWindowSize from "../services/customHooks"
 
-export const TreesTable = ({trees}) => {
+export const TreesTable = ({ trees }) => {
 
-    const history =useHistory()
+    const [isMobile, setIsMobile] = useState(false)
+    const history = useHistory()
+
     useEffect(() => {
         console.log(trees);
     }, [trees])
+
+    const windowSize = useWindowSize()
+
+    useEffect(() => {
+        windowSize.width < 500 ? setIsMobile(true) : setIsMobile(false)
+    }, [windowSize])
 
     const calculateValue = (tree) => {
         const { canopy, location, health } = tree
         const { typeValue } = tree.type
         return (+canopy + +typeValue + +location + +health)
     }
-
-    // const calculateMonetaryValue = (tree) => {
-    //     let sum = (calculateValue(tree) / 5) * 20
-    //     return sum
-    // }
 
     const calculateTreeValue = (tree) => {
         const sum = (((tree.location * +tree.type.typeValue * tree.health) / 5) * (Math.pow((tree.diameter / 2), 2) * 3.14) / 5) * 20
@@ -40,8 +44,7 @@ export const TreesTable = ({trees}) => {
 
     return (
         <section className="trees-table ">
-
-            <table id="main-table">
+             <table id="main-table">
                 <tr>
                     <th>מספר
                         העץ/פוליגון </th>
@@ -106,20 +109,106 @@ export const TreesTable = ({trees}) => {
                                 <td>{tree.recommendation}</td>
                                 <td>{tree.movingReason}</td>
                                 <div
-                                    onClick={() => {history.push(`tree_update/${tree._id}`) }}
+                                    onClick={() => { history.push(`tree_update/${tree._id}`) }}
                                     className="edit-btn btn">עריכה</div >
                             </tr>
                         )
                     })}
                 </tbody>
-            </table>
-            <ReactToExcel
+                <ReactToExcel
                 className="download-table "
                 table="main-table"
                 filename="טבלת סקר עצים"
                 sheet="טבלת סקר עצים"
                 buttonText="הורדה"
             />
+            </table>
+
+             <section className="mobile-table">
+                {trees?.map((tree) => {
+                    return (
+                        <div className="mobile-tree-card" key={tree._id}>
+                            <div className="flex">
+                                <p>אינדקס</p>
+                                <p>{tree.idx}</p>
+                            </div>
+                            <div className="flex">
+                                <p>סוג עץ</p>
+                                <p>{tree.type.label}</p>
+                            </div>
+                            <div className="flex">
+                                <p> כמות</p>
+                                <p>{tree.quantity}</p>
+                            </div>
+                            <div className="flex">
+                                <p>גובה</p>
+                                <p>{tree.height}</p>
+                            </div>
+                            <div className="flex">
+                                <p>קוטר</p>
+                                <p>{tree.diameter}</p>
+                            </div>
+                            <div className="flex">
+                                <p>מצב בריאותי</p>
+                                <p>{tree.health}</p>
+                            </div>
+                            <div className="flex">
+                                <p>מיקום</p>
+                                <p>{tree.location}</p>
+                            </div>
+                            <div className="flex">
+                                <p>ערך עץ</p>
+                                <p>{tree.type.typeValue}</p>
+                            </div>
+                            <div className="flex">
+                                <p>ניקוד חופת עץ</p>
+                                <p>{tree.canopy}</p>
+                            </div>
+                            <div className="flex">
+                                <p>ערך עץ</p>
+                                <p className={ValueColor(tree)}>{calculateValue(tree)}</p>
+                            </div>
+                            <div className="flex">
+                                <p>קוטר שורשרים</p>
+                                <p>{tree.rootsDiameter}</p>
+                            </div>
+                            <div className="flex">
+                                <p>שווי כספי</p>
+                                {!tree.isPalmTree && <p>{calculateTreeValue(tree)}</p>}
+                                {tree.isPalmTree && <p>{calculatePalmTreeValue(tree)}</p>}
+                            </div>
+                            <div className="flex">
+                                <p>אפשרות העתקה</p>
+                                <p>{tree.movingPossibility}</p>
+                            </div>
+                            <div className="flex">
+                                <p>תיאור</p>
+                                <p aria-multiline="true">{tree.description}</p>
+                            </div>
+                            <div className="flex">
+                                <p>המלצה</p>
+                                <p>{tree.recommendation}</p>
+                            </div>
+                            <div className="flex">
+                                <p>סיבת העברה</p>
+                                <p>{tree.movingReason}</p>
+                            </div>
+                            <div
+                                onClick={() => { history.push(`tree_update/${tree._id}`) }}
+                                className="edit-btn btn">עריכה</div >
+                        </div>
+                    )
+                })
+                
+            }
+           {isMobile&& <ReactToExcel
+                className="download-table "
+                table="main-table"
+                filename="טבלת סקר עצים"
+                sheet="טבלת סקר עצים"
+                buttonText="הורדה"
+            />}
+            </section>
         </section>
     )
 

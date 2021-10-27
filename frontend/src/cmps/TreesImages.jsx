@@ -7,7 +7,7 @@ export const TreesImages = (...props) => {
         <section className="trees-images flex">
             {trees.map((tree) => {
                 return (
-                    <div key={tree._id} className="image-card">
+                    <div key={tree._id} className="image-card pointer">
                         <p >{tree.idx}</p>
                         {tree.imgUrl !== '' && <img key={tree._id} src={tree.imgUrl} alt="tree" />}
                         {tree.imgUrl === '' && <img key={tree._id} src="imgs/tree_silhouette.png" alt="tree" />}

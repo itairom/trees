@@ -48,10 +48,12 @@ export const TreePreview = ({ tree, querySurveyTrees }) => {
                 </div>
 
             </div>
-            {isRemove && <div className="remove-modal">
+            {isRemove && <div className="remove-modal ">
                 <p>האם למחוק ?</p>
-                <p onClick={() => { onRemoveTree() }}>מחק</p>
-                <p onClick={() => { setIsRemove(false) }}>חזור</p>
+                <div className="">
+                    <p className="btn" onClick={() => { onRemoveTree() }}>מחק</p>
+                    <p className="btn" onClick={() => { setIsRemove(false) }}>חזור</p>
+                </div>
             </div>}
             <div
                 className="close-preview"

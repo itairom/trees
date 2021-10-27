@@ -43,7 +43,7 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
 
     return (
         <section className="autocomplete-form">
-            <input onChange={(ev) => { onSetSearch(ev.target.value) }} value={search} type="text" placeholder=" מין העץ" onClick={() => { setDisplay(!display) }} />
+            <input onChange={(ev) => { onSetSearch(ev.target.value) }} name="type" value={search} type="text" placeholder=" מין העץ" onClick={() => { setDisplay(!display) }} />
             {display &&
                 <div className="autocomplete-container">
                     {options.filter((option) => option?.label?.includes(search)).map((v, i) => {

@@ -6,6 +6,8 @@ import { treeService } from '../services/treeService';
 import { useSelector } from 'react-redux';
 import { storageService } from '../services/storageService';
 import { TreesTypesTable } from '../cmps/TreesTypesTable';
+import TreeMap from '../cmps/TreeMap';
+import { TreeRecommendationTable } from '../cmps/table/TreeRecommendationTable';
 
 export const TreesSurvey = () => {
 
@@ -54,6 +56,8 @@ export const TreesSurvey = () => {
             <TreesTable trees={trees} />
             <TreesImages trees={trees} />
             <TreesTypesTable trees={trees} />
+            <TreeRecommendationTable trees={trees} />
+            {/* <TreeMap text="mapmap" /> */}
         </section>
     )
 }

@@ -85,3 +85,26 @@
 10/26/2021, 11:28:53 AM - ERROR - cannot save pet | ReferenceError: ObjectIdtree is not defined 
 10/26/2021, 11:29:40 AM - ERROR - cannot save pet | MongoServerError: Performing an update on the path '_id' would modify the immutable field '_id' 
 10/26/2021, 11:38:15 AM - ERROR - cannot save tree | MongoServerError: Performing an update on the path '_id' would modify the immutable field '_id' 
+10/27/2021, 11:18:06 AM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:38:47 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:38:47 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:40:12 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:40:12 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:40:12 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:40:12 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:40:46 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:40:46 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:40:47 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:40:47 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:42:47 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:42:47 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:42:48 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:42:48 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:47:13 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:47:13 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:47:14 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:47:14 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:47:46 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:47:46 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:47:47 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/27/2021, 7:47:47 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 

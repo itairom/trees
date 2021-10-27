@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { useFormCreateSurvey } from '../services/customHooks'
-import { Link,useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentSurvey } from '../actions/TreeActions'
 import { storageService } from '../services/storageService';
@@ -8,7 +8,7 @@ import { storageService } from '../services/storageService';
 
 export const CreateSurvey = () => {
 
-    
+
     const history = useHistory();
     const handleOnClick = useCallback(() => history.push('/survey_editor'), [history]);
     const dispatch = useDispatch()
@@ -45,6 +45,9 @@ export const CreateSurvey = () => {
                         id="surveyDate"
                         name="surveyDate"
                         type="date"
+                        placeholder="dd-mm-yyyy"
+                        min="1997-01-01"
+                        max="2030-12-31"
                         onChange={(ev) => { handleChange(ev) }}
                         value={survey.surveyDate} />
                 </label>

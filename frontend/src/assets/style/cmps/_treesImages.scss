@@ -1,13 +1,23 @@
 .trees-images {
     justify-content: space-between;
     margin-top: 50px;
+
+    width: 80vw;
+    right: 0;
+    left: 0;
+    margin: 5% auto;
+    flex-wrap: wrap;
 }
 
 .image-card {
-
+// display: flex;
     img {
         width: 200px;
         height: 230px;
         object-fit: cover;
+    }
+
+    @include for-narrow-layout{
+        
     }
 }

@@ -12,6 +12,10 @@ main {
     background-color: #95e1d3;
 }
 
+.pointer{
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
 
 
 

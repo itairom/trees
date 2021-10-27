@@ -99,7 +99,7 @@ export const TreeUpdate = () => {
         const inputsRef = document.querySelectorAll('input')
         inputsRef.forEach(input => {
             const name = input.name
-            input.value = tree[name]
+            input.value = (name==='type')?  tree.type?.label :  tree[name]
         })
     }
     const setTextAreaRef = () => {

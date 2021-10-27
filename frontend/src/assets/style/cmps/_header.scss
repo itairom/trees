@@ -17,6 +17,16 @@
         font-size: 1.5rem;
         color: white;
         margin-right: 50px;
+        &:hover{
+            text-decoration: underline;
+            border-radius: 7px;
+            opacity: 1;
+            transition: .25s opacity;
+        }
+    }
+
+    @keyframes under {
+        
     }
 
     .current-survey {

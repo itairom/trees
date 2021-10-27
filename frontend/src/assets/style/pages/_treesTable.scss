@@ -1,38 +1,53 @@
-#main-table{
-    th{
+#main-table {
+    display: none;
+    th {
         background-color: green;
     }
+    @include for-normal-layout {
+        display: block;
+    }
 }
-.trees-table{
+.trees-table {
     justify-content: center;
     margin-top: 50px;
     direction: rtl;
-    table{
-        // border: 1px solid black;
+    table {
         border-spacing: 0px;
-        tr{
-            th{
+        tr {
+            th {
                 border: 1px black solid;
                 text-align: center;
-                padding: 6px;
+                padding: 1px;
                 color: white;
             }
-            
-            td{
+
+            td {
                 text-align: center;
-                padding: 3px;
+                padding: 1px;
                 border: 1px black solid;
             }
         }
 
-        .edit-btn{
-            margin:10px;
+        .edit-btn {
+            margin: 10px;
             background-color: brown;
             color: white;
         }
+
+        padding: 10px;
+        
+        @include for-normal-layout {
+            padding: 0;
+            th {
+                padding: 6px;
+            }
+            td {
+                padding: 3px;
+            }
+        }
     }
 
-    .download-table{
+    .download-table {
         margin-top: 10px;
         border: 1px solid black;
         outline: none;
@@ -40,6 +55,46 @@
         color: white;
         border-radius: 10px;
         padding: 10px;
+    }
+}
 
+.mobile-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .edit-btn {
+        margin: 10px 0;
+        box-shadow: 1px 1px 3px 0 #272727bd;
+        background-color: rgb(49, 97, 97);
+        color: white;
+    }
+
+    .mobile-tree-card {
+        background-color: #ededed;
+        margin-top: 10px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid rgb(102, 102, 102);
+        box-shadow: 1px 1px 2px 0 #d9d9d9bd;
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        overflow-wrap: normal;
+        div {
+            justify-content: space-between;
+            border-bottom: 1px solid rgb(41, 41, 41);
+            padding: 0 3px;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        p {
+            overflow-wrap: anywhere;
+        }
+        @include for-normal-layout {
+            display: none;
+        }
     }
 }

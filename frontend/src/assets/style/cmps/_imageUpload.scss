@@ -5,15 +5,7 @@
         border: none;
         background-color: none;
     }
-    .upload-btn {
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-    }
-
+    
     label {
         font-size: 1.25em;
         padding: 10px;
@@ -24,7 +16,19 @@
         display: inline-block;
         cursor: pointer;
         // &:hover {
-        //     background-color: red;
-        // }
+            //     background-color: red;
+            // }
+        }
     }
-}
+    
+    .upload-btn {
+        display: flex;
+        justify-content: center;
+        background-color: cadetblue;
+        font-size: 1.5rem;
+        color: white;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-radius: 10px;
+    }

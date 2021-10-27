@@ -9,12 +9,21 @@
     top: 1470px;
     background-color: beige;
 
+    .remove-modal {
+        position: fixed;
+        padding: 10px;
+        background-color: forestgreen;
+        bottom: 0;
+        div {
+            display: flex;
+        }
+    }
+
     img {
         width: 200px;
         height: 200px;
-       object-fit: contain;
-       margin-top: 10px;
-
+        object-fit: contain;
+        margin-top: 10px;
     }
 
     .close-preview {
@@ -37,12 +46,12 @@
         flex-direction: column;
     }
 
-    .options{
+    .options {
         margin-top: 10px;
         display: flex;
         justify-content: space-evenly;
-        div{
-            &:last-child{
+        div {
+            &:last-child {
                 background-color: rgb(33, 89, 174);
             }
             background-color: rgb(255, 0, 0);
@@ -50,12 +59,13 @@
         }
     }
 
-
-
     @include for-mobile-layout {
+        max-width: 220px;
         position: fixed;
         background-color: beige;
-        top: 37%;
-        right: 88px;
-   }
+        top: 30%;
+        right: 0;
+        left: 0;
+        margin: 5% auto;
+    }
 }

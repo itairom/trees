@@ -3,12 +3,12 @@ import { useForm, useHandleModal } from '../services/customHooks'
 import { Button, MenuItem, Select, FormControl } from '@material-ui/core';
 import { formService } from '../services/formService';
 import { treeService } from '../services/treeService';
-import { CloudinaryUpload } from './CloudinaryUpload';
 import { useSelector } from 'react-redux';
 import { FormAutocomplete } from './FormAutocomplete';
 import Input from './form/input';
 import { storageService } from '../services/storageService';
 import FormModal from './form/FormModal';
+import { ImgUpload } from './ImgUpload';
 
 export const TreesForm = ({ querySurveyTrees }) => {
 
@@ -102,7 +102,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
     }, [])
 
     useEffect(() => {
-        if (!surveyId||Object.keys(surveyId).length === 0) {
+        if (!surveyId || Object.keys(surveyId).length === 0) {
             let storageId = storageService.loadFromStorage('surveyId')
             if (storageId) {
                 setSurveyId(storageId)
@@ -142,7 +142,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
 
     const submitForm = (ev) => {
         ev.preventDefault()
-        // if (!imgUrl) alert('יש לבחור תמונה')
         const treeCopy = { ...values }
         treeCopy.type = treeType
         treeCopy.surveyId = surveyId
@@ -150,7 +149,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
         if (validate()) {
             console.log('SUBMIT');
             treeService.save(treeCopy)
-            HandleIsModalShown(!isModalShown.health)
+            HandleIsModalShown(!isModalShown.isAddingTree)
             querySurveyTrees()
             onResetForm()
         }
@@ -350,7 +349,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                             onChange={handleInputChange} />
                     </div>
                 </div>
-                <CloudinaryUpload onGetImgUrl={onGetImgUrl} />
+                <ImgUpload onGetImgUrl={onGetImgUrl} />
                 <Button onClick={(ev) => submitForm(ev)} color="primary" variant="outlined">הוסף עץ </Button>
                 {isModalShown.isAddingTree &&
                     <div

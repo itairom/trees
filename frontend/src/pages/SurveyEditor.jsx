@@ -53,7 +53,7 @@ export const SurveyEditor = () => {
             </div>
             <div className="other-trees">
                 <h3>עצים נוספים</h3>
-                {currentSurveyTrees && <div className="current-trees flex">
+                {currentSurveyTrees && <div className="current-trees pointer flex">
                     {currentSurveyTrees.map((tree) => {
                         return <div
                             key={tree._id}

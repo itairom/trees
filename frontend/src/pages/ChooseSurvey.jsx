@@ -51,7 +51,6 @@ export const ChooseSurvey = () => {
                     variant="filled"
                     color="primary"
                     value={currentSurveyId}
-                    // defaultValue="בחר סקר"
                     label="לחץ כאן"
                     placeholder="לחץ כאן"
                     onChange={(ev) => { setCurrentSurveyId(ev.target.value) }} >
