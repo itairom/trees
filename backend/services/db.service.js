@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient
 const config = require('../config')
 
 module.exports = {
-    getCollection
+    getCollection, createCollection
 }
 
 const dbName = 'tree_db'
@@ -17,6 +17,27 @@ async function getCollection(collectionName) {
         const collection = await db.collection(collectionName)
 
         return collection
+    } catch (err) {
+        logger.error('Failed to get Mongo collection', err)
+        throw err
+    }
+}
+async function createCollection(collectionName) {
+    try {
+        const db = await connect()
+        // const collection = await db.collection(collectionName).find({})
+        const collectionArray = await db.listCollections().toArray()
+        const isCollectionExist = collectionArray.find(collection => {
+            return (collection.name === collectionName)
+        })
+        console.log("🚀 ~ file: db.service.js ~ line 34 ~ createCollection ~ isCollectionExist", collectionName, isCollectionExist)
+        if (isCollectionExist === undefined) {
+            console.log('in');
+            await db.createCollection(`${collectionName}`)
+        }
+
+
+        return 'collection'
     } catch (err) {
         logger.error('Failed to get Mongo collection', err)
         throw err
