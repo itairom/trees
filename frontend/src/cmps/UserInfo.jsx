@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { onLogout } from "../actions/appActions";
+import { storageService } from "../services/storageService";
 
 
 export function UserInfo() {
@@ -18,6 +19,7 @@ export function UserInfo() {
     }, [loginErr])
 
     const logout = () => {
+        storageService.saveToStorage('surveyId', null) // Reset current survey
         dispatch(onLogout(loggedInUser))
     }
 

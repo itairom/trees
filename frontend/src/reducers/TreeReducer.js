@@ -2,7 +2,7 @@
 const initialState = {
     filterBy: null,
     isDark: false,
-    currentSurvey:{},
+    currentSurvey:null,
     isTreePreviewShowen:false
 }
 

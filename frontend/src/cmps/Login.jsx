@@ -6,13 +6,15 @@ import { useDispatch } from 'react-redux';
 import { onLogin } from '../actions/appActions'
 import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { storageService } from '../services/storageService';
 
 
 export function Login() {
 
+  const { loggedInUser, loginErr } = useSelector(state => state.appModule)
+  const [pageMode, setPageMode] = useState(null)
   const history = useHistory()
   const location = useLocation()
-  const { loggedInUser, loginErr } = useSelector(state => state.appModule)
   const dispatch = useDispatch()
 
   const credentials = {
@@ -20,7 +22,6 @@ export function Login() {
     password: ''
   }
 
-  const [pageMode, setPageMode] = useState(null)
 
   useEffect(() => {
     if (loggedInUser) history.push('/')
@@ -29,9 +30,11 @@ export function Login() {
   }, [])
 
   useEffect(() => {
-  }, [credentials])
+    console.log('loginErr', loginErr);
+  }, [loginErr])
 
   const onSubmit = (values) => {
+    storageService.saveToStorage('surveyId', null) // Reset current survey
     dispatch(onLogin(values))
     history.push('/')
   }
@@ -56,12 +59,10 @@ export function Login() {
   //   console.log('Login with google failed', res)
   // }
 
-  if (!pageMode) return ''
   return (
     <section className="login-signup-container">
       <div className="login-signup ">
         <Formik
-
           initialValues={credentials}
           validationSchema={validate}
           onSubmit={(values) => {

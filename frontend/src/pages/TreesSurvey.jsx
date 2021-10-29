@@ -13,7 +13,6 @@ export const TreesSurvey = () => {
     
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
-    
     let [trees, setTrees] = useState([])
     let [tableIdList, setTableIdList] = useState([''])
     const [localSurveyId, setLocalSurveyId] = useState('')
@@ -23,7 +22,7 @@ export const TreesSurvey = () => {
         async function queryTrees() {
             setTableIdList(await treeService.querySurveyIdList(loggedInUser))
             setTrees(await treeService.queryTrees(currentSurvey?.surveyTitle,loggedInUser?.username))
-            if (Object.keys(currentSurvey).length === 0) {
+            if (currentSurvey) {
                 let storageId = await storageService.loadFromStorage('surveyId')
                 if (storageId) {
                     setTrees(await treeService.queryTrees(storageId?.surveyTitle))
@@ -36,7 +35,7 @@ export const TreesSurvey = () => {
     
     useEffect(() => {
         async function queryTrees() {
-            if (Object.keys(currentSurvey).length === 0) {
+            if (currentSurvey){
                 setTrees(await treeService.queryTrees(localSurveyId?.surveyTitle))
             }
         }
