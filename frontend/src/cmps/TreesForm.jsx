@@ -13,6 +13,8 @@ import { ImgUpload } from './ImgUpload';
 export const TreesForm = ({ querySurveyTrees }) => {
 
     const { currentSurvey } = useSelector(state => state.TreeModule)
+    const { loggedInUser, loginErr } = useSelector(state => state.appModule)
+    
     const [surveyId, setSurveyId] = useState('')
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
     const [treeType, setType] = useState('')
@@ -148,7 +150,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
         treeCopy.imgUrl = imgUrl
         if (validate()) {
             console.log('SUBMIT');
-            treeService.save(treeCopy)
+            treeService.save(treeCopy,loggedInUser)
             HandleIsModalShown(!isModalShown.isAddingTree)
             querySurveyTrees()
             onResetForm()
@@ -351,6 +353,8 @@ export const TreesForm = ({ querySurveyTrees }) => {
                 </div>
                 <ImgUpload onGetImgUrl={onGetImgUrl} />
                 <Button onClick={(ev) => submitForm(ev)} color="primary" variant="outlined">הוסף עץ </Button>
+
+
                 {isModalShown.isAddingTree &&
                     <div
                         onClick={() => { HandleIsModalShown(!isModalShown.health) }}

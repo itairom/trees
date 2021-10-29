@@ -3,7 +3,7 @@ import { TextField } from '@material-ui/core';
 
 export default function Input(props) {
 
-    const { name, label, value, error = null, onChange, InputProps, id, multiline, rows, placeholder } = props;
+    const { name, label, value, error = null, onChange, InputProps, id, multiline, rows, placeholder, type } = props;
     return (
         <TextField
             variant="standard"
@@ -13,7 +13,8 @@ export default function Input(props) {
             InputProps={InputProps}
             id={id}
             color="primary"
-            type="number"
+            {...(type && { type :"text" })}
+            {...(!type && { type :"number" })}
             {...(error && { error: true, helperText: error })}
             {...multiline &&
             {

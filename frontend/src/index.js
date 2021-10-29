@@ -8,10 +8,13 @@ import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 
 import TreeReducer from './reducers/TreeReducer';
+import { AppReducer } from './reducers/AppReducer';
 import App from './App';
 
 const rootReducer = combineReducers({
     TreeModule: TreeReducer,
+    appModule: AppReducer,
+
 });
 
 
@@ -29,4 +32,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GoogleMapReact from 'google-map-react';
 import { useGeolocation } from "../services/customHooks";
-import Marker from "./map/Marker";
+// import Marker from "./map/Marker";
 
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -36,7 +36,7 @@ export default function TreeMap() {
     //     zoom: 11
     // };
 
-    return (
+    return ( 
         // Important! Always set the container height explicitly
         <div style={{ height: '500px', width: '500px' }}>
             {coords && <GoogleMapReact

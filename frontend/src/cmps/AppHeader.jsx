@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Menu } from '../assets/svg/menu_black_24dp.svg'
 import { storageService } from '../services/storageService'
+import { UserInfo } from './UserInfo'
 
 
 export function AppHeader() {
     const [isMobile, setIsMobile] = useState(false)
+    // const [isShowUserInfo, setIsShowUserInfo] = useState(false)
     const [localSurveyId, setLocalSurveyId] = useState('')
+    const { loggedInUser } = useSelector(state => state.appModule)
+
 
     useEffect(() => {
         let storageId = storageService.loadFromStorage('surveyId')
-        if(storageId){
+        if (storageId) {
             setLocalSurveyId(storageId.surveyTitle)
         }
     }, [])
@@ -19,6 +24,9 @@ export function AppHeader() {
         setIsMobile(prev => prev = !prev)
     }
 
+    useEffect(() => {
+        console.log(loggedInUser, 'loggedInUser');
+    }, [loggedInUser])
 
 
     return (
@@ -39,6 +47,7 @@ export function AppHeader() {
                 {isMobile && <div className="background-menu" onClick={changeMobile}></div>}
                 <Menu onClick={changeMobile} className="menu-btn" />
                 <div className="right-nav">
+                    <UserInfo />
                 </div>
             </nav>
         </header>

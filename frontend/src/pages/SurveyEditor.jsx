@@ -10,8 +10,9 @@ export const SurveyEditor = () => {
 
     const dispatch = useDispatch()
     const { currentSurvey, isTreePreviewShowen } = useSelector(state => state.TreeModule)
+    const { loggedInUser } = useSelector(state => state.appModule)
+
     const [isAddingTree, setIsAddingTree] = useState(true)
-    // const [isAddingTree, setIsAddingTree] = useState(false)
     const [currentSurveyTrees, setCurrentSurveyTrees] = useState([])
     const [currentPreviewTree, setCurrentPreviewTree] = useState(false)
     const [localCurrentSurvey, setLocalCurrentSurvey] = useState('')
@@ -21,19 +22,15 @@ export const SurveyEditor = () => {
         querySurveyTrees()
     }, [])
 
-    // useEffect(() => {
-    //     console.log('currentSurveyTrees', currentSurveyTrees);
 
-    // }, [currentSurveyTrees])
 
     const querySurveyTrees = async () => {
-        console.log('query()');
-        let trees = await treeService.querySurveyTrees(currentSurvey.surveyTitle)
+        let trees = await treeService.querySurveyTrees(currentSurvey.surveyTitle,loggedInUser?.username)
         setCurrentSurveyTrees(trees)
         if (Object.keys(currentSurvey).length === 0) {
             const storageTreeId = storageService.loadFromStorage('surveyId')
             if (storageTreeId) {
-                let trees = await treeService.querySurveyTrees(storageTreeId.surveyTitle)
+                let trees = await treeService.querySurveyTrees(storageTreeId.surveyTitle,loggedInUser?.username)
                 setLocalCurrentSurvey(storageTreeId)
                 setCurrentSurveyTrees(trees)
             }

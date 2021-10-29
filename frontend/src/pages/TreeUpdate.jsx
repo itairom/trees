@@ -17,7 +17,6 @@ export const TreeUpdate = () => {
     const params = useParams()
     let history = useHistory()
 
-
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const [surveyId, setSurveyId] = useState('')
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
@@ -60,10 +59,11 @@ export const TreeUpdate = () => {
         if (tree === values)
             return Object.values(temp).every(x => x === "")
     }
-
+    
     const isLessThenFiveInput = (field) => {
         return (field <= 5 && field >= 0) ? "" : "קלט צריך להיות בין 0 ל 5"
     }
+
     const isEmptyInput = (field) => {
         const length = (field + '').length
         return (length > 0) ? "" : "הכנס ערך"

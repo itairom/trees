@@ -1,12 +1,6 @@
-import { keys } from "@material-ui/core/styles/createBreakpoints"
 import React, { useEffect, useState } from "react"
-import { utilService } from "../services/utilService"
-
-
-
 
 export const TreesTypesTable = ({ trees }) => {
-
 
     const [treeTypeObj, setTreeTypeObj] = useState([])
     const [treeTypeKeysArr, setTreeTypeKeysArr] = useState([])
@@ -22,11 +16,6 @@ export const TreesTypesTable = ({ trees }) => {
         const { typeValue } = tree.type
         return (+canopy + +typeValue + +location + +health)
     }
-
-    // const calculateMonetaryValue = (tree) => {
-    //     let sum = (calculateValue(tree) / 5) * 20
-    //     return sum
-    // }
 
     const ValueColor = (tree) => {
         let sum = calculateValue(tree)

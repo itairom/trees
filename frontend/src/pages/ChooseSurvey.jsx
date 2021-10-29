@@ -1,4 +1,4 @@
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import React, { useCallback, useEffect, useState } from 'react'
 import { treeService } from '../services/treeService';
 import { MenuItem, Select, FormControl, InputLabel } from '@material-ui/core';
@@ -17,12 +17,15 @@ export const ChooseSurvey = () => {
     const handleOnClickNext = useCallback(() => history.push('/survey_editor'), [history]);
     const handleOnClickBack = useCallback(() => history.push('/'), [history]);
     const { currentSurvey } = useSelector(state => state.TreeModule)
+    const { loggedInUser, loginErr } = useSelector(state => state.appModule)
 
 
     useEffect(() => {
         (async () => {
-            const resp = await treeService.querySurveyIdList()
-            setSurveyIdList(resp)
+            if(loggedInUser){
+                const resp = await treeService.querySurveyIdList(loggedInUser)
+                setSurveyIdList(resp)
+            }
         })()
     }, [])
 
