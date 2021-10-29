@@ -66,3 +66,29 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+    "@autocomplete/material-ui": "0.0.17",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "file-saver": "^2.0.5",
+    "google-map-react": "^2.1.10",
+    "history": "^4.10.1",
+    "html2pdf.js": "^0.10.1",
+    "jss-rtl": "^0.3.0",
+    "lodash": "^4.17.21",
+    "node-sass": "^4.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.12.0",
+    "react-html-table-to-excel": "^2.0.0",
+    "react-images-uploading": "^3.1.3",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "xlsx": "^0.17.1"

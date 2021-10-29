@@ -33,7 +33,7 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
 
 export const useFormCreateSurvey = (initialState, cb = () => { }) => {
   const [fields, setFields] = useState(initialState)
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
 
   useEffect(() => {
     cb(fields)
@@ -102,7 +102,7 @@ export const useGeolocation = () => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(onSucsess, onError)
-  },[])
+  }, [])
 
   const onSucsess = (position) => {
     setLocation({

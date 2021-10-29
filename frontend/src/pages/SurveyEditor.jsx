@@ -10,40 +10,50 @@ export const SurveyEditor = () => {
 
     const dispatch = useDispatch()
     const { currentSurvey, isTreePreviewShowen } = useSelector(state => state.TreeModule)
+    const { loggedInUser } = useSelector(state => state.appModule)
+
     const [isAddingTree, setIsAddingTree] = useState(true)
-    // const [isAddingTree, setIsAddingTree] = useState(false)
     const [currentSurveyTrees, setCurrentSurveyTrees] = useState([])
     const [currentPreviewTree, setCurrentPreviewTree] = useState(false)
-    const [localCurrentSurvey, setLocalCurrentSurvey] = useState('')
+    const [localCurrentSurvey, setLocalCurrentSurvey] = useState(null)
 
 
     useEffect(() => {
         querySurveyTrees()
     }, [])
 
-    // useEffect(() => {
-    //     console.log('currentSurveyTrees', currentSurveyTrees);
 
-    // }, [currentSurveyTrees])
 
     const querySurveyTrees = async () => {
-        console.log('query()');
-        let trees = await treeService.querySurveyTrees(currentSurvey.surveyTitle)
+        let trees = await treeService.querySurveyTrees(currentSurvey?.surveyTitle,loggedInUser?.username)
         setCurrentSurveyTrees(trees)
-        if (Object.keys(currentSurvey).length === 0) {
+        setLocalCurrentSurvey(currentSurvey)
+        if (!currentSurvey) {
             const storageTreeId = storageService.loadFromStorage('surveyId')
             if (storageTreeId) {
-                let trees = await treeService.querySurveyTrees(storageTreeId.surveyTitle)
+                let trees = await treeService.querySurveyTrees(storageTreeId.surveyTitle,loggedInUser?.username)
                 setLocalCurrentSurvey(storageTreeId)
                 setCurrentSurveyTrees(trees)
             }
         }
     }
+    // const querySurveyTrees = async () => {
+    //     let trees = await treeService.querySurveyTrees(currentSurvey?.surveyTitle,loggedInUser?.username)
+    //     setCurrentSurveyTrees(trees)
+    //     if (Object.keys(currentSurvey).length === 0) {
+    //         const storageTreeId = storageService.loadFromStorage('surveyId')
+    //         if (storageTreeId) {
+    //             let trees = await treeService.querySurveyTrees(storageTreeId.surveyTitle,loggedInUser?.username)
+    //             setLocalCurrentSurvey(storageTreeId)
+    //             setCurrentSurveyTrees(trees)
+    //         }
+    //     }
+    // }
 
     return (
         <section className="main-container rtl">
             {/* <h1><span>{currentSurvey.surveyTitle}</span> טופס סקר עצים </h1> */}
-            <h1>טופס סקר עצים <span>{localCurrentSurvey.surveyTitle}</span>  </h1>
+            <h1>טופס סקר עצים <span>{localCurrentSurvey?.surveyTitle}</span>  </h1>
             <div className="add-tree">
                 {<p onClick={(ev) => {
                     ev.preventDefault()

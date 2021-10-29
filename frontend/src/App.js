@@ -5,12 +5,13 @@ import './assets/main.css'
 import './assets/style/main.scss'
 import { About } from './pages/About';
 import { TreesSurvey } from './pages/TreesSurvey';
-import { TreesForm } from './cmps/TreesForm';
 import { ChooseSurvey } from './pages/ChooseSurvey';
 import { CreateSurvey } from './pages/CreateSurvey';
 import { SurveyEditor } from './pages/SurveyEditor';
 import { TreeUpdate } from './pages/TreeUpdate';
 import { Home } from './pages/Home';
+import { Login } from './cmps/Login';
+import { Signup } from './cmps/Signup';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path="/survey_editor" component={ SurveyEditor } />
         <Route path="/choose_survey" component={ ChooseSurvey } />
         <Route path="/create_survey" component={ CreateSurvey } />
+        <Route path="/login" component={ Login } />
+        <Route path="/signup" component={ Signup } />
         <Route path="/" component={ Home } />
       </Switch>
     </div>
