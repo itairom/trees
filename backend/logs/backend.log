@@ -108,3 +108,304 @@
 10/27/2021, 7:47:46 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
 10/27/2021, 7:47:47 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
 10/27/2021, 7:47:47 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-02.z1890.mongodb.net 
+10/28/2021, 5:42:56 PM - DEBUG - auth.service - signup with username: , fullname:  
+10/28/2021, 5:42:57 PM - ERROR - Failed to signup fullname, username and password are required! 
+10/28/2021, 5:45:14 PM - DEBUG - auth.service - signup with username: , fullname:  
+10/28/2021, 5:45:14 PM - ERROR - Failed to signup fullname, username and password are required! 
+10/28/2021, 5:54:07 PM - DEBUG - auth.service - signup with username: , fullname:  
+10/28/2021, 5:54:07 PM - ERROR - Failed to signup fullname, username and password are required! 
+10/28/2021, 5:54:53 PM - DEBUG - auth.service - signup with username: , fullname:  
+10/28/2021, 5:54:53 PM - ERROR - Failed to signup fullname, username and password are required! 
+10/28/2021, 5:55:41 PM - DEBUG - auth.service - signup with username: , fullname:  
+10/28/2021, 5:55:41 PM - ERROR - Failed to signup fullname, username and password are required! 
+10/28/2021, 5:56:27 PM - DEBUG - auth.service - signup with username: , fullname:  
+10/28/2021, 5:56:27 PM - ERROR - Failed to signup fullname, username and password are required! 
+10/28/2021, 5:58:23 PM - DEBUG - auth.service - signup with username: , fullname:  
+10/28/2021, 5:58:23 PM - ERROR - Failed to signup fullname, username and password are required! 
+10/28/2021, 6:00:06 PM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/28/2021, 6:00:07 PM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$iakZwsO.GzfbHizDzsPHIeIgK/xcLI0gsRyfZXk0FU4y2ldAOOHbC","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-28T15:00:06.000Z","_id":"617abaf74e935d55bfbfecbb"} 
+10/28/2021, 6:00:07 PM - DEBUG - auth.service - login with username: itai 
+10/28/2021, 6:00:07 PM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/28/2021, 6:01:22 PM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/28/2021, 6:01:22 PM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$F4.Cb9oJ2cZewQP0QMp85uf22nPLU28MAslbmqaM5d1s/ec2rp5DO","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-28T15:01:22.000Z","_id":"617abb424e935d55bfbfecbd"} 
+10/28/2021, 6:01:22 PM - DEBUG - auth.service - login with username: itai 
+10/28/2021, 6:01:22 PM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/28/2021, 6:02:53 PM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/28/2021, 6:02:54 PM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$1PxXcnqUun2JqrXXDZtFIuy5rcJbgMNHsK.HIuyDSuVyRU4PbiVoy","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-28T15:02:53.000Z","_id":"617abb9d4e935d55bfbfecbf"} 
+10/28/2021, 6:02:54 PM - DEBUG - auth.service - login with username: itai 
+10/28/2021, 6:02:54 PM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/28/2021, 6:03:36 PM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/28/2021, 6:03:36 PM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$oRWg1S0z6oOk11mY1gXML.wWzzOZhWK9iEzGpdrAa6PbVSRLk6dtK","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-28T15:03:36.000Z","_id":"617abbc84e935d55bfbfecc1"} 
+10/28/2021, 6:03:36 PM - DEBUG - auth.service - login with username: itai 
+10/28/2021, 6:03:36 PM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/28/2021, 6:04:53 PM - DEBUG - auth.service - login with username: adiv1234 
+10/28/2021, 6:04:53 PM - ERROR - Failed to Login Invalid username or password 
+10/28/2021, 6:05:00 PM - DEBUG - auth.service - login with username: adiv1234 
+10/28/2021, 6:05:01 PM - ERROR - Failed to Login Invalid username or password 
+10/28/2021, 6:46:52 PM - DEBUG - auth.service - login with username: adiv1234 
+10/28/2021, 6:46:53 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 12:21:51 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:21:51 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:22:49 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:22:49 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:24:51 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:24:51 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:30:24 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:30:24 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:30:44 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:30:44 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:30:46 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:30:46 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:30:50 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:30:50 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:31:02 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:31:02 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:31:29 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:31:29 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:35:26 AM - DEBUG - auth.service - signup with username: , fullname:  
+10/29/2021, 12:35:26 AM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:46:20 AM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/29/2021, 12:46:20 AM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$P.b4RLvpxc7ayx19osu6BuQLbGXAeUtT.2TKUYVkEDPERcc3YCNIC","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-28T21:46:20.000Z","_id":"617b1a2c4e935d55bfbfecc3"} 
+10/29/2021, 12:46:20 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 12:46:21 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 12:46:42 AM - DEBUG - auth.service - signup with username: itai12, fullname: itairom12 
+10/29/2021, 12:46:42 AM - DEBUG - auth.route - new account created: {"username":"itai12","password":"$2b$10$wRt8TbiCoVwJ/BBAG7EXm.xGxLZvLGL7N0x08Ja1HAe8LFlBydING","fullname":"itairom12","isAdmin":false,"isOnline":false,"createdAt":"2021-10-28T21:46:42.000Z","_id":"617b1a424e935d55bfbfecc5"} 
+10/29/2021, 12:46:42 AM - DEBUG - auth.service - login with username: itai12 
+10/29/2021, 12:46:42 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 12:47:25 AM - DEBUG - auth.service - login with username: adiv1234 
+10/29/2021, 12:47:26 AM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 12:47:47 AM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/29/2021, 12:47:48 AM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$dJ1.RM6FgrztwciCT3eMhO/hiqdy5FqRdE4DPIJSyoHAfcdgV.FKe","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-28T21:47:48.000Z","_id":"617b1a844e935d55bfbfecc7"} 
+10/29/2021, 12:47:48 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 12:47:48 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 12:47:56 AM - DEBUG - auth.service - login with username: adiv1234 
+10/29/2021, 12:47:56 AM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 1:08:29 AM - DEBUG - auth.service - login with username: adiv1234 
+10/29/2021, 1:08:30 AM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 1:29:06 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 1:29:07 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 1:31:12 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 1:31:12 AM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 11:03:41 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:03:42 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:03:58 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:03:58 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:06:27 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:06:27 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:09:52 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:09:53 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:10:22 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:10:23 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:16:24 AM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/29/2021, 11:16:24 AM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$kxG3lL2z9hOoiOXTjP7//eiqP56UbXos7qBh2hcSq9cjGN/HRthpW","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:16:24.000Z","_id":"617badd82b5d6604d3e0c312"} 
+10/29/2021, 11:16:24 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:16:25 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:16:37 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:16:38 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:22:23 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:22:24 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:27:46 AM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/29/2021, 11:27:46 AM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$y.yUck0WSU2k56qk.jQ.weiwGXnDSMwh1sLB3Zzt61K/xMO5wjpJu","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:27:46.000Z","_id":"617bb082120eb7d01f5415d9"} 
+10/29/2021, 11:27:46 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:27:46 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:31:22 AM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/29/2021, 11:31:22 AM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$L11oenFjFEZnDrUMz.VS8Ov5dxCtytXQFjbbQ0Nxs4l28zTwYafpe","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:31:22.000Z","_id":"617bb15a120eb7d01f5415db"} 
+10/29/2021, 11:31:22 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:31:23 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:32:19 AM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/29/2021, 11:32:20 AM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$i6ajcWlyX9ol8wqDSxXeouZthZR8Em0QcIjmYgFS5/0olV/t9YOAG","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:32:19.000Z","_id":"617bb193120eb7d01f5415dd"} 
+10/29/2021, 11:32:20 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:32:20 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:35:43 AM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/29/2021, 11:35:45 AM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$jIHF6NFAWmyfEM/dEr3oYOe61WpA1FX1wb.RMGOCsUZKWDYk0SKWi","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:35:44.000Z","_id":"617bb2618c3f4e62ad9dc0bc"} 
+10/29/2021, 11:35:45 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:35:45 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:37:56 AM - DEBUG - auth.service - signup with username: itai, fullname: itairom 
+10/29/2021, 11:37:57 AM - DEBUG - auth.route - new account created: {"username":"itai","password":"$2b$10$bE.FcdGsQNOE/HMuXuXi/.k230s/19MINmh9BriTq6oD8fxVutK7K","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:37:57.000Z","_id":"617bb2e58c3f4e62ad9dc0be"} 
+10/29/2021, 11:37:57 AM - DEBUG - auth.service - login with username: itai 
+10/29/2021, 11:37:57 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:51:37 AM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 11:51:38 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$OcB9pQ5dWFkoEQtRQ1kzPeYFpCkzqW9dQjZWX4K2vM15TG1KlPIA2","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:51:37.000Z","_id":"617bb61a6f26f6702dbd0a20"} 
+10/29/2021, 11:51:38 AM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 11:51:38 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:52:39 AM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 11:52:40 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$Ld7DCfuSUsXSK0jRtxBBQuFoxDq4Ba71WjJonjndMuBQ08W71.H3m","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:52:39.000Z","_id":"617bb6588e94a4f1b07acc8e"} 
+10/29/2021, 11:52:40 AM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 11:52:41 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:54:00 AM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 11:54:01 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$GMBzKk3P4YlYVbyOP92tnuSXOubQJ41IEioKhSZH//1Rxf4h0u.vK","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T08:54:00.000Z","_id":"617bb6a97146b8489b61c2c8"} 
+10/29/2021, 11:54:01 AM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 11:54:01 AM - ERROR - Failed to signup TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:54:14 AM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 11:54:14 AM - ERROR - Failed to Login TypeError: Cannot set property 'user' of undefined 
+10/29/2021, 11:58:37 AM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:03:21 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 12:03:22 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$QIYCXNR04bUUnFVLrFJYWuIJDI68QCO8oKNc1dnosYW.khIFSLrQe","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T09:03:22.000Z","_id":"617bb8da650ffc847a0b0203"} 
+10/29/2021, 12:03:22 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:24:52 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:26:34 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:40:23 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:40:23 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 12:40:34 PM - DEBUG - auth.service - signup with username: itairom, fullname:  
+10/29/2021, 12:40:34 PM - ERROR - Failed to signup fullname, username and password are required! 
+10/29/2021, 12:40:40 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 12:40:40 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$bDCZvYqg8mw.pphzJu3DsevJ1kGV.SZEpNw0qZITsEnTuNbzlQL7y","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T09:40:40.000Z","_id":"617bc1985235bfed33beba05"} 
+10/29/2021, 12:40:40 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:48:21 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 12:48:21 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$Sz.KmzOLDNywhoQdBx2oF.UePyN72Oqm2tv2.mXtzAFVn1RzetMja","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T09:48:21.000Z","_id":"617bc365a84d65ba5c5111db"} 
+10/29/2021, 12:48:21 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:49:48 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 12:49:48 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$rS/6VsUV57bWkvrNbRInHeMX3v4iOHESVwgBpoR.EQ4PKHGB2Pvey","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T09:49:48.000Z","_id":"617bc3bc4e7c8e72e6351d4e"} 
+10/29/2021, 12:49:48 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:56:44 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 12:56:44 PM - ERROR - cannot insert user | ReferenceError: logger is not defined 
+10/29/2021, 12:56:44 PM - ERROR - Failed to signup ReferenceError: logger is not defined 
+10/29/2021, 12:56:51 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 12:56:51 PM - ERROR - cannot insert user | ReferenceError: logger is not defined 
+10/29/2021, 12:56:51 PM - ERROR - Failed to signup ReferenceError: logger is not defined 
+10/29/2021, 12:56:57 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 12:56:58 PM - ERROR - cannot insert user | ReferenceError: logger is not defined 
+10/29/2021, 12:56:58 PM - ERROR - Failed to signup ReferenceError: logger is not defined 
+10/29/2021, 12:57:32 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 12:57:34 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$vic3vuDmyb3.N0twa.WcjeicR9xQgu1Qe.0O1duA0Fl2iozVS43YC","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T09:57:32.000Z","_id":"617bc58d5397fccb568358eb"} 
+10/29/2021, 12:57:34 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 12:58:03 PM - DEBUG - auth.service - signup with username: user, fullname: user 
+10/29/2021, 12:58:03 PM - DEBUG - auth.route - new account created: {"username":"user","password":"$2b$10$AFWOHtjDnR1MPpGmZU5wyegsCToQf3pc44Dk4/tQdRLnrcP3/BArK","fullname":"user","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T09:58:03.000Z","_id":"617bc5ab5397fccb568358ed"} 
+10/29/2021, 12:58:03 PM - DEBUG - auth.service - login with username: user 
+10/29/2021, 12:59:46 PM - DEBUG - auth.service - signup with username: user, fullname: user 
+10/29/2021, 12:59:46 PM - DEBUG - auth.route - new account created: {"username":"user","password":"$2b$10$rlbEGAuioSw0KkGwynZ0wOq3gsMvTtEe47T4.exbz5vdJTdlnTECa","fullname":"user","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T09:59:46.000Z","_id":"617bc6124141b6617f80e42f"} 
+10/29/2021, 12:59:46 PM - DEBUG - auth.service - login with username: user 
+10/29/2021, 1:00:59 PM - DEBUG - auth.service - signup with username: user2, fullname: user2 
+10/29/2021, 1:01:00 PM - DEBUG - auth.route - new account created: {"username":"user2","password":"$2b$10$jEofa.kcL1E3kQyj3.hxVutol8jt70oPud4Zg8UWbklILgSwzt.Tm","fullname":"user2","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T10:00:59.000Z","_id":"617bc65ca422c969f45507e0"} 
+10/29/2021, 1:01:00 PM - DEBUG - auth.service - login with username: user2 
+10/29/2021, 1:05:06 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 1:05:06 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$uV8i/cVYri1KbmmKGuRLSeicx32F7xMYVWd7GHKeujG1aKhqhfM/a","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T10:05:06.000Z","_id":"617bc752a837d10ecde38b6a"} 
+10/29/2021, 1:05:06 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 1:05:37 PM - DEBUG - auth.service - signup with username: itairom2, fullname: itairom2 
+10/29/2021, 1:05:39 PM - ERROR - cannot insert user | ReferenceError: logger is not defined 
+10/29/2021, 1:05:39 PM - ERROR - Failed to signup ReferenceError: logger is not defined 
+10/29/2021, 1:05:49 PM - DEBUG - auth.service - signup with username: itairom2, fullname: itairom2 
+10/29/2021, 1:05:49 PM - ERROR - cannot insert user | ReferenceError: logger is not defined 
+10/29/2021, 1:05:49 PM - ERROR - Failed to signup ReferenceError: logger is not defined 
+10/29/2021, 1:06:08 PM - DEBUG - auth.service - signup with username: itairom2, fullname: itairom2 
+10/29/2021, 1:06:08 PM - ERROR - cannot insert user | ReferenceError: logger is not defined 
+10/29/2021, 1:06:08 PM - ERROR - Failed to signup ReferenceError: logger is not defined 
+10/29/2021, 1:06:38 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 1:06:49 PM - ERROR - cannot insert user | ReferenceError: logger is not defined 
+10/29/2021, 1:06:49 PM - ERROR - Failed to signup ReferenceError: logger is not defined 
+10/29/2021, 1:07:20 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 1:07:22 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$7VJTPyOu/PfUxuAQ8NG9mOdFA6I6IiQVvqpdeXbuNAOGHtnTiQ1y.","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T10:07:20.000Z","_id":"617bc7d97b0fcd7e5f1211c8"} 
+10/29/2021, 1:07:22 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 1:18:31 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 1:18:32 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$4pE3VjxEAVdHiT1GgmJPUu/tvt3SujqITFniHjIP15UIiQYvB5f0e","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T10:18:31.000Z","_id":"617bca783613130833e41369"} 
+10/29/2021, 1:18:32 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 1:39:55 PM - ERROR - cannot save tree | ReferenceError: tree is not defined 
+10/29/2021, 1:41:09 PM - ERROR - cannot save tree | TypeError: Cannot read property '_id' of undefined 
+10/29/2021, 1:42:25 PM - ERROR - cannot save tree | TypeError: Cannot read property '_id' of undefined 
+10/29/2021, 1:43:23 PM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
+10/29/2021, 1:43:27 PM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
+10/29/2021, 1:56:30 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 1:57:24 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 1:57:52 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 1:58:05 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 1:58:28 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 1:59:04 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:01:31 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:01:55 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:02:12 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:04:34 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:04:51 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:05:14 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:36:16 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:38:48 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:38:48 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:38:50 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:38:56 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:39:11 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:39:38 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:39:40 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:39:40 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:39:42 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:40:12 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:40:14 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:41:13 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:41:31 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:41:55 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:42:37 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:43:26 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:44:10 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:44:38 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:46:39 PM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/29/2021, 2:47:31 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:47:41 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:47:41 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 2:47:53 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/29/2021, 2:47:53 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$iUf7dniH1AsOGRe7./Mts.hjThebOILR9BOFPIu9VPukyAHN..Sxi","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T11:47:53.000Z","_id":"617bdf69c98c1872af5cec02"} 
+10/29/2021, 2:47:53 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:48:54 PM - DEBUG - auth.service - signup with username: itairom2, fullname: itairom2 
+10/29/2021, 2:48:54 PM - DEBUG - auth.route - new account created: {"username":"itairom2","password":"$2b$10$SFEKCNuf4QLwT50SXfP4ce8lw28tPqE8ZqCQ57sJMWUdI3gVaPZ2G","fullname":"itairom2","isAdmin":false,"isOnline":false,"createdAt":"2021-10-29T11:48:54.000Z","_id":"617bdfa6c98c1872af5cec05"} 
+10/29/2021, 2:48:54 PM - DEBUG - auth.service - login with username: itairom2 
+10/29/2021, 2:50:22 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:50:27 PM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
+10/29/2021, 2:50:27 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:50:33 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 2:50:38 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:51:15 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:51:16 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 2:51:17 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:51:17 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 2:51:58 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:59:50 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:59:51 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 2:59:57 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 2:59:57 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 3:00:09 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 3:00:09 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 3:00:13 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 3:00:13 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 3:00:20 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 3:00:20 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 3:03:44 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 3:03:47 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 3:04:20 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 3:13:09 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 3:13:25 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 3:32:00 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 3:32:01 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/29/2021, 4:00:38 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 4:04:05 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 4:14:01 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 4:21:23 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 4:22:06 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 4:22:18 PM - DEBUG - auth.service - login with username: itairom11 
+10/29/2021, 4:22:18 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 4:22:23 PM - DEBUG - auth.service - login with username: itairom 
+10/29/2021, 4:22:32 PM - DEBUG - auth.service - login with username: itairom1 
+10/29/2021, 4:22:32 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 4:22:35 PM - DEBUG - auth.service - login with username: itairom111 
+10/29/2021, 4:22:35 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 4:23:04 PM - DEBUG - auth.service - login with username: itairom111 
+10/29/2021, 4:23:04 PM - ERROR - Failed to Login Invalid username or password 
+10/29/2021, 4:24:10 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 12:21:35 AM - DEBUG - auth.service - login with username: itairom1 
+10/30/2021, 12:21:35 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 12:21:51 AM - DEBUG - auth.service - login with username: itairom2 
+10/30/2021, 12:21:54 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 12:21:54 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 12:22:17 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 12:22:19 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 12:25:21 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 12:25:22 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 12:26:15 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 12:26:15 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 12:26:25 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 12:29:12 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 12:29:30 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 12:33:30 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 12:35:18 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 12:53:05 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 12:54:32 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 12:55:59 AM - DEBUG - auth.service - login with username: itairom2 
+10/30/2021, 1:12:48 AM - DEBUG - auth.service - login with username: itairom2 
+10/30/2021, 1:51:15 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 1:51:15 AM - ERROR - Failed to Login Invalid username or password 
