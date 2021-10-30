@@ -14,14 +14,16 @@ export function onGoogleLogin(tokenId) {
 }
 
 export function onLogin(credentials = { username: 'adiv1234', password: '1234' }) {
-    
+
     return async dispatch => {
         try {
             const user = await userService.login(credentials)
             dispatch({ type: 'SET_USER', user })
             // socketService.emit('user-watch', user._id)
-        } catch (err) {
-            console.log('UserActions: err in login', err)
+        } catch (error) {
+            console.log(error.response)
+            const { err } = error.response.data
+            dispatch({ type: 'LOGIN_ERR', err })
         }
     }
 }

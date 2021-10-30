@@ -1,34 +1,33 @@
 import { httpService } from "./httpService"
 
 
-async function save(tree,user) {
-    await httpService.put(`tree/save`, [tree,user])
+async function save(tree, user) {
+    await httpService.put(`tree/save`, [tree, user])
         .then((res) => {
             console.log(res);
         })
 
 }
-async function queryTrees(tableId,username) {
-    let trees = await httpService.get(`tree/`,[tableId,username])
+async function queryTrees(tableId, username) {
+    let trees = await httpService.get(`tree/`, [tableId, username])
     return trees
 }
 async function getTreeById(treeId) {
     let tree = await httpService.get(`tree/${treeId}`)
     return tree
 }
-async function removeTree(treeId) {
-    console.log("🚀 ~ file: treeService.js ~ line 16 ~ removeTree ~ treeId", treeId)
-    let removedTree = await httpService.delete(`tree/${treeId}`)
+async function removeTree(treeId, username) {
+    let removedTree = await httpService.delete(`tree/${treeId}&${username}`)
     return removedTree
 }
 
 async function querySurveyIdList(loggedInUser) {
-    let trees = await httpService.get(`tree/survey_id_list`,loggedInUser)
+    let trees = await httpService.get(`tree/survey_id_list`, loggedInUser)
     return trees
 }
-async function querySurveyTrees(surveyId,username) {
+async function querySurveyTrees(surveyId, username) {
     console.log("🚀 ~ file: treeService.js ~ line 30 ~ querySurveyTrees ~ username", username)
-    let trees = await httpService.get(`tree/survey_trees`,[surveyId,username])
+    let trees = await httpService.get(`tree/survey_trees`, [surveyId, username])
     return trees
 }
 

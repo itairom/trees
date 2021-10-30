@@ -30,11 +30,11 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
     useEffect(() => {
         onSetTreeType(treeObj)
         setDisplay(false)
-    }, [treeObj])
+    }, [treeObj,onSetTreeType])
 
 
 
-    const onSetSearch = useCallback(debounce(setSearch))
+    const onSetSearch = useCallback(debounce(setSearch),[])
 
     const setTree = (tree) => {
         setTreeObj(tree)

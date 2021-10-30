@@ -13,7 +13,7 @@ import { ImgUpload } from './ImgUpload';
 export const TreesForm = ({ querySurveyTrees }) => {
 
     const { currentSurvey } = useSelector(state => state.TreeModule)
-    const { loggedInUser, loginErr } = useSelector(state => state.appModule)
+    const { loggedInUser } = useSelector(state => state.appModule)
     
     const [surveyId, setSurveyId] = useState('')
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
@@ -84,7 +84,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
 
     const {
         values,
-        setValues,
+        // setValues,
         errors,
         setErrors,
         handleInputChange,

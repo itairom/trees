@@ -37,7 +37,8 @@ export const useFormCreateSurvey = (initialState, cb = () => { }) => {
 
   useEffect(() => {
     cb(fields)
-  }, [fields])
+
+  }, [fields,cb])
 
   return [
 
@@ -58,7 +59,7 @@ export const useError = (initialState, cb = () => { }) => {
 
   useEffect(() => {
     cb(fields)
-  }, [fields])
+  }, [fields,cb])
 
   return [
     fields,
@@ -79,7 +80,7 @@ export const useHandleModal = (initialState, cb = () => { }) => {
 
   useEffect(() => {
     cb(fields)
-  }, [fields])
+  }, [fields,cb])
 
   return [
     fields,

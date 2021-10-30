@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { toggleIsTreePreviewShowen } from '../actions/TreeActions'
 import { treeService } from '../services/treeService'
@@ -9,12 +9,15 @@ export const TreePreview = ({ tree, querySurveyTrees }) => {
     const dispatch = useDispatch()
     const [isRemove, setIsRemove] = useState(false)
     const history = useHistory()
+    const { loggedInUser } = useSelector(state => state.appModule)
+
+
 
     useEffect(() => {
     })
 
     const onRemoveTree = () => {
-        treeService.removeTree(tree._id)
+        treeService.removeTree(tree._id,loggedInUser.username)
         querySurveyTrees()
     }
 
@@ -31,8 +34,8 @@ export const TreePreview = ({ tree, querySurveyTrees }) => {
                 <p>היתכנות העתקה: {tree?.movingPossibility}</p>
                 <p>המלצה: {tree?.recommendation}</p>
             </div>
-            {tree.imgUrl !== '' && <img src={tree?.imgUrl} alt="tree image" />}
-            {tree.imgUrl === '' && <img src='imgs/tree_silhouette.png' alt="tree image" />}
+            {tree.imgUrl !== '' && <img src={tree?.imgUrl} alt="tree" />}
+            {tree.imgUrl === '' && <img src='imgs/tree_silhouette.png' alt="tree" />}
             <div className="options">
                 <div
                     className="remove-btn btn"

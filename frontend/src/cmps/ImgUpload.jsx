@@ -17,7 +17,7 @@ export const ImgUpload = ({ onGetImgUrl }) => {
                 onGetImgUrl(imgUrl.secure_url)
             }
         })()
-    }, [images])
+    }, [images,onGetImgUrl])
 
 
     const onChange = (imageList, addUpdateIndex) => {

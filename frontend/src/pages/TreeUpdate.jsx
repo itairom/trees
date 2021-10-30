@@ -21,7 +21,7 @@ export const TreeUpdate = () => {
     const [surveyId, setSurveyId] = useState('')
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
     const [treeType, setType] = useState('')
-    const [imgUrl, setImgUrl] = useState('')
+    // const [imgUrl, setImgUrl] = useState('')
 
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
@@ -94,8 +94,8 @@ export const TreeUpdate = () => {
         setInputRef()
         setTextAreaRef()
     }, [tree])
-    const setInputRef = () => {
 
+    const setInputRef = () => {
         const inputsRef = document.querySelectorAll('input')
         inputsRef.forEach(input => {
             const name = input.name
@@ -124,9 +124,9 @@ export const TreeUpdate = () => {
         }
     }, [surveyId])
 
-    const onGetImgUrl = (img) => {
-        setImgUrl(img)
-    }
+    // const onGetImgUrl = (img) => {
+    //     setImgUrl(img)
+    // }
 
     const onSetTreeType = (treeTypeObj) => {
         setType(treeTypeObj);

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 // import { GoogleLogin } from 'react-google-login'
 import { useDispatch } from 'react-redux';
 import { onLogin } from '../actions/appActions'
@@ -11,23 +11,15 @@ import { storageService } from '../services/storageService';
 
 export function Login() {
 
-  const { loggedInUser, loginErr } = useSelector(state => state.appModule)
-  const [pageMode, setPageMode] = useState(null)
+  const {  loginErr } = useSelector(state => state.appModule)
   const history = useHistory()
-  const location = useLocation()
+  // const location = useLocation()
   const dispatch = useDispatch()
 
   const credentials = {
     username: '',
     password: ''
   }
-
-
-  useEffect(() => {
-    if (loggedInUser) history.push('/')
-    const pageMode = location.pathname === '/login' ? 'login' : 'signup'
-    setPageMode(pageMode)
-  }, [])
 
   useEffect(() => {
     console.log('loginErr', loginErr);
@@ -74,10 +66,11 @@ export function Login() {
             <ErrorMessage name="password" component="div" />
             <Field type="password" placeholder="Enter password" name="password" />
             <button type="submit" className="primary-btn login-signup-btn">Log in</button>
+            {loginErr&& <div className="err-msg">שם משתמש או סיסמא לא נכונים</div> }
           </Form>
         </Formik>
         <hr />
-        <Link to="/signup">Sign up for an account</Link>
+        <Link to="/signup">? עדיין לא רשום</Link>
       </div>
     </section>
   )

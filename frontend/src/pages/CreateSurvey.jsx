@@ -6,7 +6,7 @@ import { setCurrentSurvey } from '../actions/TreeActions'
 import { storageService } from '../services/storageService';
 
 
-export const CreateSurvey = () => {
+export function CreateSurvey () {
 
 
     const history = useHistory();
@@ -23,7 +23,6 @@ export const CreateSurvey = () => {
     const addNewSurvey = async () => {
         await dispatch(setCurrentSurvey(survey))
         storageService.saveToStorage('surveyId', survey)
-
         handleOnClick()
     }
 

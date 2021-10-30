@@ -3,9 +3,9 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    // background-color: rgba(0, 0, 0, 0.666);
+    background-color: rgba(0, 0, 0, 0.666);
     // background-image: url('/imgs/wallpaper.jpg');
-    // background-blend-mode: overlay;
+    background-blend-mode: overlay;
     .new-survey {
         font-size: 2em;
         margin-top: 20px;
@@ -22,15 +22,6 @@
         background-color: rgb(15, 116, 156);
         color: white;
     }
-    @include for-narrow-layout {
-        background-color: green;
-        // display: none;
-    }
-    @include for-normal-layout {
-        background-color: red;
-        // display: none;
-    }
-background-color: aqua;
 
 }
 
