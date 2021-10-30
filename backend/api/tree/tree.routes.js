@@ -7,7 +7,7 @@ router.get('/', getSurveyTrees)
 router.get('/survey_id_list', querySurveyIdList)
 router.get('/survey_trees', getSurveyTrees)
 router.put('/save', addTree)
-router.delete('/:treeId', removeTree)
+router.delete('/:treeId&:username', removeTree)
 router.get('/:treeId', getTreeById)
 
 module.exports = router

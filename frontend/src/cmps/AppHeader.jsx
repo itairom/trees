@@ -16,7 +16,7 @@ export function AppHeader() {
     const headerRef = useRef()
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
+        // window.addEventListener('scroll', handleScroll)
         let storageId = storageService.loadFromStorage('surveyId')
         if (storageId) {
             console.log("🚀 ~ file: AppHeader.jsx ~ line 20 ~ useEffect ~ storageId", storageId)
@@ -24,8 +24,8 @@ export function AppHeader() {
         }
 
         return () => {
-            window.removeEventListener('scroll', handleScroll)  
-        } 
+            // window.removeEventListener('scroll', handleScroll)
+        }
 
     }, [])
 
@@ -41,15 +41,13 @@ export function AppHeader() {
         console.log('localSurveyId', localSurveyId);
     }, [localSurveyId])
 
-   const handleScroll = () => {
-       console.log('inin');
+    const handleScroll = () => {
         if (window.pageYOffset > 40) {
             headerRef.current.className = 'main-nav fixed'
         } else {
             headerRef.current.className = 'main-nav'
         }
     }
-
 
     const changeMobile = () => {
         setIsMobile(prev => prev = !prev)
@@ -58,16 +56,16 @@ export function AppHeader() {
     return (
         <header className="app-header">
             <nav ref={headerRef} className="main-nav">
-                {!isMobile && <div className="left-nav">
-                    <Link to='/trees'><span>סקר עצים סופי</span></Link>
-                    <Link to='/'><span>טופס סקר עצים</span></Link>
+                {loggedInUser && !isMobile && <div className="left-nav ">
+                    <p className="current-survey"><span>סקר</span> {localSurveyId?.surveyTitle}</p>
+                    <Link to='/trees'><span>סקר סופי</span></Link>
+                    <Link to='/'><span>בחר סקר</span></Link>
                     {localSurveyId && <Link to='/survey_editor'><span>הוספת עץ</span></Link>}
-                    <a className="current-survey"><span>סקר </span>{localSurveyId?.surveyTitle}</a>
                 </div>}
                 {isMobile && <div onClick={changeMobile} className="mobile-nav">
-                    <p>סקר <span>{localSurveyId}</span></p>
-                    <Link to='/trees'><span>סקר עצים סופי</span></Link>
-                    <Link to='/'><span>טופס סקר עצים</span></Link>
+                    <p>סקר <span>{localSurveyId?.surveyTitle}</span></p>
+                    <Link to='/trees'><span>סקר סופי</span></Link>
+                    <Link to='/'><span>בחר סקר</span></Link>
                     {localSurveyId && <Link to='/survey_editor'><span>הוספת עץ</span></Link>}
                 </div>}
                 {isMobile && <div className="background-menu" onClick={changeMobile}></div>}

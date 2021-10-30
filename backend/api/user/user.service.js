@@ -75,7 +75,7 @@ async function update(user) {
         }
         const collection = await dbService.getCollection('user')
         await collection.updateOne({ '_id': userToSave._id }, { $set: userToSave })
-        console.log('user in update',userToSave);
+        console.log('user in update', userToSave);
         return userToSave;
     } catch (err) {
         logger.error(`cannot update user ${user._id}`, err)
@@ -97,14 +97,38 @@ async function add(user) {
             createdAt: ObjectId(user._id).getTimestamp()
         }
         const collection = await dbService.getCollection('user')
-        const Treecollection = await dbService.createCollection(userToAdd.username) //Check if collection exist
-        await collection.insertOne(userToAdd)
-        return userToAdd
+        const isUserExist = await collection.findOne({ 'username': username })
+        // console.log("🚀 ~ file: user.service.js ~ line 101 ~ add ~ userExist", userExist)
+        // checkUserExist(isUserExist, userToAdd)
+        if (isUserExist) {
+            console.log('user already exist');
+            return 'user already exist'
+        }
+        else {
+            console.log('new user!');
+            await dbService.createCollection(userToAdd.username) //Check if collection exist
+            await collection.insertOne(userToAdd)
+            return userToAdd
+        }
     } catch (err) {
         logger.error('cannot insert user', err)
         throw err
     }
 }
 
+async function checkUserExist(isUserExist, userToAdd) {
+    try {
+        if (!isUserExist)
+            console.log('new user!');
+        await dbService.createCollection(userToAdd.username) //Check if collection exist
+        await collection.insertOne(userToAdd)
+        return userToAdd
+    }
+    catch (err) {
+        console.log('user already exist');
+        throw err
+        // return 'user already exist'
+    }
+}
 
 

@@ -409,3 +409,127 @@
 10/30/2021, 1:12:48 AM - DEBUG - auth.service - login with username: itairom2 
 10/30/2021, 1:51:15 AM - DEBUG - auth.service - login with username: itairom3 
 10/30/2021, 1:51:15 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:03:05 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:03:06 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:04:28 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:04:28 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:08:03 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:08:03 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:09:31 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:09:31 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:11:19 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:11:19 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:11:41 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:11:41 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:13:25 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:13:25 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:13:56 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 2:13:57 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:15:19 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:15:19 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:16:10 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 2:16:10 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:17:03 AM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
+10/30/2021, 2:17:05 AM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
+10/30/2021, 2:17:11 AM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
+10/30/2021, 2:18:26 AM - DEBUG - auth.service - login with username: itairom4 
+10/30/2021, 2:18:26 AM - ERROR - Failed to Login Invalid username or password 
+10/30/2021, 2:22:28 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 2:55:43 AM - ERROR - cannot  querySurveyIdList | ReferenceError: logger is not defined 
+10/30/2021, 2:57:20 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 3:01:04 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 3:01:33 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 3:06:09 AM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/30/2021, 3:06:17 AM - ERROR - cannot  querySurveyIdList | TypeError: Cannot read property 'surveyTitle' of undefined 
+10/30/2021, 9:21:25 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 9:21:27 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 9:36:32 AM - DEBUG - auth.service - signup with username: itairom, fullname: 1 
+10/30/2021, 9:36:32 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$NmldBapxX4AX50lhE6oyXO7K.z7nXiw/NwyDT4EtIrHJd85/tflYC","fullname":"1","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T06:36:32.000Z","_id":"617ce7f0aba2af010be51584"} 
+10/30/2021, 9:36:32 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 9:38:49 AM - DEBUG - auth.service - signup with username: itairom, fullname: ff 
+10/30/2021, 9:38:50 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$XwrQ/wL9BOrHT4cl3h5Mw.wewzDuO66lX6PugY4uoer2wnU8C5RqW","fullname":"ff","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T06:38:50.000Z","_id":"617ce87aaba2af010be51586"} 
+10/30/2021, 9:38:50 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 9:43:34 AM - DEBUG - auth.service - signup with username: itairom, fullname: איתי רום 
+10/30/2021, 9:43:34 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$.mJ0Gg6PmbIq5Qe2THuAyORCRB4pplZjFojghiXQAKnptPRS6t4t2","fullname":"איתי רום","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T06:43:34.000Z","_id":"617ce996c87c3adb16f95a89"} 
+10/30/2021, 9:43:34 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 9:47:34 AM - DEBUG - auth.service - signup with username: itairom, fullname: ff 
+10/30/2021, 9:47:35 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$TR7O0cM1xJozhFGyPCbdzuGA2j1spAPIXcZDmUVLStEHbD.iZFiLe","fullname":"ff","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T06:47:34.000Z","_id":"617cea87900613163250893a"} 
+10/30/2021, 9:47:35 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 9:54:34 AM - DEBUG - auth.service - signup with username: itairom, fullname: f2222 
+10/30/2021, 9:54:35 AM - ERROR - cannot insert user | TypeError: Cannot read property '_eventsCount' of undefined 
+10/30/2021, 9:54:35 AM - ERROR - Failed to signup TypeError: Cannot read property '_eventsCount' of undefined 
+10/30/2021, 10:08:33 AM - DEBUG - auth.service - signup with username: itairom, fullname: itairom2 
+10/30/2021, 10:08:36 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$mWHVyKA0pPolj6dIthSDLePWO4teXqKBjApMw8vIlR7Aum91bdA7G","fullname":"itairom2","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T07:08:33.000Z","_id":"617cef74d76cff657132c589"} 
+10/30/2021, 10:08:36 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 10:09:45 AM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 10:09:45 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$v/lI/fdpIv7LgLQHeBSg6OxYLME5mpHRzFZ2OzAfvC8PVcQUK6dnm","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T07:09:45.000Z","_id":"617cefb9498e6ea0ebbcc67c"} 
+10/30/2021, 10:09:45 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 10:10:14 AM - DEBUG - auth.service - signup with username: itairom3, fullname: itairom 
+10/30/2021, 10:10:14 AM - DEBUG - auth.route - new account created: {"username":"itairom3","password":"$2b$10$f9DbvjtiA/I1FR91sQIYq.BUYLk1vbRZ/c8tnGLcxbbPxE8qTEtuu","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T07:10:14.000Z","_id":"617cefd6498e6ea0ebbcc67e"} 
+10/30/2021, 10:10:14 AM - DEBUG - auth.service - login with username: itairom3 
+10/30/2021, 10:12:15 AM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 10:12:16 AM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$ejJHWjLj4dFY2lS2eoBtUOcfVy1wXnAnIdKvL.6IZRMA4nFSlvftC","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T07:12:15.000Z","_id":"617cf0507d14de6d54d95180"} 
+10/30/2021, 10:12:16 AM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 2:40:13 PM - DEBUG - auth.service - signup with username: itairom, fullname: איתי רום 
+10/30/2021, 2:40:14 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$PUgp44olZlQ0CpDis6pyJezAbckbnvIGvsFmJRMH94x.5pmib9YZC","fullname":"איתי רום","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T11:40:13.000Z","_id":"617d2f1e7d14de6d54d95182"} 
+10/30/2021, 2:40:14 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 2:42:48 PM - DEBUG - auth.service - signup with username: itairom, fullname: איתי רום 
+10/30/2021, 2:42:48 PM - DEBUG - auth.route - new account created: {"username":"itairom","password":"$2b$10$sfxFPgph4prnGqaJV9e4Q.Dn96Ikm52F1mHsFo9ndcKWA2KNCtNYG","fullname":"איתי רום","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T11:42:48.000Z","_id":"617d2fb83a0051b845dff9fb"} 
+10/30/2021, 2:42:48 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 2:43:53 PM - DEBUG - auth.service - signup with username: itairom, fullname: איתי רום 
+10/30/2021, 2:43:53 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 2:43:53 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 2:47:16 PM - DEBUG - auth.service - signup with username: itairom, fullname: איתי רום 
+10/30/2021, 2:47:17 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 2:47:17 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 2:47:17 PM - ERROR - Failed to signup Invalid username or password 
+10/30/2021, 2:48:14 PM - DEBUG - auth.service - signup with username: itairom, fullname: איתי רום 
+10/30/2021, 2:48:15 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 2:48:36 PM - DEBUG - auth.service - signup with username: itairom, fullname: איתי רום 
+10/30/2021, 2:48:36 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 2:48:56 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom2 
+10/30/2021, 2:48:56 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 2:50:22 PM - DEBUG - auth.service - signup with username: itairom, fullname: איתי רום 
+10/30/2021, 2:50:22 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 2:51:28 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 2:51:28 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 2:52:35 PM - DEBUG - auth.service - signup with username: itairom3, fullname: itairom 
+10/30/2021, 2:52:36 PM - DEBUG - auth.route - new account created: {"username":"itairom3","password":"$2b$10$/GT4R1VqHnXc3U23vSdvN./KnpV5IErgvd.Auh8f/Kwl5dFWpFE5G","fullname":"itairom","isAdmin":false,"isOnline":false,"createdAt":"2021-10-30T11:52:35.000Z","_id":"617d32043b4e4543ca3b5981"} 
+10/30/2021, 3:25:16 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 3:25:16 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 3:26:52 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 3:26:54 PM - DEBUG - auth.route - new account created: "user already exist" 
+10/30/2021, 3:29:46 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 3:30:38 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 3:30:56 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:25:30 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:25:31 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:26:49 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:35:00 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:35:58 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:37:34 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:39:12 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:40:35 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:40:37 PM - ERROR - cannot insert user | ReferenceError: userExist is not defined 
+10/30/2021, 4:40:37 PM - ERROR - Failed to signup ReferenceError: userExist is not defined 
+10/30/2021, 4:41:22 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:41:33 PM - DEBUG - auth.service - signup with username: itairom, fullname: itairom 
+10/30/2021, 4:46:13 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:46:42 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:46:51 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:47:02 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:47:21 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:47:39 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:48:03 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 4:48:51 PM - DEBUG - auth.service - login with username: itairom2 
+10/30/2021, 4:49:08 PM - DEBUG - auth.service - login with username: itairom2 
+10/30/2021, 4:49:34 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 5:36:02 PM - DEBUG - auth.service - login with username: itairom 
+10/30/2021, 6:10:51 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
+10/30/2021, 6:11:43 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
+10/30/2021, 6:13:42 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
+10/30/2021, 6:14:03 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
+10/30/2021, 6:18:15 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
+10/30/2021, 6:19:30 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+10/30/2021, 6:24:55 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
+10/30/2021, 6:26:31 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 

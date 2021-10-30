@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { onLogout } from "../actions/appActions";
 import { storageService } from "../services/storageService";
 
@@ -44,7 +44,6 @@ export function UserInfo() {
                         </Link>}
                     </div>
                 </div>}
-            <img src="./imgs/header/menu.svg" alt="icon" />
             <img className="profile-icon" src="./imgs/header/user.svg" alt="icon" />
         </div>
         // <div className="user-info flex column grey">

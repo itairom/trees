@@ -134,16 +134,7 @@ footer {
     background-color: #f38181;
 }
 
-.btn {
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    background-color: #fce38a;
-    font-weight: 600;
-    color: #232323;
-    border: 0;
-    cursor: pointer;
-}
+
 .dark{
     background-color: #373737;
     color: white;

@@ -35,8 +35,6 @@ async function createCollection(collectionName) {
             console.log('in');
             await db.createCollection(`${collectionName}`)
         }
-
-
         return 'collection'
     } catch (err) {
         logger.error('Failed to get Mongo collection', err)

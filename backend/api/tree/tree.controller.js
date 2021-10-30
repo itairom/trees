@@ -22,8 +22,8 @@ async function getTreeById(req, res) {
 }
 async function removeTree(req, res) {
     try {
-        const currentTreeId = req.params.treeId
-        const removedTree = await treeService.removeTree(currentTreeId)
+        const { treeId, username } = req.params 
+        const removedTree = await treeService.removeTree(treeId, username)
         res.send('remove tree', removedTree)
     } catch (err) {
         res.status(500).send({ err: 'failed to remove tree' })
@@ -41,11 +41,10 @@ async function querySurveyIdList(req, res) {
 }
 async function getSurveyTrees(req, res) {
     try {
-        console.log(req.query);
         const surveyId = req.query[0]
         const username = req.query[1]
 
-        const trees = await treeService.querySurveyTrees(surveyId,username)
+        const trees = await treeService.querySurveyTrees(surveyId, username)
         res.send(trees)
     } catch (err) {
         res.status(500).send({ err: 'failed to get Trees' })
@@ -54,7 +53,6 @@ async function getSurveyTrees(req, res) {
 
 async function addTree(req, res) {
     try {
-        console.log(req.body);
         const tree = await treeService.save(req.body)
         res.send(tree)
     } catch (err) {
@@ -74,5 +72,5 @@ async function addTree(req, res) {
 
 
 module.exports = {
-     addTree, querySurveyIdList, getSurveyTrees, removeTree, getTreeById
+    addTree, querySurveyIdList, getSurveyTrees, removeTree, getTreeById
 }
