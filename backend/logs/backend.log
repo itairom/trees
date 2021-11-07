@@ -533,3 +533,4 @@
 10/30/2021, 6:19:30 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
 10/30/2021, 6:24:55 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
 10/30/2021, 6:26:31 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
+10/31/2021, 11:40:53 AM - DEBUG - auth.service - login with username: itairom 

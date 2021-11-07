@@ -129,3 +129,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
   //   "test": "react-scripts test",
   //   "eject": "react-scripts eject"
   // },
+
+  const session = expressSession({
+    secret: '512gs2154%$!^@gs9',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+})
+
+app.use(session)
