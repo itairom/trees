@@ -5,9 +5,6 @@ const logger = require('../../services/logger.service')
 async function query(tableId, username) {
 
     try {
-        // const collection = await dbService.getCollection('tree')
-        console.log('id,username', tableId, username);
-
         const collection = await dbService.getCollection(username)
         const trees = await collection.find({ surveyId: tableId }).toArray()
         return trees
@@ -27,9 +24,9 @@ async function removeTree(treeId, username) {
         throw err
     }
 }
-async function queryTreeById(treeId) {
+async function queryTreeById(treeId, username) {
     try {
-        const collection = await dbService.getCollection('tree')
+        const collection = await dbService.getCollection(username)
         const tree = await collection.findOne({ "_id": ObjectId(treeId) })
         return tree
     } catch (err) {
@@ -56,7 +53,6 @@ async function querySurveyIdList(username) {
 }
 async function querySurveyTrees(id, username) {
     try {
-        console.log('id,username', id, username);
         const collection = await dbService.getCollection(username)
         const trees = await collection.find({ 'surveyId.surveyTitle': id }).toArray()
         return trees

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import {AppHeader } from './cmps/AppHeader'
+import { AppHeader } from './cmps/AppHeader'
 import './assets/main.css'
 import './assets/style/main.scss'
 import { About } from './pages/About';
@@ -15,18 +15,18 @@ import { Signup } from './cmps/Signup';
 
 function App() {
   return (
-    <div className="content-wrapper">
-      <AppHeader/>
-      <Switch>
-        <Route path="/about" component={ About } />
-        <Route path="/trees" component={ TreesSurvey } />
-        <Route path="/tree_update/:treeId" component={ TreeUpdate } />
-        <Route path="/survey_editor" component={ SurveyEditor } />
-        <Route path="/choose_survey" component={ ChooseSurvey } />
-        <Route path="/create_survey" component={ CreateSurvey } />
-        <Route path="/login" component={ Login } />
-        <Route path="/signup" component={ Signup } />
-        <Route path="/" component={ Home } />
+    <div id="swup" className="transition content-wrapper">
+      <AppHeader />
+      <Switch> 
+        <Route path="/about" component={About} />
+        <Route path="/trees" component={TreesSurvey} />
+        <Route path="/tree_update/:treeId" component={TreeUpdate} />
+        <Route path="/survey_editor" component={SurveyEditor} />
+        <Route path="/choose_survey" component={ChooseSurvey} />
+        <Route path="/create_survey" component={CreateSurvey} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/" component={Home} />
       </Switch>
     </div>
   );

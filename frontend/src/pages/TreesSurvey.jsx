@@ -20,12 +20,14 @@ export const TreesSurvey = () => {
     useEffect(() => {
         
         async function queryTrees() {
+            console.log(loggedInUser,'loggedInUser');
             setTableIdList(await treeService.querySurveyIdList(loggedInUser))
             setTrees(await treeService.queryTrees(currentSurvey?.surveyTitle,loggedInUser?.username))
-            if (currentSurvey) {
+            if (!currentSurvey) {
                 let storageId = await storageService.loadFromStorage('surveyId')
+                let loggedinUser = await storageService.loadFromStorage('loggedinUser')
                 if (storageId) {
-                    setTrees(await treeService.queryTrees(storageId?.surveyTitle))
+                    setTrees(await treeService.queryTrees(storageId.surveyTitle,loggedinUser.username))
                     setLocalSurveyId(storageId)
                 }
             }
@@ -46,10 +48,9 @@ export const TreesSurvey = () => {
         
     },[currentSurvey,loggedInUser])
 
-    // const downloadAsPdf = () => {
-    //     let el = document.querySelector('#main-survey')
-    //     html2pdf(el);
-    // }
+useEffect(()=>{
+    console.log('trees',trees);
+},[trees])
 
     return (
         <section id="main-survey" className="main-container   flex">

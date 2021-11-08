@@ -1,12 +1,19 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useImperativeHandle, forwardRef } from 'react'
 
 
-export const FormAutocomplete = ({ onSetTreeType, options }) => {
-
+export const FormAutocomplete = forwardRef(({ onSetTreeType, options }, ref) => {
+    useImperativeHandle(
+        ref, () => ({
+            onResetAutocomplete() {
+                setTreeObj({})
+                setSearch('')
+            }
+        })
+    )
     const [display, setDisplay] = useState(false)
     // const [options, setOptions] = useState([])
     const [search, setSearch] = useState('')
-    const [treeObj, setTreeObj] = useState('')
+    const [treeObj, setTreeObj] = useState({})
 
 
     useEffect(() => {
@@ -27,14 +34,15 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
     }
 
 
+
     useEffect(() => {
         onSetTreeType(treeObj)
         setDisplay(false)
-    }, [treeObj,onSetTreeType])
+    }, [treeObj, onSetTreeType])
 
 
 
-    const onSetSearch = useCallback(debounce(setSearch),[])
+    const onSetSearch = useCallback(debounce(setSearch), [])
 
     const setTree = (tree) => {
         setTreeObj(tree)
@@ -43,7 +51,15 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
 
     return (
         <section className="autocomplete-form">
-            <input onChange={(ev) => { onSetSearch(ev.target.value) }} name="type" value={search} type="text" placeholder=" מין העץ" onClick={() => { setDisplay(!display) }} />
+            <input
+                onChange={(ev) => { onSetSearch(ev.target.value) }}
+                className="autocomplete-input"
+                name="type"
+                value={search}
+                type="text"
+                placeholder=" מין העץ"
+                autoComplete="off"
+                onClick={() => { setDisplay(!display) }} />
             {display &&
                 <div className="autocomplete-container">
                     {options.filter((option) => option?.label?.includes(search)).map((v, i) => {
@@ -58,4 +74,4 @@ export const FormAutocomplete = ({ onSetTreeType, options }) => {
             }
         </section>
     )
-}
+})

@@ -8,7 +8,6 @@ async function login(req, res) {
     const { username, password } = req.body
     try {
         const user = await authService.login(username, password)
-        console.log("🚀 ~ file: auth.controller.js ~ line 11 ~ login ~ user", user)
         req.session.user = user
         res.json(user)
     } catch (err) {

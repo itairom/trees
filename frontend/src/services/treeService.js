@@ -12,8 +12,8 @@ async function queryTrees(tableId, username) {
     let trees = await httpService.get(`tree/`, [tableId, username])
     return trees
 }
-async function getTreeById(treeId) {
-    let tree = await httpService.get(`tree/${treeId}`)
+async function getTreeById(treeId,username) {
+    let tree = await httpService.get(`tree/${treeId}&${username}`)
     return tree
 }
 async function removeTree(treeId, username) {
@@ -26,7 +26,6 @@ async function querySurveyIdList(loggedInUser) {
     return trees
 }
 async function querySurveyTrees(surveyId, username) {
-    console.log("🚀 ~ file: treeService.js ~ line 30 ~ querySurveyTrees ~ username", username)
     let trees = await httpService.get(`tree/survey_trees`, [surveyId, username])
     return trees
 }

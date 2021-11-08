@@ -9,16 +9,20 @@ import Input from './form/input';
 import { storageService } from '../services/storageService';
 import FormModal from './form/FormModal';
 import { ImgUpload } from './ImgUpload';
+import { useRef } from 'react';
 
 export const TreesForm = ({ querySurveyTrees }) => {
 
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
-    
+
     const [surveyId, setSurveyId] = useState('')
+    const [isImgReady, setIsImgReady] = useState(false)
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
-    const [treeType, setType] = useState('')
+    const [treeType, setType] = useState(null)
     const [imgUrl, setImgUrl] = useState('')
+    const childRef = useRef();
+
 
     const initialFValues = {
         quantity: '',
@@ -114,6 +118,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
 
     const onResetForm = () => {
         resetForm()
+        childRef.current.onResetAutocomplete()
         const inputsRef = document.querySelectorAll('input')
         const textareaRef = document.querySelectorAll('textarea')
         inputsRef.forEach(input => {
@@ -125,6 +130,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
     }
 
     const onGetImgUrl = (img) => {
+        // setIsImgReady(true)
         setImgUrl(img)
     }
 
@@ -144,13 +150,14 @@ export const TreesForm = ({ querySurveyTrees }) => {
 
     const submitForm = (ev) => {
         ev.preventDefault()
+        if (!treeType) return alert('בחר מין עץ')
         const treeCopy = { ...values }
         treeCopy.type = treeType
         treeCopy.surveyId = surveyId
         treeCopy.imgUrl = imgUrl
         if (validate()) {
             console.log('SUBMIT');
-            treeService.save(treeCopy,loggedInUser)
+            treeService.save(treeCopy, loggedInUser)
             HandleIsModalShown(!isModalShown.isAddingTree)
             querySurveyTrees()
             onResetForm()
@@ -166,7 +173,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                             <input type="checkbox" name="isPalmTree" id="isPalmTree" onChange={(ev) => { setIsPalmTree(ev) }} />
                             עץ דקל
                         </label>
-                        <FormAutocomplete options={treeTypeOptions} onSetTreeType={onSetTreeType} />
+                        <FormAutocomplete ref={childRef} options={treeTypeOptions} onSetTreeType={onSetTreeType} />
                     </div>
                     <div className="input-container">
                         <p>מספר עץ</p>
@@ -353,7 +360,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
                 </div>
                 <ImgUpload onGetImgUrl={onGetImgUrl} />
                 <Button onClick={(ev) => submitForm(ev)} color="primary" variant="outlined">הוסף עץ </Button>
-
 
                 {isModalShown.isAddingTree &&
                     <div

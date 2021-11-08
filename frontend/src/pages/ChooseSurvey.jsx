@@ -26,22 +26,11 @@ export const ChooseSurvey = () => {
         (async () => {
             if (loggedInUser) {
                 const resp = await treeService.querySurveyIdList(loggedInUser)
+                console.log("🚀 ~ file: ChooseSurvey.jsx ~ line 29 ~ resp", resp)
                 setSurveyIdList(resp)
             }
         })()
     }, [])
-
-
-    // useEffect(() => {
-    //     let filterdList = surveyIdList.filter(tree => { return tree.surveyTitle === currentSurveyId })
-    //     console.log("🚀 ~ file: ChooseSurvey.jsx ~ line 35 ~ useEffect ~ filterdList", surveyIdList)
-    //     if (filterdList.length === 1) {
-    //         storageService.saveToStorage('surveyId', surveyIdList[0])
-    //         dispatch(setCurrentSurvey(surveyIdList[0]))
-    //     }
-    //     else return
-    // }, [surveyIdList])
-
 
     useEffect(() => {
         let filterdList = surveyIdList.filter(tree => { return tree.surveyTitle === currentSurveyId })
@@ -92,12 +81,12 @@ export const ChooseSurvey = () => {
                     <p>חזור</p>
                 </div>
             </>}
-            {(surveyIdList.length === 0)&&<>
+            {(surveyIdList.length === 0)&&<> 
                 <h1>הוסף סקר ראשון</h1>
-                {/* <div className="next-btn button"
+                <div className="next-btn button"
                     onClick={() => { handleOnClickCreate() }} >
                         <p>הוסף סקר</p>
-                </div> */}
+                </div>
                 <CreateSurvey />
             </>}
         </section>

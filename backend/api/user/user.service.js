@@ -45,7 +45,6 @@ async function getByUsername(username) {
     try {
         const collection = await dbService.getCollection('user')
         const user = await collection.findOne({ username })
-        console.log('user from mongodb', user)
         return user
     } catch (err) {
         logger.error(`while finding user ${username}`, err)
@@ -84,7 +83,6 @@ async function update(user) {
 }
 
 async function add(user) {
-    console.log("🚀 ~ file: user.service.js ~ line 87 ~ add ~ user", user)
     const { username, password, fullname } = user
     try {
         // peek only updatable fields!
@@ -98,7 +96,6 @@ async function add(user) {
         }
         const collection = await dbService.getCollection('user')
         const isUserExist = await collection.findOne({ 'username': username })
-        // console.log("🚀 ~ file: user.service.js ~ line 101 ~ add ~ userExist", userExist)
         // checkUserExist(isUserExist, userToAdd)
         if (isUserExist) {
             console.log('user already exist');

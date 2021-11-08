@@ -8,8 +8,8 @@ export function Home() {
     const history = useHistory()
 
     useEffect(() => {
-        console.log(loggedInUser);
-        if (!loggedInUser) history.push('/login')
+        // console.log(loggedInUser);
+        // if (!loggedInUser) history.push('/login')
     }, [])
 
     return (

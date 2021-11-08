@@ -2,7 +2,8 @@ import { userService } from '../services/userService'
 
 const initialState = {
     workspace: [],
-    loggedInUser: userService.getLoggedinUser(),
+    // loggedInUser: userService.getLoggedinUser(),
+    loggedInUser: {"username":"itairom"},
     onlineUsers: [],
     loginErr: null,
     currPopover: {

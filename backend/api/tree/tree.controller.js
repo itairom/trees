@@ -13,8 +13,8 @@ const STORAGE_KEY = 'trees'
 // }
 async function getTreeById(req, res) {
     try {
-        const { treeId } = req.params
-        const tree = await treeService.queryTreeById(treeId)
+        const { treeId,username } = req.params
+        const tree = await treeService.queryTreeById(treeId,username)
         res.send(tree)
     } catch (err) {
         res.status(500).send({ err: 'failed to get Tree by ID' })
@@ -22,7 +22,7 @@ async function getTreeById(req, res) {
 }
 async function removeTree(req, res) {
     try {
-        const { treeId, username } = req.params 
+        const { treeId, username } = req.params
         const removedTree = await treeService.removeTree(treeId, username)
         res.send('remove tree', removedTree)
     } catch (err) {

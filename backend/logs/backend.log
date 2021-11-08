@@ -534,3 +534,47 @@
 10/30/2021, 6:24:55 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
 10/30/2021, 6:26:31 PM - ERROR - cannot remove tree | ReferenceError: logger is not defined 
 10/31/2021, 11:40:53 AM - DEBUG - auth.service - login with username: itairom 
+11/7/2021, 12:54:37 PM - DEBUG - auth.service - login with username: itairom 
+11/7/2021, 12:57:06 PM - DEBUG - auth.service - login with username: itairom2 
+11/7/2021, 12:57:06 PM - ERROR - Failed to Login Invalid username or password 
+11/7/2021, 12:57:18 PM - DEBUG - auth.service - signup with username: itairom2, fullname: itairom2 
+11/7/2021, 12:57:22 PM - DEBUG - auth.service - login with username: itairom2 
+11/7/2021, 12:57:23 PM - ERROR - Failed to Login Invalid username or password 
+11/7/2021, 12:57:31 PM - DEBUG - auth.service - login with username: itairom2 
+11/7/2021, 1:26:59 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:27:02 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:27:08 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:27:17 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:27:46 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:28:28 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:28:30 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:29:22 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:29:33 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:29:38 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:30:16 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:32:22 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:33:00 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:33:15 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 1:33:52 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/7/2021, 2:19:29 PM - DEBUG - auth.service - login with username: itairom 
+11/7/2021, 2:19:43 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:19:44 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:24:30 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:24:30 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:31:41 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:31:41 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:37:59 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:37:59 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:40:44 PM - DEBUG - auth.service - login with username: itairom 
+11/7/2021, 2:41:17 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:41:18 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:46:35 PM - DEBUG - auth.service - login with username: itairom 
+11/7/2021, 2:46:43 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/7/2021, 2:49:23 PM - DEBUG - auth.service - login with username: itairom 
+11/7/2021, 2:49:32 PM - ERROR - cannot find trees | ReferenceError: logger is not defined 
+11/8/2021, 3:07:15 PM - DEBUG - auth.service - login with username: itairom 
+11/8/2021, 7:18:54 PM - ERROR - cannot get tree by Id | TypeError: Argument passed in must be a Buffer or string of 12 bytes or a string of 24 hex characters 
+11/8/2021, 7:22:19 PM - ERROR - cannot get tree by Id | ReferenceError: logger is not defined 
+11/8/2021, 7:22:25 PM - ERROR - cannot get tree by Id | ReferenceError: logger is not defined 
+11/8/2021, 7:24:22 PM - ERROR - cannot get tree by Id | ReferenceError: logger is not defined 
+11/8/2021, 7:24:30 PM - ERROR - cannot get tree by Id | ReferenceError: logger is not defined 

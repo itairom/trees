@@ -19,7 +19,6 @@ export function AppHeader() {
         // window.addEventListener('scroll', handleScroll)
         let storageId = storageService.loadFromStorage('surveyId')
         if (storageId) {
-            console.log("🚀 ~ file: AppHeader.jsx ~ line 20 ~ useEffect ~ storageId", storageId)
             setLocalSurveyId(storageId)
         }
 
@@ -31,15 +30,9 @@ export function AppHeader() {
 
     useEffect(() => {
         if (currentSurvey) {
-            console.log(currentSurvey);
             setLocalSurveyId(currentSurvey)
         }
     }, [currentSurvey])
-
-
-    useEffect(() => {
-        console.log('localSurveyId', localSurveyId);
-    }, [localSurveyId])
 
     const handleScroll = () => {
         if (window.pageYOffset > 40) {
@@ -56,7 +49,8 @@ export function AppHeader() {
     return (
         <header className="app-header">
             <nav ref={headerRef} className="main-nav">
-                {loggedInUser && !isMobile && <div className="left-nav ">
+                { !isMobile && <div className="left-nav ">
+                {/* {loggedInUser && !isMobile && <div className="left-nav "> */}
                     <p className="current-survey"><span>סקר</span> {localSurveyId?.surveyTitle}</p>
                     <Link to='/trees'><span>סקר סופי</span></Link>
                     <Link to='/'><span>בחר סקר</span></Link>

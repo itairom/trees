@@ -13,16 +13,48 @@ import FormModal from '../cmps/form/FormModal';
 
 export const TreeUpdate = () => {
 
-    const [tree, setTree] = useState({})
     const params = useParams()
     let history = useHistory()
-
+    
     const { currentSurvey } = useSelector(state => state.TreeModule)
+    const { loggedInUser } = useSelector(state => state.appModule)
+    
+    const [tree, setTree] = useState({})
     const [surveyId, setSurveyId] = useState('')
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
     const [treeType, setType] = useState('')
     // const [imgUrl, setImgUrl] = useState('')
 
+    useEffect(() => {
+        (async () => {
+            const treeById = await treeService.getTreeById(params.treeId, loggedInUser.username)
+            setTree(treeById)
+        })()
+    }, [])
+    
+    useEffect(() => {
+        if (surveyId) {
+            if (Object.keys(surveyId).length === 0) {
+                let storageId = storageService.loadFromStorage('surveyId')
+                if (storageId) {
+                    setSurveyId(storageId)
+                }
+            }
+        }
+    }, [surveyId])
+    
+    useEffect(() => {
+        // setType(tree.type.label)
+
+        console.log('tree🌲',tree);
+        setTreeTypeOptions(formService.treeTypes)
+        setSurveyId(currentSurvey?.surveyTitle)
+        setInputRef()
+        setTextAreaRef()
+        
+    }, [tree])
+    
+    
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
         if ('health' in fieldValues)
@@ -48,10 +80,10 @@ export const TreeUpdate = () => {
         if ('description' in fieldValues)
             temp.description = isEmptyInput(fieldValues.description)
         if ('movingReason' in fieldValues)
-            temp.movingReason = isEmptyInput(fieldValues.movingReason)
+        temp.movingReason = isEmptyInput(fieldValues.movingReason)
         if ('recommendation' in fieldValues)
-            temp.recommendation = isEmptyInput(fieldValues.recommendation)
-
+        temp.recommendation = isEmptyInput(fieldValues.recommendation)
+        
         setErrors({
             ...temp
         })
@@ -59,7 +91,7 @@ export const TreeUpdate = () => {
         if (tree === values)
             return Object.values(temp).every(x => x === "")
     }
-    
+
     const isLessThenFiveInput = (field) => {
         return (field <= 5 && field >= 0) ? "" : "קלט צריך להיות בין 0 ל 5"
     }
@@ -83,23 +115,14 @@ export const TreeUpdate = () => {
         isAddingTree: ''
     })
 
-    useEffect(() => {
-        (async () => {
-            const treeById = await treeService.getTreeById(params.treeId)
-            setTree(treeById)
-        })()
-    }, [])
 
-    useEffect(() => {
-        setInputRef()
-        setTextAreaRef()
-    }, [tree])
 
     const setInputRef = () => {
+        console.log('setInputRef');
         const inputsRef = document.querySelectorAll('input')
         inputsRef.forEach(input => {
             const name = input.name
-            input.value = (name==='type')?  tree.type?.label :  tree[name]
+            input.value = (name === 'type') ? tree.type?.label : tree[name]
         })
     }
     const setTextAreaRef = () => {
@@ -110,19 +133,7 @@ export const TreeUpdate = () => {
         })
     }
 
-    useEffect(() => {
-        setTreeTypeOptions(formService.treeTypes)
-        setSurveyId(currentSurvey?.surveyTitle)
-    }, [])
 
-    useEffect(() => {
-        if (Object.keys(surveyId).length === 0) {
-            let storageId = storageService.loadFromStorage('surveyId')
-            if (storageId) {
-                setSurveyId(storageId)
-            }
-        }
-    }, [surveyId])
 
     // const onGetImgUrl = (img) => {
     //     setImgUrl(img)
@@ -144,12 +155,12 @@ export const TreeUpdate = () => {
 
     const submitForm = (ev) => {
         ev.preventDefault()
-        const mergeTree = { ...tree, type:treeType, ...values }
+        const mergeTree = { ...tree, type: treeType, ...values }
         console.log("🚀 ~ file: TreeUpdate.jsx ~ line 170 ~ submitForm ~ mergeTree", mergeTree)
         // if (validate()) {
         console.log('UPDATE');
-        treeService.save(mergeTree)
-        history.push('/survey_editor')
+        treeService.save(mergeTree, loggedInUser)
+        history.goBack()
         // }
     }
 

@@ -7,11 +7,10 @@ import { TreePreview } from '../cmps/TreePreview';
 import { toggleIsTreePreviewShowen } from '../actions/TreeActions';
 
 export const SurveyEditor = () => {
-
+    
     const dispatch = useDispatch()
     const { currentSurvey, isTreePreviewShowen } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
-
     const [isAddingTree, setIsAddingTree] = useState(true)
     const [currentSurveyTrees, setCurrentSurveyTrees] = useState([])
     const [currentPreviewTree, setCurrentPreviewTree] = useState(false)
@@ -51,8 +50,7 @@ export const SurveyEditor = () => {
     // }
 
     return (
-        <section className="main-container rtl">
-            {/* <h1><span>{currentSurvey.surveyTitle}</span> טופס סקר עצים </h1> */}
+        <section id="swup" className="main-container rtl">
             <h1>טופס סקר עצים <span>{localCurrentSurvey?.surveyTitle}</span>  </h1>
             <div className="add-tree">
                 {<p onClick={(ev) => {

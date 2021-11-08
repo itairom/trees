@@ -11,7 +11,7 @@ import { storageService } from '../services/storageService';
 
 export function Login() {
 
-  const {  loginErr } = useSelector(state => state.appModule)
+  const { loginErr } = useSelector(state => state.appModule)
   const history = useHistory()
   // const location = useLocation()
   const dispatch = useDispatch()
@@ -26,7 +26,10 @@ export function Login() {
   }, [loginErr])
 
   const onSubmit = (values) => {
+    const storageLocalUser = {}
+    storageLocalUser.username = values.username
     storageService.saveToStorage('surveyId', null) // Reset current survey
+    storageService.saveToStorage('loggedinUser', storageLocalUser) // Reset current survey
     dispatch(onLogin(values))
     history.push('/')
   }
@@ -66,7 +69,7 @@ export function Login() {
             <ErrorMessage name="password" component="div" />
             <Field type="password" placeholder="Enter password" name="password" />
             <button type="submit" className="primary-btn login-signup-btn">Log in</button>
-            {loginErr&& <div className="err-msg">שם משתמש או סיסמא לא נכונים</div> }
+            {loginErr && <div className="err-msg">שם משתמש או סיסמא לא נכונים</div>}
           </Form>
         </Formik>
         <hr />
