@@ -12,8 +12,15 @@
     margin-top: 50px;
     direction: rtl;
     table {
+        thead{
+            th{
+                // color: #272727 !important;
+            }
+        }
         border-spacing: 0px;
         tr {
+            // position: sticky;
+            background-color: white;
             th {
                 border: 1px black solid;
                 text-align: center;
@@ -22,6 +29,7 @@
             }
 
             td {
+                min-width: 60px;
                 text-align: center;
                 padding: 1px;
                 border: 1px black solid;

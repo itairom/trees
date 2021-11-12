@@ -14,7 +14,6 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
 
 
     useEffect(() => {
-        console.log(trees);
         setDraggableTrees(trees)
     }, [trees])
 
@@ -52,9 +51,9 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
         else return 'red'
     }
     const recommendationColor = (recommendation) => {
-        if (recommendation ==='כריתה') return 'yellow'
-        if (recommendation ==='שימור') return 'red'
-        if (recommendation ==='העתקה') return 'orange'
+        if (recommendation === 'כריתה') return 'yellow'
+        if (recommendation === 'שימור') return 'red'
+        if (recommendation === 'העתקה') return 'orange'
         else return 'blue'
     }
 
@@ -63,7 +62,6 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
         const items = Array.from(draggableTrees)
         const [reorderItem] = items.splice(result.source.index, 1)
         items.splice(result.destination.index, 0, reorderItem)
-        console.log('handleOnDragEnd', items);
         setDraggableTrees(items)
     }
 
@@ -119,10 +117,14 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
                                 {draggableTrees.map((tree, idx) => {
                                     return (
                                         <Draggable
-                                        key={tree._id} draggableId={tree._id} index={idx}>
+                                            key={tree._id} draggableId={tree._id} index={idx}>
                                             {(provided) => (
                                                 <tr
-                                                    className="row-style"
+                                                    style={{
+                                                        backgroundColor: 'red !important',
+                                                        position: 'absolute'
+                                                    }}
+
                                                     {...provided.draggableProps}
                                                     {...provided.dragHandleProps}
                                                     ref={provided.innerRef}>

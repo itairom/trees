@@ -26,7 +26,6 @@ export const ChooseSurvey = () => {
         (async () => {
             if (loggedInUser) {
                 const resp = await treeService.querySurveyIdList(loggedInUser)
-                console.log("🚀 ~ file: ChooseSurvey.jsx ~ line 29 ~ resp", resp)
                 setSurveyIdList(resp)
             }
         })()
@@ -35,7 +34,6 @@ export const ChooseSurvey = () => {
     useEffect(() => {
         let filterdList = surveyIdList.filter(tree => { return tree.surveyTitle === currentSurveyId })
         if (filterdList.length) {
-            console.log("🚀 ~ file: ChooseSurvey.jsx ~ line 46 ~ useEffect ~ filterdList", filterdList)
             storageService.saveToStorage('surveyId', filterdList[0])
             dispatch(setCurrentSurvey(filterdList[0]))
         }

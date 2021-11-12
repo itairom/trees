@@ -12,7 +12,7 @@ async function queryTrees(tableId, username) {
     let trees = await httpService.get(`tree/`, [tableId, username])
     return trees
 }
-async function getTreeById(treeId,username) {
+async function getTreeById(treeId, username) {
     let tree = await httpService.get(`tree/${treeId}&${username}`)
     return tree
 }
@@ -35,11 +35,32 @@ async function querySurveyTrees(surveyId, username) {
 //     return updatedPet
 // }
 
+const finalSurveyNote = () => {
+    return (
+        `<div>
+1 סקר זה הינו סקר נופי אגרונומי ואינו סקר הערכת סיכונים/סקר בטיחות.
+ . 2 אין לבצע את כריתת/העתקת העצים המומלצים אלא לאחר קבלת רישיון כריתה כחוק - מפקיד היערות העירוני.
+ . 3 כל פעולה העלולה לגרום מוות לעץ (כולל פגיעה/חיתוך שורשיו) – נחשבת עפ"י החוק ככריתה ללא היתר.
+ . 4 עץ המוגדר לשימור – אין לבצע עבודות גיזום נוף/גיזום שורשים - ללא תאום עם הח"מ.
+ . 5 עץ המוגדר לשימור – אין לבצע עבודות חפירה ו/או מילוי במרחק הקטן מ 3 - מ' מקצה גזע העץ – ללא תאום עם הח"מ.
+ . 6 תוקף הסקר 6 חודשים מביצוע הסק הרי בשטח.
+ . 7 עצים המאושרים לכריתה, יינטעו תמורתם עצים באותו הערך – כפיצוי נופי.
+ . 8 מספר העצים בהתאם לתכנית הסקר , יבוצע מייד עם הכניסה לביצוע העבודות באתר – הסימון יאושר ע"י המפקח והאגרונום.
+ . 9 כל העצים יסומנו ויוגנו בהתאם לפרט בגוף התכנית , טרם תחילת העבודות באתר.
+ .10 להלן תמונות העצים.
+ .11 מצ"ב מפת הסקר כולל סימון העצים ומספורם.
+</div>`
+    )
+}
+
+
+
 export const treeService = {
     save,
     queryTrees,
     querySurveyIdList,
     querySurveyTrees,
     removeTree,
-    getTreeById
+    getTreeById,
+    finalSurveyNote
 }

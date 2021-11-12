@@ -16,12 +16,14 @@
 @import "cmps/treesForm";
 @import "cmps/treesImages";
 @import "cmps/treePreview";
-@import "pages/treesTable";
-@import "pages/formAutocomplete";
+@import "cmps/treeUpdate";
+
 // PAGE
 
+@import "pages/formAutocomplete";
+@import "pages/treesTable";
 @import "pages/home";
-@import "pages/treesSurvey";
+@import "pages/finalSurvey";
 @import "pages/createSurvey";
 @import "pages/chooseSurvey";
 @import "pages/surveyEditor";

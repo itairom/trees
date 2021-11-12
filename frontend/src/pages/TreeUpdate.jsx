@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useParams, useHistory } from "react-router"
 import { treeService } from "../services/treeService"
 import { useForm, useHandleModal } from '../services/customHooks'
@@ -15,14 +15,15 @@ export const TreeUpdate = () => {
 
     const params = useParams()
     let history = useHistory()
-    
+
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
-    
+    const childRef = useRef();
+
     const [tree, setTree] = useState({})
     const [surveyId, setSurveyId] = useState('')
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
-    const [treeType, setType] = useState('')
+    const [treeType, setType] = useState({})
     // const [imgUrl, setImgUrl] = useState('')
 
     useEffect(() => {
@@ -31,7 +32,7 @@ export const TreeUpdate = () => {
             setTree(treeById)
         })()
     }, [])
-    
+
     useEffect(() => {
         if (surveyId) {
             if (Object.keys(surveyId).length === 0) {
@@ -42,19 +43,16 @@ export const TreeUpdate = () => {
             }
         }
     }, [surveyId])
-    
-    useEffect(() => {
-        // setType(tree.type.label)
 
-        console.log('tree🌲',tree);
+    useEffect(() => {
         setTreeTypeOptions(formService.treeTypes)
         setSurveyId(currentSurvey?.surveyTitle)
         setInputRef()
         setTextAreaRef()
-        
+
     }, [tree])
-    
-    
+
+
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
         if ('health' in fieldValues)
@@ -80,10 +78,10 @@ export const TreeUpdate = () => {
         if ('description' in fieldValues)
             temp.description = isEmptyInput(fieldValues.description)
         if ('movingReason' in fieldValues)
-        temp.movingReason = isEmptyInput(fieldValues.movingReason)
+            temp.movingReason = isEmptyInput(fieldValues.movingReason)
         if ('recommendation' in fieldValues)
-        temp.recommendation = isEmptyInput(fieldValues.recommendation)
-        
+            temp.recommendation = isEmptyInput(fieldValues.recommendation)
+
         setErrors({
             ...temp
         })
@@ -115,10 +113,7 @@ export const TreeUpdate = () => {
         isAddingTree: ''
     })
 
-
-
     const setInputRef = () => {
-        console.log('setInputRef');
         const inputsRef = document.querySelectorAll('input')
         inputsRef.forEach(input => {
             const name = input.name
@@ -156,12 +151,8 @@ export const TreeUpdate = () => {
     const submitForm = (ev) => {
         ev.preventDefault()
         const mergeTree = { ...tree, type: treeType, ...values }
-        console.log("🚀 ~ file: TreeUpdate.jsx ~ line 170 ~ submitForm ~ mergeTree", mergeTree)
-        // if (validate()) {
-        console.log('UPDATE');
         treeService.save(mergeTree, loggedInUser)
         history.goBack()
-        // }
     }
 
     return (
@@ -175,7 +166,7 @@ export const TreeUpdate = () => {
                                 <input type="checkbox" name="isPalmTree" id="isPalmTree" onChange={(ev) => { setIsPalmTree(ev) }} />
                                 עץ דקל
                             </label>
-                            <FormAutocomplete options={treeTypeOptions} onSetTreeType={onSetTreeType} />
+                            <FormAutocomplete ref={childRef} tree={tree.type} options={treeTypeOptions} onSetTreeType={onSetTreeType} />
                         </div>
                         <div className="input-container">
                             <p>מספר עץ</p>
@@ -297,16 +288,20 @@ export const TreeUpdate = () => {
                         </div>
                         <div className="input-container">
                             <p>היתכנות העתקה</p>
-                            <FormControl>
+                            <FormControl
+                                 className="update-select"
+                             >
                                 <Select
                                     // error={errors.movingPossibility}
                                     type="text"
                                     id="movingPossibility"
                                     name="movingPossibility"
                                     value={values.movingPossibility}
+                                  
                                     onChange={handleInputChange}>
                                     {formService.movingPossibility.map((option) => (
                                         <MenuItem
+                                    
                                             key={option.label}
                                             value={option.label}>
                                             {option.label}
@@ -317,7 +312,9 @@ export const TreeUpdate = () => {
                         </div>
                         <div className="input-container">
                             <p>המלצה</p>
-                            <FormControl >
+                            <FormControl 
+                                 className="update-select"
+                                 >
                                 <Select
                                     // error={errors.recommendation}
                                     type="text"

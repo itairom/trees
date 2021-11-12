@@ -69,19 +69,21 @@ export const TreesTypesTable = ({ trees }) => {
     return (
         <section className="trees-table flex">
             <table>
-                <tr>
-                    <th className="white">מין העץ/תאור
-                        הפוליגון</th>
-                    <th className="red">ערכיות גבוהה מאוד **</th>
-                    <th className="green">ערכיות גבוהה **</th>
-                    <th className="grey">ערכיות בינונית **</th>
-                    <th className="yellow">ערכיות נמוכה **</th>
-                    <th className="white">סה״כ</th>
-                </tr>
+                <thead>
+                    <tr key="tree-type-header">
+                        <th className="white">מין העץ/תאור
+                            הפוליגון</th>
+                        <th className="red">ערכיות גבוהה מאוד **</th>
+                        <th className="green">ערכיות גבוהה **</th>
+                        <th className="grey">ערכיות בינונית **</th>
+                        <th className="yellow">ערכיות נמוכה **</th>
+                        <th className="white">סה״כ</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {treeTypeKeysArr && treeTypeObj?.map((tree, idx) => {
                         return (
-                            <tr key={tree._id}>
+                            <tr key={'tree-type-' + idx}>
                                 {<td>{treeTypeKeysArr[idx]}</td>}
                                 {<td>{tree['veryHighPriority']}</td>}
                                 {<td>{tree['highPriority']}</td>}
@@ -92,7 +94,7 @@ export const TreesTypesTable = ({ trees }) => {
                         )
                     })}
                     <tr key='total-values'>
-                        {<td>סה״ב</td>}
+                        {<td>סה״כ</td>}
                         {<td>{totalvaluesArr['veryHighPriority']}</td>}
                         {<td>{totalvaluesArr['highPriority']}</td>}
                         {<td>{totalvaluesArr['mediumPriority']}</td>}

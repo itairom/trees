@@ -1,0 +1,19 @@
+.final-survey{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .trees-survey{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // #main-survey{
+            // }
+            
+            @include for-mobile-layout {
+                // display: none;
+                
+            }
+        }
+    }

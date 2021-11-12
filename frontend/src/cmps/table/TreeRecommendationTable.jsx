@@ -1,69 +1,89 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 
 export function TreeRecommendationTable({ trees }) {
 
+  const [recommendationTable, setRecommendationTable] = useState({
+
+  })
 
   useEffect(() => {
-    console.log('trees', trees);
-  }, [])
-  const calculateValue = (tree) => {
-    const { canopy, location, health } = tree
-    const { typeValue } = tree.type
-    return (+canopy + +typeValue + +location + +health)
-  }
+    console.log('trees recomand', trees);
+    sumRecommendations()
+  }, [trees])
 
-  // const calculateMonetaryValue = (tree) => {
-  //     let sum = (calculateValue(tree) / 5) * 20
-  //     return sum
-  // }
+  useEffect(() => {
+    console.log('recommendationTable', recommendationTable);
+  }, [recommendationTable])
 
-  // const ValueColor = (tree) => {
-  //   let sum = calculateValue(tree)
-  //   if (sum <= 6) return 'lowPriority'
-  //   else if (sum > 6 && 14 > sum) return 'mediumPriority'
-  //   else if (sum > 13 && 17 > sum) return 'highPriority'
-  //   else return 'veryHighPriority'
-  // }
-
-
-  const getTotalvaluesArr = () => {
-    return (
-      {
-        preserve: 0,
-        relocation: 0,
-        amputation: 0,
-        notDefined: 0,
-        total: 0
-      }
-    )
-  }
-
-  const mapTreeValue = (trees) => { // improve the code!
-    let localTotalvaluesArr = getTotalvaluesArr()
-    let typeObj = {}
-    for (let i = 0; i < trees.length; i++) {
-      const { recommendation } = trees[i]
-      // let value = ValueColor(trees[i])
-      if (!typeObj.hasOwnProperty(recommendation)) {
-        const { recommendation } = trees[i]
-        // let NTL = trees[i].type.label
-        typeObj[recommendation] = {
-          'preserve': 0,
-          'relocation': 0,
-          'amputation': 0,
-          'notDefined': 0,
-          'total': 0
-        }
-      }
-      ++localTotalvaluesArr[i]
-      ++typeObj[recommendation][i]
-      ++typeObj[recommendation]['total']
+  const recLabelConvert = (rec) => {
+    switch (rec) {
+      case 'שימור':
+        return 'preserve'
+      case 'העתקה':
+        return 'relocation'
+      case 'כריתה':
+        return 'amputation'
+      default:
+        return 'אינו מוגדר עץ בוגר'
     }
   }
 
-  return (
-    <section className=''>
+  const sumRecommendations = () => {
+    const recArr = {
+      preserve: 0,
+      relocation: 0,
+      amputation: 0,
+      notDefined: 0,
+      total: 0
+    }
+    trees.forEach(tree => {
+      const rec = recLabelConvert(tree.recommendation)
+      recArr[rec]++
+      recArr.total++
+    })
+    setRecommendationTable(recArr)
+  }
 
-    </section>
-  )
+
+  const numToPercentage = (type) => {
+    const res = (((type / trees.length) * 100).toFixed(0))
+  return (res + '%')
+}
+
+return (
+  <section className='tree-recommendation-table trees-table flex cloumn'>
+   
+    <table>
+      <thead className="green">
+        <tr className="green" key="">
+          <th >המלצה</th>
+          <th >מס׳ עצים</th>
+          <th >סה״כ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>סה״כ עצים לשימור</td>
+          <td>{recommendationTable.preserve}</td>
+          <td>{numToPercentage(recommendationTable.preserve)}</td>
+        </tr>
+        <tr>
+          <td>סה״כ עצים להעתקה</td>
+          <td>{recommendationTable.relocation}</td>
+          <td>{numToPercentage(recommendationTable.relocation)}</td>
+        </tr>
+        <tr>
+          <td>סה״כ עצים לכריתה</td>
+          <td>{recommendationTable.amputation}</td>
+          <td>{numToPercentage(recommendationTable.amputation)}</td>
+        </tr>
+        <tr>
+          <td>סה"כ עצים בוגרים בשטח</td>
+          <td>{recommendationTable.total}</td>
+          <td>{numToPercentage(recommendationTable.total)}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+)
 }

@@ -18,8 +18,6 @@ export default function TreeMap() {
     const location = useGeolocation()
 
     useEffect(() => {
-        console.log(location, 'location');
-
         setCoords(location.coordinates)
     }, [location])
 

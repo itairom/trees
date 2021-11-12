@@ -4,7 +4,7 @@ import { AppHeader } from './cmps/AppHeader'
 import './assets/main.css'
 import './assets/style/main.scss'
 import { About } from './pages/About';
-import { TreesSurvey } from './pages/TreesSurvey';
+import { FinalSurvey } from './pages/FinalSurvey';
 import { ChooseSurvey } from './pages/ChooseSurvey';
 import { CreateSurvey } from './pages/CreateSurvey';
 import { SurveyEditor } from './pages/SurveyEditor';
@@ -19,7 +19,7 @@ function App() {
       <AppHeader />
       <Switch> 
         <Route path="/about" component={About} />
-        <Route path="/trees" component={TreesSurvey} />
+        <Route path="/trees" component={FinalSurvey} />
         <Route path="/tree_update/:treeId" component={TreeUpdate} />
         <Route path="/survey_editor" component={SurveyEditor} />
         <Route path="/choose_survey" component={ChooseSurvey} />

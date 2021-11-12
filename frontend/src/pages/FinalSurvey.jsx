@@ -9,7 +9,7 @@ import { TreesTypesTable } from '../cmps/TreesTypesTable';
 import { TreeRecommendationTable } from '../cmps/table/TreeRecommendationTable';
 // const TreesTypesTable = lazy(() => import('../cmps/TreesTypesTable'))
 
-export const TreesSurvey = () => {
+export const FinalSurvey = () => {
 
     const { currentSurvey } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
@@ -36,7 +36,6 @@ export const TreesSurvey = () => {
     }, [currentSurvey, loggedInUser])
 
     async function queryTrees() {
-        console.log(loggedInUser, 'loggedInUser');
         setTableIdList(await treeService.querySurveyIdList(loggedInUser))
         setTrees(await treeService.queryTrees(currentSurvey?.surveyTitle, loggedInUser?.username))
         if (!currentSurvey) {
@@ -54,14 +53,17 @@ export const TreesSurvey = () => {
     }
 
     return (
-        <section id="main-survey" className="main-container   flex">
+        <section id="main-survey" className="main-container final-survey ">
             <h1>טבלה סקר <span>{currentSurvey?.surveyTitle || localSurveyId?.surveyTitle}</span></h1>
             <TreesTable onRemoveTree={onRemoveTree} trees={trees} />
             <TreesImages trees={trees} />
             {/* <Suspense fallback={<h1>Loading</h1>} > */}
+            <h1>טבלת ריכוז עפ"י מיני העצים </h1>
             <TreesTypesTable trees={trees} />
             {/* </Suspense> */}
+            <h1>טבלת סיכום המלצות</h1>
             <TreeRecommendationTable trees={trees} />
+            {/* {treeService.finalSurveyNote() } */}
             {/* <TreeMap text="mapmap" /> */}
         </section>
     )

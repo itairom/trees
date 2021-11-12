@@ -28,6 +28,7 @@ export function CreateSurvey () {
 
     return (
         <section className="new-survey rtl">
+
             <form action="">
                 <label htmlFor="surveyTitle" onSubmit={(ev) => { ev.preventDefault() }}>
                     כותרת סקר:

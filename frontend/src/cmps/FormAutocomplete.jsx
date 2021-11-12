@@ -1,6 +1,6 @@
-import React, {  useEffect, useState, useImperativeHandle, forwardRef } from 'react'
+import React, { useEffect, useState, useImperativeHandle, forwardRef } from 'react'
 
-export const FormAutocomplete = forwardRef(({ onSetTreeType, options }, ref) => {
+export const FormAutocomplete = forwardRef(({ tree, onSetTreeType, options }, ref) => {
     useImperativeHandle(
         ref, () => ({
             onResetAutocomplete() {
@@ -12,16 +12,24 @@ export const FormAutocomplete = forwardRef(({ onSetTreeType, options }, ref) => 
     const [display, setDisplay] = useState(false)
     const [search, setSearch] = useState('')
     const [treeObj, setTreeObj] = useState({})
+    useEffect(() => {
+        if (tree) {
+            setTreeObj(tree)
+            setSearch(tree.label)
+            onSetTreeType(tree)
+        }
+    }, [tree])
 
     useEffect(() => {
-        onSetTreeType(treeObj)
         setDisplay(false)
+        onSetTreeType(treeObj)
     }, [treeObj, onSetTreeType])
-    
 
-    const setTree = (tree) => {
-        setTreeObj(tree)
-        setSearch(tree.label)
+
+
+    const setTree = (treeset) => {
+        setTreeObj(treeset)
+        setSearch(treeset.label)
     }
 
     return (
@@ -30,6 +38,7 @@ export const FormAutocomplete = forwardRef(({ onSetTreeType, options }, ref) => 
                 onChange={(ev) => { setSearch(ev.target.value) }}
                 className="autocomplete-input"
                 name="type"
+                // value={tree ? tree.type : search}
                 value={search}
                 type="text"
                 placeholder=" מין העץ"

@@ -159,7 +159,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
         treeCopy.surveyId = surveyId
         treeCopy.imgUrl = imgUrl
         if (validate()) {
-            console.log('SUBMIT');
             treeService.save(treeCopy, loggedInUser)
             HandleIsModalShown(!isModalShown.isAddingTree)
             querySurveyTrees()

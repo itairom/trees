@@ -51,7 +51,7 @@ const recommendationOptions = [
     },
     {
         value: 'notDefined',
-        label: 'לא מוגדר',
+        label: 'אינו מוגדר עץ בוגר',
     }
 
 ];
