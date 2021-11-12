@@ -1,81 +1,92 @@
-.tree-preview {
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 150px;
-    top: 1470px;
-    background-color: beige;
-
-    .remove-modal {
-        position: absolute;
-        padding: 20px;
-        background-color: #e3e3e3;
-        bottom: 64px;
-        border: 1px black solid;
-        border-radius: 29px;
-        text-align: center;    
-    
-        div {
-            display: flex;
-
-            // margin: 10px 0;
-            p{
-                margin: 5px;
-            }
-            justify-content: space-between;
-        }
-    }
-
-    img {
-        width: 200px;
-        height: 200px;
-        object-fit: contain;
-        margin-top: 10px;
-    }
-
-    .close-preview {
-        display: flex;
-        position: absolute;
-        align-items: center;
-        background-color: red;
-        color: #ffff;
-        left: 10px;
-        text-align: center;
+.preview-container {
+    .tree-preview {
         padding: 10px;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-
-    .tree-info {
+        border: 1px solid black;
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
-    }
-
-    .options {
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-evenly;
-        div {
-            &:last-child {
-                background-color: rgb(33, 89, 174);
-            }
-            background-color: rgb(255, 0, 0);
-            color: white;
-        }
-    }
-
-    @include for-mobile-layout {
-        max-width: 220px;
-        position: fixed;
+        position: absolute;
+        right: 150px;
+        top: 1470px;
         background-color: beige;
-        top: 30%;
-        right: 0;
+
+        .remove-modal {
+            position: absolute;
+            padding: 20px;
+            background-color: #e3e3e3;
+            bottom: 64px;
+            border: 1px black solid;
+            border-radius: 29px;
+            text-align: center;
+
+            div {
+                display: flex;
+
+                // margin: 10px 0;
+                p {
+                    margin: 5px;
+                }
+                justify-content: space-between;
+            }
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            margin-top: 10px;
+        }
+
+        .close-preview {
+            display: flex;
+            position: absolute;
+            align-items: center;
+            background-color: red;
+            color: #ffff;
+            left: 10px;
+            text-align: center;
+            padding: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .tree-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .options {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-evenly;
+            div {
+                &:last-child {
+                    background-color: rgb(33, 89, 174);
+                }
+                background-color: rgb(255, 0, 0);
+                color: white;
+            }
+        }
+
+    }
+    @include for-mobile-layout {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.249);
+        width: 100vw;
+        height: 100vh;
         left: 0;
-        margin: 5% auto;
+        top: 0;
+        .tree-preview{
+
+            max-width: 220px;
+            position: fixed;
+            background-color: beige;
+            top: 20%;
+            right: 0;
+            left: 0;
+            margin: 5% auto;
+        }
     }
 }

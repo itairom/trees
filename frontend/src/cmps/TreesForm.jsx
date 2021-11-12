@@ -55,6 +55,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
             temp.quantity = isEmptyInput(fieldValues.quantity)
         if ('idx' in fieldValues)
             temp.idx = isEmptyInput(fieldValues.idx)
+
         if ('diameter' in fieldValues)
             temp.diameter = isEmptyInput(fieldValues.diameter)
         if ('height' in fieldValues)
@@ -63,10 +64,10 @@ export const TreesForm = ({ querySurveyTrees }) => {
             temp.rootsDiameter = isEmptyInput(fieldValues.rootsDiameter)
         if ('movingPossibility' in fieldValues)
             temp.movingPossibility = isEmptyInput(fieldValues.movingPossibility)
-        if ('description' in fieldValues)
-            temp.description = isEmptyInput(fieldValues.description)
-        if ('movingReason' in fieldValues)
-            temp.movingReason = isEmptyInput(fieldValues.movingReason)
+        // if ('description' in fieldValues)
+        //     temp.description = isEmptyInput(fieldValues.description)
+        // if ('movingReason' in fieldValues)
+        //     temp.movingReason = isEmptyInput(fieldValues.movingReason)
         if ('recommendation' in fieldValues)
             temp.recommendation = isEmptyInput(fieldValues.recommendation)
 
@@ -85,6 +86,13 @@ export const TreesForm = ({ querySurveyTrees }) => {
         const length = (field + '').length
         return (length > 0) ? "" : "הכנס ערך"
     }
+    // const isTreeIdxValid = (fiel d) => {
+    //     const regex = new RegExp ([1-1000]+[A-Z])
+    //     const isMatch='aaa'.search(regex)
+    //     const length = (field + '').length
+    //     return (length > 0) ? "" : "הכנס ערך"
+    // }
+
 
     const {
         values,
@@ -140,12 +148,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
 
     const setIsPalmTree = (ev) => {
         handleInputChange(ev)
-        if (ev.target.checked) {
-            setTreeTypeOptions(formService.palmstreeTypes)
-        }
-        else {
-            setTreeTypeOptions(formService.treeTypes)
-        }
+            (ev.target.checked) ? setTreeTypeOptions(formService.palmstreeTypes) : setTreeTypeOptions(formService.treeTypes)
     }
 
     const submitForm = (ev) => {
@@ -162,6 +165,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
             querySurveyTrees()
             onResetForm()
         }
+        setImgUrl('')
         window.scrollTo(0, 0)
     }
     return (
@@ -338,7 +342,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                             העתקת
                             העץ</p>
                         <Input
-                            error={errors.movingReason}
+                            // error={errors.movingReason}
                             multiline
                             rows={2}
                             type="text"
@@ -349,7 +353,7 @@ export const TreesForm = ({ querySurveyTrees }) => {
                     <div className="input-container">
                         <p>הערות</p>
                         <Input
-                            error={errors.description}
+                            // error={errors.description}
                             multiline
                             rows={2}
                             type="text"

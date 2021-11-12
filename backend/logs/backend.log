@@ -578,3 +578,4 @@
 11/8/2021, 7:22:25 PM - ERROR - cannot get tree by Id | ReferenceError: logger is not defined 
 11/8/2021, 7:24:22 PM - ERROR - cannot get tree by Id | ReferenceError: logger is not defined 
 11/8/2021, 7:24:30 PM - ERROR - cannot get tree by Id | ReferenceError: logger is not defined 
+11/12/2021, 11:15:24 AM - ERROR - cannot find trees | ReferenceError: logger is not defined 

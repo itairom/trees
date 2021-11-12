@@ -24,7 +24,7 @@ async function removeTree(req, res) {
     try {
         const { treeId, username } = req.params
         const removedTree = await treeService.removeTree(treeId, username)
-        res.send('remove tree', removedTree)
+        res.status(200).send('remove tree', removedTree)
     } catch (err) {
         res.status(500).send({ err: 'failed to remove tree' })
     }

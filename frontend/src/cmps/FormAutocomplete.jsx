@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState, useImperativeHandle, forwardRef } from 'react'
-
+import React, {  useEffect, useState, useImperativeHandle, forwardRef } from 'react'
 
 export const FormAutocomplete = forwardRef(({ onSetTreeType, options }, ref) => {
     useImperativeHandle(
@@ -11,38 +10,14 @@ export const FormAutocomplete = forwardRef(({ onSetTreeType, options }, ref) => 
         })
     )
     const [display, setDisplay] = useState(false)
-    // const [options, setOptions] = useState([])
     const [search, setSearch] = useState('')
     const [treeObj, setTreeObj] = useState({})
-
-
-    useEffect(() => {
-        // setOptions(formService.treeTypes)
-    }, [options])
-
-
-    const debounce = (func) => {
-        let timer
-        return function (...args) {
-            const context = this
-            if (timer) clearTimeout(timer)
-            timer = setTimeout(() => {
-                timer = null
-                func.apply(context, args)
-            }, 1000)
-        }
-    }
-
-
 
     useEffect(() => {
         onSetTreeType(treeObj)
         setDisplay(false)
     }, [treeObj, onSetTreeType])
-
-
-
-    const onSetSearch = useCallback(debounce(setSearch), [])
+    
 
     const setTree = (tree) => {
         setTreeObj(tree)
@@ -52,7 +27,7 @@ export const FormAutocomplete = forwardRef(({ onSetTreeType, options }, ref) => 
     return (
         <section className="autocomplete-form">
             <input
-                onChange={(ev) => { onSetSearch(ev.target.value) }}
+                onChange={(ev) => { setSearch(ev.target.value) }}
                 className="autocomplete-input"
                 name="type"
                 value={search}

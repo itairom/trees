@@ -30,6 +30,12 @@
 
         .edit-btn {
             margin: 10px;
+            background-color: rgb(31, 97, 196);
+            color: white;
+        }
+        
+        .delete-btn{
+            margin: 10px;
             background-color: brown;
             color: white;
         }
@@ -64,6 +70,12 @@
     align-items: center;
 
     .edit-btn {
+        margin: 10px 0;
+        box-shadow: 1px 1px 3px 0 #272727bd;
+        background-color: brown;
+        color: white;
+    }
+    .delete-btn {
         margin: 10px 0;
         box-shadow: 1px 1px 3px 0 #272727bd;
         background-color: rgb(49, 97, 97);

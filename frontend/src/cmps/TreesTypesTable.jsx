@@ -59,7 +59,6 @@ export const TreesTypesTable = ({ trees }) => {
             ++typeObj[NTL]['total']
         }
 
-        // console.log("🚀 ~ file: TreesTypesTable.jsx ~ line 54 ~ mapTreeValue ~ localTotalvaluesArr", localTotalvaluesArr)
         const treeKeys = Object.keys(typeObj)
         const objToArr = Object.values(typeObj)
         setTreeTypeObj(objToArr)
@@ -71,13 +70,13 @@ export const TreesTypesTable = ({ trees }) => {
         <section className="trees-table flex">
             <table>
                 <tr>
-                    <th>מין העץ/תאור
+                    <th className="white">מין העץ/תאור
                         הפוליגון</th>
                     <th className="red">ערכיות גבוהה מאוד **</th>
                     <th className="green">ערכיות גבוהה **</th>
                     <th className="grey">ערכיות בינונית **</th>
                     <th className="yellow">ערכיות נמוכה **</th>
-                    <th className="">סה״כ</th>
+                    <th className="white">סה״כ</th>
                 </tr>
                 <tbody>
                     {treeTypeKeysArr && treeTypeObj?.map((tree, idx) => {

@@ -102,6 +102,7 @@ export const useGeolocation = () => {
   })
 
   useEffect(() => {
+    
     navigator.geolocation.getCurrentPosition(onSucsess, onError)
   }, [])
 

@@ -114,7 +114,11 @@ main {
     width: 200px;
 }
 
-.delete-btn {
+.row-style{
+    background-color: white;
+    /* border: 1px solid black; */
+}
+/* .delete-btn {
     background-color: #f38181;
     border: 0;
     border-radius: 50%;
@@ -125,7 +129,7 @@ main {
     position: absolute;
     right: -10px;
     top: -10px;
-}
+} */
 
 
 

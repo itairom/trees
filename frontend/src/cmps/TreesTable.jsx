@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react"
 import ReactToExcel from 'react-html-table-to-excel'
+import { useSelector } from "react-redux"
 import { useHistory } from "react-router"
 import useWindowSize from "../services/customHooks"
-
-export const TreesTable = ({ trees }) => {
+import { treeService } from "../services/treeService"
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+export const TreesTable = ({ onRemoveTree, trees }) => {
 
     const [isMobile, setIsMobile] = useState(false)
+    const [draggableTrees, setDraggableTrees] = useState(trees)
     const history = useHistory()
+    const { loggedInUser } = useSelector(state => state.appModule)
+
 
     useEffect(() => {
         console.log(trees);
+        setDraggableTrees(trees)
     }, [trees])
 
     const windowSize = useWindowSize()
@@ -34,6 +40,10 @@ export const TreesTable = ({ trees }) => {
         return tree.quantity * sum.toFixed(2)
     }
 
+    // const onRemoveTree = (tree) => {
+    //     treeService.removeTree(tree._id, loggedInUser.username)
+    // }
+
     const ValueColor = (tree) => {
         let sum = calculateValue(tree)
         if (sum <= 6) return 'yellow'
@@ -41,10 +51,25 @@ export const TreesTable = ({ trees }) => {
         else if (sum > 13 && 17 > sum) return 'green'
         else return 'red'
     }
+    const recommendationColor = (recommendation) => {
+        if (recommendation ==='כריתה') return 'yellow'
+        if (recommendation ==='שימור') return 'red'
+        if (recommendation ==='העתקה') return 'orange'
+        else return 'blue'
+    }
+
+    const handleOnDragEnd = (result) => {
+        if (!result.destination) return
+        const items = Array.from(draggableTrees)
+        const [reorderItem] = items.splice(result.source.index, 1)
+        items.splice(result.destination.index, 0, reorderItem)
+        console.log('handleOnDragEnd', items);
+        setDraggableTrees(items)
+    }
 
     return (
         <section className="trees-table ">
-             <table id="main-table">
+            <table id="main-table">
                 <tr>
                     <th>מספר
                         העץ/פוליגון </th>
@@ -87,50 +112,74 @@ export const TreesTable = ({ trees }) => {
                     <th>המלצות</th>
                     <th>סיבת כריתה או העתקת העץ</th>
                 </tr>
-                <tbody>
-                    {trees?.map((tree) => {
-                        return (
-                            <tr key={tree._id}>
-                                {tree.idx && <td>{tree.idx}</td>}
-                                <td>{tree.type.label}</td>
-                                <td>{tree.quantity}</td>
-                                <td>{tree.height}</td>
-                                <td>{tree.diameter}</td>
-                                <td>{tree.health}</td>
-                                <td>{tree.location}</td>
-                                <td>{tree.type.typeValue}</td>
-                                <td>{tree.canopy}</td>
-                                <td className={ValueColor(tree)}>{calculateValue(tree)}</td>
-                                <td>{tree.rootsDiameter}</td>
-                                {!tree.isPalmTree && <td>{calculateTreeValue(tree)}</td>}
-                                {tree.isPalmTree && <td>{calculatePalmTreeValue(tree)}</td>}
-                                <td>{tree.movingPossibility}</td>
-                                <td>{tree.description}</td>
-                                <td>{tree.recommendation}</td>
-                                <td>{tree.movingReason}</td>
-                                <div
-                                    onClick={() => { history.push(`tree_update/${tree._id}`) }}
-                                    className="edit-btn btn">עריכה</div >
-                            </tr>
-                        )
-                    })}
-                </tbody>
+                <DragDropContext onDragEnd={handleOnDragEnd}>
+                    <Droppable droppableId="trees-desktop">
+                        {(provided) => (
+                            <tbody {...provided.droppableProps} ref={provided.innerRef}>
+                                {draggableTrees.map((tree, idx) => {
+                                    return (
+                                        <Draggable
+                                        key={tree._id} draggableId={tree._id} index={idx}>
+                                            {(provided) => (
+                                                <tr
+                                                    className="row-style"
+                                                    {...provided.draggableProps}
+                                                    {...provided.dragHandleProps}
+                                                    ref={provided.innerRef}>
+                                                    {tree.idx &&
+                                                        <td>{tree.idx}
+                                                        </td>}
+                                                    <td>{tree.type.label}</td>
+                                                    <td>{tree.quantity}</td>
+                                                    <td>{tree.height}</td>
+                                                    <td>{tree.diameter}</td>
+                                                    <td>{tree.health}</td>
+                                                    <td>{tree.location}</td>
+                                                    <td>{tree.type.typeValue}</td>
+                                                    <td>{tree.canopy}</td>
+                                                    <td className={ValueColor(tree)}>{calculateValue(tree)}</td>
+                                                    <td>{tree.rootsDiameter}</td>
+                                                    {!tree.isPalmTree && <td>{calculateTreeValue(tree)}</td>}
+                                                    {tree.isPalmTree && <td>{calculatePalmTreeValue(tree)}</td>}
+                                                    <td>{tree.movingPossibility}</td>
+                                                    <td>{tree.description}</td>
+                                                    <td className={recommendationColor(tree.recommendation)}>{tree.recommendation}</td>
+                                                    <td>{tree.movingReason}</td>
+                                                    <td>
+
+                                                        <div
+                                                            onClick={() => { history.push(`tree_update/${tree._id}`) }}
+                                                            className="edit-btn btn">עריכה</div >
+                                                        <div
+                                                            onClick={() => { onRemoveTree(tree) }}
+                                                            className="delete-btn btn">מחיקה</div >
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </Draggable>
+                                    )
+                                })}
+                            </tbody>
+                        )}
+                    </Droppable>
+                </DragDropContext >
                 <ReactToExcel
-                className="download-table "
-                table="main-table"
-                filename="טבלת סקר עצים"
-                sheet="טבלת סקר עצים"
-                buttonText="הורדה"
-            />
+                    className="download-table "
+                    table="main-table"
+                    filename="טבלת סקר עצים"
+                    sheet="טבלת סקר עצים"
+                    buttonText="הורדה"
+                />
             </table>
 
-             <section className="mobile-table">
-                {trees?.map((tree) => {
+            <section className="mobile-table">
+                {trees?.map((tree, idx) => {
                     return (
                         <div className="mobile-tree-card" key={tree._id}>
                             <div className="flex">
                                 <p>אינדקס</p>
                                 <p>{tree.idx}</p>
+
                             </div>
                             <div className="flex">
                                 <p>סוג עץ</p>
@@ -196,20 +245,23 @@ export const TreesTable = ({ trees }) => {
                             <div
                                 onClick={() => { history.push(`tree_update/${tree._id}`) }}
                                 className="edit-btn btn">עריכה</div >
+                            <div
+                                onClick={() => { onRemoveTree(tree) }}
+                                className="delete-btn btn">מחיקה</div >
                         </div>
                     )
                 })
-                
-            }
-           {isMobile&& <ReactToExcel
-                className="download-table "
-                table="main-table"
-                filename="טבלת סקר עצים"
-                sheet="טבלת סקר עצים"
-                buttonText="הורדה"
-            />}
+
+                }
+                {isMobile && <ReactToExcel
+                    className="download-table "
+                    table="main-table"
+                    filename="טבלת סקר עצים"
+                    sheet="טבלת סקר עצים"
+                    buttonText="הורדה"
+                />}
             </section>
-        </section>
+        </section >
     )
 
 
