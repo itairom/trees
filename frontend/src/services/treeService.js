@@ -1,17 +1,40 @@
 import { httpService } from "./httpService"
 
 
-async function save(tree, user) {
-    await httpService.put(`tree/save`, [tree, user])
-        .then((res) => {
-            console.log(res);
-        })
+// async function save(tree, user) {
+//     await httpService.put(`tree/save`, [tree, user])
+//         .then((res) => {
+//             console.log(res);
+//         })
+// }
 
+
+async function save(survey, user) {
+    if (survey._id) {
+        try {
+            return await httpService.put(`tree/save/${survey._id}`, [survey, user])
+        } catch (err) {
+            throw err
+        }
+    } else {
+        try {
+            await httpService.post(`tree/save`, [survey, user])
+        } catch (err) {
+            throw err
+        }
+    }
 }
-async function queryTrees(tableId, username) {
-    let trees = await httpService.get(`tree/`, [tableId, username])
-    return trees
+async function querySurvey(survyName, username) {
+    let survey = await httpService.get(`tree/`, [survyName, username])
+    return survey
 }
+
+
+
+// async function queryTrees(tableId, username) {
+//     let trees = await httpService.get(`tree/`, [tableId, username])
+//     return trees
+// }
 async function getTreeById(treeId, username) {
     let tree = await httpService.get(`tree/${treeId}&${username}`)
     return tree
@@ -22,8 +45,8 @@ async function removeTree(treeId, username) {
 }
 
 async function querySurveyIdList(loggedInUser) {
-    let trees = await httpService.get(`tree/survey_id_list`, loggedInUser)
-    return trees
+    let idList = await httpService.get(`tree/survey_id_list`, loggedInUser)
+    return idList
 }
 async function querySurveyTrees(surveyId, username) {
     let trees = await httpService.get(`tree/survey_trees`, [surveyId, username])
@@ -57,10 +80,10 @@ const finalSurveyNote = () => {
 
 export const treeService = {
     save,
-    queryTrees,
     querySurveyIdList,
     querySurveyTrees,
     removeTree,
     getTreeById,
-    finalSurveyNote
+    finalSurveyNote,
+    querySurvey
 }

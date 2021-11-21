@@ -3,7 +3,7 @@ import { userService } from '../services/userService'
 const initialState = {
     workspace: [],
     // loggedInUser: userService.getLoggedinUser(),
-    loggedInUser: {"username":"itairom"},
+    loggedInUser: {"username":"itairom2"},
     onlineUsers: [],
     loginErr: null,
     currPopover: {

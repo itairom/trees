@@ -11,15 +11,15 @@ import { CreateSurvey } from '../pages/CreateSurvey';
 
 export const ChooseSurvey = () => {
 
-    let dispatch = useDispatch()
-    const history = useHistory();
     let [surveyIdList, setSurveyIdList] = useState([])
     let [currentSurveyId, setCurrentSurveyId] = useState({})
+    const history = useHistory();
     const handleOnClickNext = useCallback(() => history.push('/survey_editor'), [history]);
     const handleOnClickBack = useCallback(() => history.push('/'), [history]);
     const handleOnClickCreate = useCallback(() => history.push('/create_survey'), [history]);
-    const { currentSurvey } = useSelector(state => state.TreeModule)
+    // const { currentSurvey } = useSelector(state => state.TreeModule)
     const { loggedInUser, loginErr } = useSelector(state => state.appModule)
+    let dispatch = useDispatch()
 
 
     useEffect(() => {
@@ -32,11 +32,8 @@ export const ChooseSurvey = () => {
     }, [])
 
     useEffect(() => {
-        let filterdList = surveyIdList.filter(tree => { return tree.surveyTitle === currentSurveyId })
-        if (filterdList.length) {
-            storageService.saveToStorage('surveyId', filterdList[0])
-            dispatch(setCurrentSurvey(filterdList[0]))
-        }
+        storageService.saveToStorage('surveyId',currentSurveyId)
+            dispatch(setCurrentSurvey(currentSurveyId))
     }, [currentSurveyId])
 
 
@@ -60,11 +57,11 @@ export const ChooseSurvey = () => {
                         placeholder="לחץ כאן"
                         onChange={(ev) => { setCurrentSurveyId(ev.target.value) }} >
                         {
-                            surveyIdList?.map((id) => (
+                            surveyIdList?.map((survey) => (
                                 <MenuItem
-                                    key={id.surveyTitle}
-                                    value={id.surveyTitle}>
-                                    {id.surveyTitle}
+                                    key={survey.surveyTitle}
+                                    value={survey}>
+                                    {survey.surveyTitle}
                                 </MenuItem>
                             ))
                         }
@@ -79,11 +76,11 @@ export const ChooseSurvey = () => {
                     <p>חזור</p>
                 </div>
             </>}
-            {(surveyIdList.length === 0)&&<> 
+            {(surveyIdList.length === 0) && <>
                 <h1>הוסף סקר ראשון</h1>
                 <div className="next-btn button"
                     onClick={() => { handleOnClickCreate() }} >
-                        <p>הוסף סקר</p>
+                    <p>הוסף סקר</p>
                 </div>
                 <CreateSurvey />
             </>}

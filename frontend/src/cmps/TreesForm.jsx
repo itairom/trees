@@ -2,27 +2,36 @@ import React, { useEffect, useState } from 'react'
 import { useForm, useHandleModal } from '../services/customHooks'
 import { Button, MenuItem, Select, FormControl } from '@material-ui/core';
 import { formService } from '../services/formService';
-import { treeService } from '../services/treeService';
 import { useSelector } from 'react-redux';
 import { FormAutocomplete } from './FormAutocomplete';
 import Input from './form/input';
-import { storageService } from '../services/storageService';
 import FormModal from './form/FormModal';
 import { ImgUpload } from './ImgUpload';
 import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateSurvey } from '../actions/TreeActions';
+import { utilService } from '../services/utilService';
 
-export const TreesForm = ({ querySurveyTrees }) => {
 
-    const { currentSurvey } = useSelector(state => state.TreeModule)
+export const TreesForm = ({ querySurvey }) => {
+
+    const { survey } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
-
-    const [surveyId, setSurveyId] = useState('')
-    const [isImgReady, setIsImgReady] = useState(false)
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
     const [treeType, setType] = useState(null)
+    const [localSurvey, setLocalSurvey] = useState({})
     const [imgUrl, setImgUrl] = useState('')
     const childRef = useRef();
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+        setTreeTypeOptions(formService.treeTypes)
+    }, [])
+
+    useEffect(() => {
+        setLocalSurvey(survey)
+    }, [survey])
+    
 
     const initialFValues = {
         quantity: '',
@@ -55,7 +64,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
             temp.quantity = isEmptyInput(fieldValues.quantity)
         if ('idx' in fieldValues)
             temp.idx = isEmptyInput(fieldValues.idx)
-
         if ('diameter' in fieldValues)
             temp.diameter = isEmptyInput(fieldValues.diameter)
         if ('height' in fieldValues)
@@ -64,10 +72,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
             temp.rootsDiameter = isEmptyInput(fieldValues.rootsDiameter)
         if ('movingPossibility' in fieldValues)
             temp.movingPossibility = isEmptyInput(fieldValues.movingPossibility)
-        // if ('description' in fieldValues)
-        //     temp.description = isEmptyInput(fieldValues.description)
-        // if ('movingReason' in fieldValues)
-        //     temp.movingReason = isEmptyInput(fieldValues.movingReason)
         if ('recommendation' in fieldValues)
             temp.recommendation = isEmptyInput(fieldValues.recommendation)
 
@@ -86,13 +90,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
         const length = (field + '').length
         return (length > 0) ? "" : "הכנס ערך"
     }
-    // const isTreeIdxValid = (fiel d) => {
-    //     const regex = new RegExp ([1-1000]+[A-Z])
-    //     const isMatch='aaa'.search(regex)
-    //     const length = (field + '').length
-    //     return (length > 0) ? "" : "הכנס ערך"
-    // }
-
 
     const {
         values,
@@ -110,20 +107,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
         isAddingTree: ''
     })
 
-    useEffect(() => {
-        setTreeTypeOptions(formService.treeTypes)
-        setSurveyId(currentSurvey?.surveyTitle)
-    }, [])
-
-    useEffect(() => {
-        if (!surveyId || Object.keys(surveyId).length === 0) {
-            let storageId = storageService.loadFromStorage('surveyId')
-            if (storageId) {
-                setSurveyId(storageId)
-            }
-        }
-    }, [surveyId])
-
     const onResetForm = () => {
         resetForm()
         childRef.current.onResetAutocomplete()
@@ -138,7 +121,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
     }
 
     const onGetImgUrl = (img) => {
-        // setIsImgReady(true)
         setImgUrl(img)
     }
 
@@ -155,13 +137,14 @@ export const TreesForm = ({ querySurveyTrees }) => {
         ev.preventDefault()
         if (!treeType) return alert('בחר מין עץ')
         const treeCopy = { ...values }
+        treeCopy._id = utilService.makeId()
         treeCopy.type = treeType
-        treeCopy.surveyId = surveyId
         treeCopy.imgUrl = imgUrl
         if (validate()) {
-            treeService.save(treeCopy, loggedInUser)
+            localSurvey.surveyTrees.push(treeCopy)
+            dispatch(updateSurvey(localSurvey,loggedInUser))
             HandleIsModalShown(!isModalShown.isAddingTree)
-            querySurveyTrees()
+            querySurvey()
             onResetForm()
         }
         setImgUrl('')
@@ -300,7 +283,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
                         <p>היתכנות העתקה</p>
                         <FormControl>
                             <Select
-                                // error={errors.movingPossibility}
                                 type="text"
                                 id="movingPossibility"
                                 name="movingPossibility"
@@ -341,7 +323,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
                             העתקת
                             העץ</p>
                         <Input
-                            // error={errors.movingReason}
                             multiline
                             rows={2}
                             type="text"
@@ -352,7 +333,6 @@ export const TreesForm = ({ querySurveyTrees }) => {
                     <div className="input-container">
                         <p>הערות</p>
                         <Input
-                            // error={errors.description}
                             multiline
                             rows={2}
                             type="text"

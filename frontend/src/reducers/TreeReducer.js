@@ -3,17 +3,27 @@ const initialState = {
     filterBy: null,
     isDark: false,
     currentSurvey:null,
-    isTreePreviewShowen:false
+    isTreePreviewShowen:false,
+    survey:{}
 }
 
 export default function TreeReducer(state = initialState, action) {
     switch (action.type) {
+        case 'UPDATE_SURVEY':
+            return {
+                ...state,
+                survey: action.survey
+            }
+        case 'QUERY_SURVEY':
+            return {
+                ...state,
+                survey: action.survey
+            }
         case 'SET_CURRENT_SURVEY':
             return {
                 ...state,
                 currentSurvey: action.survey
             }
-
         case 'TOGGLE_DARK':
             console.log('toggle');
             return {

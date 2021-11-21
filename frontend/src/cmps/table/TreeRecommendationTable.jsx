@@ -7,12 +7,10 @@ export function TreeRecommendationTable({ trees }) {
   })
 
   useEffect(() => {
-    console.log('trees recomand', trees);
     sumRecommendations()
   }, [trees])
 
   useEffect(() => {
-    console.log('recommendationTable', recommendationTable);
   }, [recommendationTable])
 
   const recLabelConvert = (rec) => {
@@ -36,54 +34,56 @@ export function TreeRecommendationTable({ trees }) {
       notDefined: 0,
       total: 0
     }
-    trees.forEach(tree => {
-      const rec = recLabelConvert(tree.recommendation)
-      recArr[rec]++
-      recArr.total++
-    })
-    setRecommendationTable(recArr)
+    if (trees) {
+      trees.forEach(tree => {
+        const rec = recLabelConvert(tree.recommendation)
+        recArr[rec]++
+        recArr.total++
+      })
+      setRecommendationTable(recArr)
+    }
   }
 
 
   const numToPercentage = (type) => {
-    const res = (((type / trees.length) * 100).toFixed(0))
-  return (res + '%')
-}
+    const res = (((type / trees?.length) * 100).toFixed(0))
+    return (res + '%')
+  }
 
-return (
-  <section className='tree-recommendation-table trees-table flex cloumn'>
-   
-    <table>
-      <thead className="green">
-        <tr className="green" key="">
-          <th >המלצה</th>
-          <th >מס׳ עצים</th>
-          <th >סה״כ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>סה״כ עצים לשימור</td>
-          <td>{recommendationTable.preserve}</td>
-          <td>{numToPercentage(recommendationTable.preserve)}</td>
-        </tr>
-        <tr>
-          <td>סה״כ עצים להעתקה</td>
-          <td>{recommendationTable.relocation}</td>
-          <td>{numToPercentage(recommendationTable.relocation)}</td>
-        </tr>
-        <tr>
-          <td>סה״כ עצים לכריתה</td>
-          <td>{recommendationTable.amputation}</td>
-          <td>{numToPercentage(recommendationTable.amputation)}</td>
-        </tr>
-        <tr>
-          <td>סה"כ עצים בוגרים בשטח</td>
-          <td>{recommendationTable.total}</td>
-          <td>{numToPercentage(recommendationTable.total)}</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-)
+  return (
+    <section className='tree-recommendation-table trees-table flex cloumn'>
+
+      <table>
+        <thead className="green">
+          <tr className="green" key="">
+            <th >המלצה</th>
+            <th >מס׳ עצים</th>
+            <th >סה״כ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>סה״כ עצים לשימור</td>
+            <td>{recommendationTable.preserve}</td>
+            <td>{numToPercentage(recommendationTable.preserve)}</td>
+          </tr>
+          <tr>
+            <td>סה״כ עצים להעתקה</td>
+            <td>{recommendationTable.relocation}</td>
+            <td>{numToPercentage(recommendationTable.relocation)}</td>
+          </tr>
+          <tr>
+            <td>סה״כ עצים לכריתה</td>
+            <td>{recommendationTable.amputation}</td>
+            <td>{numToPercentage(recommendationTable.amputation)}</td>
+          </tr>
+          <tr>
+            <td>סה"כ עצים בוגרים בשטח</td>
+            <td>{recommendationTable.total}</td>
+            <td>{numToPercentage(recommendationTable.total)}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  )
 }

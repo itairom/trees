@@ -1,29 +1,63 @@
-import React, { useEffect, useState } from "react"
-import ReactToExcel from 'react-html-table-to-excel'
+import React, { useCallback, useEffect, useState } from "react"
+import XLSX from 'xlsx';
+import { saveAs } from 'file-saver'
 import { useSelector } from "react-redux"
 import { useHistory } from "react-router"
-import useWindowSize from "../services/customHooks"
-import { treeService } from "../services/treeService"
+import useWindowSize from "../../services/customHooks"
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
-export const TreesTable = ({ onRemoveTree, trees }) => {
+import { useDispatch } from "react-redux"
+import { updateSurvey } from "../../actions/TreeActions"
+import ReactExport from 'react-data-export';
+
+const ExcelFile = ReactExport.ExcelFile;
+const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+
+
+export const TreesTable = ({ trees }) => {
 
     const [isMobile, setIsMobile] = useState(false)
     const [draggableTrees, setDraggableTrees] = useState(trees)
     const history = useHistory()
     const { loggedInUser } = useSelector(state => state.appModule)
+    const { survey } = useSelector(state => state.TreeModule)
+    const windowSize = useWindowSize()
+    const dispatch = useDispatch()
 
+    const DataSet = [
+        {
+            columns: [
+                { title: 'h1', style: { font: { bold: true } } },
+                { title: 'h1', style: { font: { bold: true } } },
+                { title: 'h1', style: { font: { bold: true } } },
+                { title: 'h1', style: { font: { bold: true } } }
+            ],
+            data: [
+                { value: 'abc' },
+                { value: 'abc' },
+                { value: 'abc' },
+                { value: 'abc' }
+            ]
+        }
+
+
+    ]
 
     useEffect(() => {
-        setDraggableTrees(trees)
+        if (trees) setDraggableTrees(trees)
     }, [trees])
 
-    const windowSize = useWindowSize()
 
     useEffect(() => {
         windowSize.width < 500 ? setIsMobile(true) : setIsMobile(false)
     }, [windowSize])
 
-    const calculateValue = (tree) => {
+    useEffect(() => {
+        const survyCopy = { ...survey }
+        survyCopy.surveyTrees = draggableTrees
+        if (trees) dispatch(updateSurvey(survyCopy, loggedInUser))
+    }, [draggableTrees])
+
+    const sumTreeProperties = (tree) => {
         const { canopy, location, health } = tree
         const { typeValue } = tree.type
         return (+canopy + +typeValue + +location + +health)
@@ -34,22 +68,28 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
         return tree.quantity * sum.toFixed(2)
     }
 
+    const memoCalculateTreeValue = useCallback((tree) => {
+        console.log('✂️✂️✂️✂️✂️✂️✂️✂️');
+        calculateTreeValue(tree)
+    }, [trees])
+
     const calculatePalmTreeValue = (tree) => {
         const sum = (tree.height * ((tree.location / 5 * +tree.type.typeValue / 5 * +tree.health / 5))) * 1500
         return tree.quantity * sum.toFixed(2)
     }
 
-    // const onRemoveTree = (tree) => {
-    //     treeService.removeTree(tree._id, loggedInUser.username)
-    // }
+    const memoCalculatePalmTreeValue = useCallback((tree) => {
+        calculatePalmTreeValue(tree)
+    }, [trees])
 
     const ValueColor = (tree) => {
-        let sum = calculateValue(tree)
+        let sum = sumTreeProperties(tree)
         if (sum <= 6) return 'yellow'
         else if (sum > 6 && 14 > sum) return 'grey'
         else if (sum > 13 && 17 > sum) return 'green'
         else return 'red'
     }
+
     const recommendationColor = (recommendation) => {
         if (recommendation === 'כריתה') return 'yellow'
         if (recommendation === 'שימור') return 'red'
@@ -64,57 +104,74 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
         items.splice(result.destination.index, 0, reorderItem)
         setDraggableTrees(items)
     }
+    const removeTree = (treeId) => {
+        const filterdArray = draggableTrees.filter((tree) => {
+            return tree._id !== treeId
+        })
+        setDraggableTrees(filterdArray)
+
+    }
+
+    function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+        return buf;
+    }
 
     return (
         <section className="trees-table ">
             <table id="main-table">
-                <tr>
-                    <th>מספר
-                        העץ/פוליגון </th>
-                    <th>מין העץ/תאור
-                        הפוליגון</th>
-                    <th>כמות עצים</th>
-                    <th>**גובה
-                        העץ
-                        (מ')</th>
-                    <th>*קוטר
-                        גזע
-                        (ס"מ)</th>
-                    <th>מצב
-                        בריאותי
-                        (0-5)</th>
-                    <th>מיקום
-                        העץ
-                        (0-5)</th>
-                    <th>ערך
-                        מין
-                        העץ
-                        (0-5)</th>
-                    <th>ניקוד
-                        חופת
-                        העץ
-                        (0-5)</th>
-                    <th>סך ערכיות
-                        העץ/פוליגון
-                        (0-20)</th>
-                    <th>***אזור
-                        שורשים
-                        מוגן
-                        רדיוס
-                        במ'</th>
-                    <th>שווי
-                        העצים ב
-                        ₪</th>
-                    <th>היתכנות העתקה </th>
-                    <th>הערות</th>
-                    <th>המלצות</th>
-                    <th>סיבת כריתה או העתקת העץ</th>
-                </tr>
+                <thead>
+
+                    <tr>
+                        <th>מספר
+                            העץ/פוליגון </th>
+                        <th>מין העץ/תאור
+                            הפוליגון</th>
+                        <th>כמות עצים</th>
+                        <th>**גובה
+                            העץ
+                            (מ')</th>
+                        <th>*קוטר
+                            גזע
+                            (ס"מ)</th>
+                        <th>מצב
+                            בריאותי
+                            (0-5)</th>
+                        <th>מיקום
+                            העץ
+                            (0-5)</th>
+                        <th>ערך
+                            מין
+                            העץ
+                            (0-5)</th>
+                        <th>ניקוד
+                            חופת
+                            העץ
+                            (0-5)</th>
+                        <th>סך ערכיות
+                            העץ/פוליגון
+                            (0-20)</th>
+                        <th>***אזור
+                            שורשים
+                            מוגן
+                            רדיוס
+                            במ'</th>
+                        <th>שווי
+                            העצים ב
+                            ₪</th>
+                        <th>היתכנות העתקה </th>
+                        <th>הערות</th>
+                        <th>המלצות</th>
+                        <th>סיבת כריתה או העתקת העץ</th>
+                    </tr>
+                </thead>
                 <DragDropContext onDragEnd={handleOnDragEnd}>
                     <Droppable droppableId="trees-desktop">
                         {(provided) => (
                             <tbody {...provided.droppableProps} ref={provided.innerRef}>
-                                {draggableTrees.map((tree, idx) => {
+                                {draggableTrees?.map((tree, idx) => {
                                     return (
                                         <Draggable
                                             key={tree._id} draggableId={tree._id} index={idx}>
@@ -139,10 +196,11 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
                                                     <td>{tree.location}</td>
                                                     <td>{tree.type.typeValue}</td>
                                                     <td>{tree.canopy}</td>
-                                                    <td className={ValueColor(tree)}>{calculateValue(tree)}</td>
+                                                    <td className={ValueColor(tree)}>{sumTreeProperties(tree)}</td>
                                                     <td>{tree.rootsDiameter}</td>
-                                                    {!tree.isPalmTree && <td>{calculateTreeValue(tree)}</td>}
-                                                    {tree.isPalmTree && <td>{calculatePalmTreeValue(tree)}</td>}
+                                                    {/* {!tree.isPalmTree && <td>{calculateTreeValue(tree)}</td>} */}
+                                                    {!tree.isPalmTree && <td>{memoCalculateTreeValue(tree)}</td>}
+                                                    {tree.isPalmTree && <td>{memoCalculatePalmTreeValue(tree)}</td>}
                                                     <td>{tree.movingPossibility}</td>
                                                     <td>{tree.description}</td>
                                                     <td className={recommendationColor(tree.recommendation)}>{tree.recommendation}</td>
@@ -153,7 +211,7 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
                                                             onClick={() => { history.push(`tree_update/${tree._id}`) }}
                                                             className="edit-btn btn">עריכה</div >
                                                         <div
-                                                            onClick={() => { onRemoveTree(tree) }}
+                                                            onClick={() => { removeTree(tree._id) }}
                                                             className="delete-btn btn">מחיקה</div >
                                                     </td>
                                                 </tr>
@@ -165,14 +223,23 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
                         )}
                     </Droppable>
                 </DragDropContext >
-                <ReactToExcel
-                    className="download-table "
-                    table="main-table"
-                    filename="טבלת סקר עצים"
-                    sheet="טבלת סקר עצים"
-                    buttonText="הורדה"
-                />
+
             </table>
+                <button
+                    className="download-table"
+                    onClick={() => {
+                        let wb = XLSX.utils.table_to_book(document.querySelector('#main-table'), { sheet: 'sheetJs' })
+                        let wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' })
+
+
+
+                        saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), `סקר ${survey.surveyInfo.surveyTitle}.xlsx`);
+                    }}
+                >הורדה</button>
+
+                {/* <ExcelFile element={<button>Download Data With Styles</button>}>
+                    <ExcelSheet dataSet={DataSet} name="Organization" />
+                </ExcelFile> */}
 
             <section className="mobile-table">
                 {trees?.map((tree, idx) => {
@@ -217,7 +284,7 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
                             </div>
                             <div className="flex">
                                 <p>ערך עץ</p>
-                                <p className={ValueColor(tree)}>{calculateValue(tree)}</p>
+                                <p className={ValueColor(tree)}>{sumTreeProperties(tree)}</p>
                             </div>
                             <div className="flex">
                                 <p>קוטר שורשרים</p>
@@ -248,23 +315,18 @@ export const TreesTable = ({ onRemoveTree, trees }) => {
                                 onClick={() => { history.push(`tree_update/${tree._id}`) }}
                                 className="edit-btn btn">עריכה</div >
                             <div
-                                onClick={() => { onRemoveTree(tree) }}
+                                onClick={() => { removeTree(tree._id) }}
                                 className="delete-btn btn">מחיקה</div >
                         </div>
                     )
                 })
 
                 }
-                {isMobile && <ReactToExcel
-                    className="download-table "
-                    table="main-table"
-                    filename="טבלת סקר עצים"
-                    sheet="טבלת סקר עצים"
-                    buttonText="הורדה"
-                />}
+           
             </section>
         </section >
     )
 
 
 }
+
