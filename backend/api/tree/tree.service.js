@@ -2,17 +2,27 @@ const { ObjectId } = require('bson')
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 
-async function query(tableId, username) {
-
+async function query(surveyName, username) {
     try {
         const collection = await dbService.getCollection(username)
-        const trees = await collection.find({ surveyId: tableId }).toArray()
-        return trees
+        const survey = await collection.find({ 'surveyInfo.surveyTitle': surveyName  }).toArray()
+        return survey[0]
     } catch (err) {
         logger.error('cannot find trees', err)
         throw err
     }
 }
+// async function query(tableId, username) {
+
+//     try {
+//         const collection = await dbService.getCollection(username)
+//         const trees = await collection.find({ surveyId: tableId }).toArray()
+//         return trees
+//     } catch (err) {
+//         logger.error('cannot find trees', err)
+//         throw err
+//     }
+// }
 
 async function removeTree(treeId, username) {
     try {
@@ -38,14 +48,13 @@ async function querySurveyIdList(username) {
     try {
         const collection = await dbService.getCollection(username)
         // const collection = await dbService.getCollection('tree')
-        const trees = await collection.find().toArray()
+        const surveys = await collection.find().toArray()
 
-        let surveyIdList = []
-        trees.map((tree) => {
-            return surveyIdList.push(tree.surveyId)
+
+        const surveyIdList= surveys.map((survey) => {
+            return survey.surveyInfo
         })
-        const uniqueSurveyIdList = [...surveyIdList.reduce((map, obj) => map.set(obj.surveyTitle, obj), new Map()).values()]
-        return uniqueSurveyIdList
+        return surveyIdList
     } catch (err) {
         logger.error('cannot  querySurveyIdList', err)
         throw err
@@ -63,26 +72,31 @@ async function querySurveyTrees(id, username) {
 }
 
 async function save(info) {
-    let savedTree = { ...info[0] }
+    let savedSurvey = { ...info[0] }
     const { username } = info[1]
-    const tree = info[0]
+    const survey = info[0]
     const collection = await dbService.getCollection(username)
-    try {
-        if (tree._id) {
-            delete savedTree['_id']
-            //update
-            await collection.updateOne({ "_id": ObjectId(tree._id) }, { $set: { ...savedTree } })
-        } else {
-            //create
-            savedTree.createdAt = Date.now()
-            await collection.insertOne(savedTree)
+    if (survey._id) {
+        try {
+            delete savedSurvey['_id']
+            await collection.updateOne({ "_id": ObjectId(survey._id) }, { $set: { ...savedSurvey } })
+            return savedSurvey
         }
-    } catch (err) {
-        logger.error('cannot save tree', err)
-        throw err
+        catch {
+            throw err
+        }
+    } else {
+        try {
+            savedSurvey.surveyInfo.createdAt = Date.now()
+            await collection.insertOne(savedSurvey)
+            return savedSurvey
+        }
+        catch (err) {
+            throw err
+        }
     }
-    return savedTree
 }
+
 
 module.exports = {
     query, queryTreeById, save, querySurveyIdList, querySurveyTrees, removeTree

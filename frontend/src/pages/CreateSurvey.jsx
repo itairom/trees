@@ -1,30 +1,51 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useFormCreateSurvey } from '../services/customHooks'
 import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentSurvey } from '../actions/TreeActions'
 import { storageService } from '../services/storageService';
+import { updateSurvey } from '../actions/TreeActions';
 
 
-export function CreateSurvey () {
+export function CreateSurvey() {
 
 
     const history = useHistory();
-    const handleOnClick = useCallback(() => history.push('/survey_editor'), [history]);
+    // const handleOnClick = useCallback(() => history.push('/survey_editor'), [history]);
     const dispatch = useDispatch()
     const { currentSurvey } = useSelector(state => state.TreeModule)
+    const { loggedInUser } = useSelector(state => state.appModule)
 
-    const [survey, handleChange] = useFormCreateSurvey({
-        surveyTitle: '',
-        surveyDate: '',
-        surveySummary: ''
+    const [survey, setSurvey] = useState({
+        surveyInfo: {
+            surveyTitle: '',
+            surveyDate: '',
+            surveySummary: ''
+        },
+        surveyTrees: [],
+        surveyOwner: {}
     })
 
-    const addNewSurvey = async () => {
-        await dispatch(setCurrentSurvey(survey))
-        storageService.saveToStorage('surveyId', survey)
-        handleOnClick()
+    const handleChange = ev => {
+        const { name } = ev.target
+        let value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value
+        value = (ev.target.type === 'checkbox') ? ev.target.checked : value
+        setSurvey(
+            prevState => ({
+                ...prevState, surveyInfo: {
+                    ...prevState.surveyInfo, [name]: value
+                }
+            })
+        )
     }
+
+const onCreateSurvey = () => {
+    dispatch(updateSurvey(survey,loggedInUser))
+    // storageService.saveToStorage('survey',survey)
+    storageService.saveToStorage('surveyId',survey.surveyInfo)
+    history.push('./')
+}
+
 
     return (
         <section className="new-survey rtl">
@@ -51,7 +72,8 @@ export function CreateSurvey () {
                         onChange={(ev) => { handleChange(ev) }}
                         value={survey.surveyDate} />
                 </label>
-                <div className="add-btn button" onClick={() => { addNewSurvey() }}>הוסף סקר</div>
+                {/* <div className="add-btn button" onClick={() => { console.log('SURVEY', survey); }}>הוסף סקר</div> */}
+                <div className="add-btn button" onClick={() => { onCreateSurvey() }}>הוסף סקר</div>
 
                 <Link to="/choose_survey" >
                     <div className="existing-survey">חזרה</div>

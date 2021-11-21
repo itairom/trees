@@ -5,24 +5,23 @@ import { cloudinaryService } from "../services/cloudinaryService";
 
 export const ImgUpload = ({ onGetImgUrl }) => {
 
+    const [isUpload, setIsUpload] = useState(null);
     const [images, setImages] = useState([]);
     const maxNumber = 1;
 
     useEffect(() => {
         (async () => {
             if (images.length !== 0) {
-                // console.log("🚀 ~ file: ImgUpload.jsx ~ line 15 ~ imgUrl", images[0].file)
+                setIsUpload(true)
                 const imgUrl = await cloudinaryService.uploadImg(images[0].file)
-                console.log("🚀 ~ file: ImgUpload.jsx ~ line 16 ~ imgUrl", imgUrl)
                 onGetImgUrl(imgUrl.secure_url)
+                setIsUpload(false)
             }
         })()
-    }, [images,onGetImgUrl])
+    }, [images])
 
 
     const onChange = (imageList, addUpdateIndex) => {
-        // data for submit
-        console.log(imageList, addUpdateIndex);
         setImages(imageList);
     };
 
@@ -45,7 +44,6 @@ export const ImgUpload = ({ onGetImgUrl }) => {
                 isDragging,
                 dragProps
             }) => (
-                // write your building UI
                 <div
                     onClick={(ev) => {
                         ev.stopPropagation()
@@ -68,7 +66,7 @@ export const ImgUpload = ({ onGetImgUrl }) => {
                     {/* <button
                         className="btn"
                         onClick={onImageRemoveAll}>Remove all images</button> */}
-                    {imageList.map((image, index) => (
+                    {!isUpload&& imageList.map((image, index) => (
                         <div key={index} className="image-item">
                             <img src={image.data_url} alt="" width="100" />
                             {/* <div className="image-item__btn-wrapper">

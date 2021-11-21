@@ -10,39 +10,58 @@ import { FormAutocomplete } from '../cmps/FormAutocomplete';
 import Input from '../cmps/form/input';
 import { storageService } from '../services/storageService';
 import FormModal from '../cmps/form/FormModal';
+import { querySurvey } from "../actions/TreeActions";
+import { useDispatch } from "react-redux";
+import { updateSurvey } from "../actions/TreeActions"
 
 export const TreeUpdate = () => {
 
     const params = useParams()
     let history = useHistory()
 
-    const { currentSurvey } = useSelector(state => state.TreeModule)
+    const { currentSurvey, survey } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
     const childRef = useRef();
-
     const [tree, setTree] = useState({})
     const [surveyId, setSurveyId] = useState('')
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
     const [treeType, setType] = useState({})
+    const dispatch = useDispatch()
     // const [imgUrl, setImgUrl] = useState('')
 
     useEffect(() => {
-        (async () => {
-            const treeById = await treeService.getTreeById(params.treeId, loggedInUser.username)
-            setTree(treeById)
-        })()
+        query()
     }, [])
 
     useEffect(() => {
-        if (surveyId) {
-            if (Object.keys(surveyId).length === 0) {
-                let storageId = storageService.loadFromStorage('surveyId')
-                if (storageId) {
-                    setSurveyId(storageId)
-                }
-            }
+        if (survey) onSetTree()
+    }, [survey])
+
+    const query = async () => {
+        const storageSurveyId = storageService.loadFromStorage('surveyId')
+        if (storageSurveyId) {
+            dispatch(querySurvey(storageSurveyId.surveyTitle, loggedInUser.username))
         }
-    }, [surveyId])
+    }
+
+    const onSetTree = () => {
+        console.log('EDIT', survey);
+        const findTree = survey.surveyTrees.find((tree) => {
+            return tree._id === params.treeId
+        })
+        setTree(findTree)
+    }
+
+    // useEffect(() => {
+    //     if (surveyId) {
+    //         if (Object.keys(surveyId).length === 0) {
+    //             let storageId = storageService.loadFromStorage('surveyId')
+    //             if (storageId) {
+    //                 setSurveyId(storageId)
+    //             }
+    //         }
+    //     }
+    // }, [surveyId])
 
     useEffect(() => {
         setTreeTypeOptions(formService.treeTypes)
@@ -128,8 +147,6 @@ export const TreeUpdate = () => {
         })
     }
 
-
-
     // const onGetImgUrl = (img) => {
     //     setImgUrl(img)
     // }
@@ -148,10 +165,18 @@ export const TreeUpdate = () => {
         }
     }
 
+    const onUpdateSurvey = (tree) => {
+        const copySurvey = { ...survey }
+        const treeIdx = copySurvey.surveyTrees.findIndex((tree) => tree._id === params.treeId)
+        copySurvey.surveyTrees.splice(treeIdx,1,tree)
+        dispatch(updateSurvey(copySurvey,loggedInUser))
+
+    }
+
     const submitForm = (ev) => {
         ev.preventDefault()
         const mergeTree = { ...tree, type: treeType, ...values }
-        treeService.save(mergeTree, loggedInUser)
+        onUpdateSurvey(mergeTree)
         history.goBack()
     }
 
@@ -289,19 +314,19 @@ export const TreeUpdate = () => {
                         <div className="input-container">
                             <p>היתכנות העתקה</p>
                             <FormControl
-                                 className="update-select"
-                             >
+                                className="update-select"
+                            >
                                 <Select
                                     // error={errors.movingPossibility}
                                     type="text"
                                     id="movingPossibility"
                                     name="movingPossibility"
                                     value={values.movingPossibility}
-                                  
+
                                     onChange={handleInputChange}>
                                     {formService.movingPossibility.map((option) => (
                                         <MenuItem
-                                    
+
                                             key={option.label}
                                             value={option.label}>
                                             {option.label}
@@ -312,9 +337,9 @@ export const TreeUpdate = () => {
                         </div>
                         <div className="input-container">
                             <p>המלצה</p>
-                            <FormControl 
-                                 className="update-select"
-                                 >
+                            <FormControl
+                                className="update-select"
+                            >
                                 <Select
                                     // error={errors.recommendation}
                                     type="text"

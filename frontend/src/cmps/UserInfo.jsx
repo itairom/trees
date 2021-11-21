@@ -15,7 +15,6 @@ export function UserInfo() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        console.log('loginErr', loginErr);
     }, [loginErr])
 
     const logout = () => {

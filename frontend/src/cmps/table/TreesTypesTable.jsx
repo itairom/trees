@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { memo,  useEffect, useState } from "react"
 
-export const TreesTypesTable = ({ trees }) => {
+const TreesTypesTable = ({ trees }) => {
 
     const [treeTypeObj, setTreeTypeObj] = useState([])
     const [treeTypeKeysArr, setTreeTypeKeysArr] = useState([])
     const [totalvaluesArr, setTotalvaluesArr] = useState({})
 
     useEffect(() => {
+        // callbackMapTreeValue(trees)
         mapTreeValue(trees)
     }, [trees])
 
@@ -39,9 +40,10 @@ export const TreesTypesTable = ({ trees }) => {
 
 
     const mapTreeValue = (trees) => { // improve the code!
+
         let localTotalvaluesArr = getTotalvaluesArr()
         let typeObj = {}
-        for (let i = 0; i < trees.length; i++) {
+        for (let i = 0; i < trees?.length; i++) {
             let NTL = trees[i].type.label
             let value = ValueColor(trees[i])
             if (!typeObj.hasOwnProperty(NTL)) {
@@ -59,6 +61,7 @@ export const TreesTypesTable = ({ trees }) => {
             ++typeObj[NTL]['total']
         }
 
+
         const treeKeys = Object.keys(typeObj)
         const objToArr = Object.values(typeObj)
         setTreeTypeObj(objToArr)
@@ -66,6 +69,9 @@ export const TreesTypesTable = ({ trees }) => {
         setTotalvaluesArr(localTotalvaluesArr)
     }
 
+    // const callbackMapTreeValue = useCallback((trees) => {
+    //     mapTreeValue(trees)
+    // }, [trees])
     return (
         <section className="trees-table flex">
             <table>
@@ -108,3 +114,5 @@ export const TreesTypesTable = ({ trees }) => {
 
 
 }
+export const MemoTreesTypesTable = memo(TreesTypesTable)
+

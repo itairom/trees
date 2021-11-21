@@ -11,7 +11,7 @@ export function AppHeader() {
     const [isMobile, setIsMobile] = useState(false)
     // const [isShowUserInfo, setIsShowUserInfo] = useState(false)
     const [localSurveyId, setLocalSurveyId] = useState(null)
-    const { currentSurvey } = useSelector(state => state.TreeModule)
+    const { currentSurvey, survey } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
     const headerRef = useRef()
 
@@ -32,7 +32,7 @@ export function AppHeader() {
         if (currentSurvey) {
             setLocalSurveyId(currentSurvey)
         }
-    }, [currentSurvey])
+    }, [currentSurvey, survey])
 
     const handleScroll = () => {
         if (window.pageYOffset > 40) {
@@ -49,9 +49,8 @@ export function AppHeader() {
     return (
         <header className="app-header">
             <nav ref={headerRef} className="main-nav">
-                { !isMobile && <div className="left-nav ">
-                {/* {loggedInUser && !isMobile && <div className="left-nav "> */}
-                    <p className="current-survey"><span>סקר</span> {localSurveyId?.surveyTitle}</p>
+                {!isMobile && <div className="left-nav ">
+                     <p className="current-survey"><span>סקר</span> {localSurveyId?.surveyTitle}</p>
                     <Link to='/trees'><span>סקר סופי</span></Link>
                     <Link to='/'><span>בחר סקר</span></Link>
                     {localSurveyId && <Link to='/survey_editor'><span>הוספת עץ</span></Link>}

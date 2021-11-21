@@ -13,8 +13,8 @@ const STORAGE_KEY = 'trees'
 // }
 async function getTreeById(req, res) {
     try {
-        const { treeId,username } = req.params
-        const tree = await treeService.queryTreeById(treeId,username)
+        const { treeId, username } = req.params
+        const tree = await treeService.queryTreeById(treeId, username)
         res.send(tree)
     } catch (err) {
         res.status(500).send({ err: 'failed to get Tree by ID' })
@@ -50,15 +50,56 @@ async function getSurveyTrees(req, res) {
         res.status(500).send({ err: 'failed to get Trees' })
     }
 }
-
-async function addTree(req, res) {
+async function querySurvey(req, res) {
     try {
-        const tree = await treeService.save(req.body)
-        res.send(tree)
+        const surveyName = req.query[0]
+        const username = req.query[1]
+        const survey = await treeService.query(surveyName, username)
+        res.send(survey)
+    } catch (err) {
+        res.status(500).send({ err: 'failed to get Trees' })
+    }
+}
+
+// async function addTree(req, res) {
+//     try {
+//         const tree = await treeService.save(req.body)
+//         res.send(tree)
+//     } catch (err) {
+//         res.status(500).send({ err: 'failed to add tree' })
+//     }
+// }
+
+async function addSurvey(req, res) {
+    try {
+        const survey = await treeService.save(req.body)
+        res.send(survey)
     } catch (err) {
         res.status(500).send({ err: 'failed to add tree' })
     }
 }
+
+async function updateSurvey(req, res) {
+    try {
+        const survey = await treeService.save(req.body)
+        res.send(survey)
+    } catch (err) {
+        console.log(err)
+        logger.error('Failed to update board', err)
+        res.status(500).send({ err: 'Failed to update board' })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 // async function getPetByid(req, res) {
 //     try {
 //         const petId = req.params.id
@@ -72,5 +113,5 @@ async function addTree(req, res) {
 
 
 module.exports = {
-    addTree, querySurveyIdList, getSurveyTrees, removeTree, getTreeById
+    updateSurvey, addSurvey, querySurveyIdList, getSurveyTrees, removeTree, getTreeById,querySurvey
 }
