@@ -11,27 +11,31 @@
     justify-content: center;
     margin-bottom: 20px;
     direction: rtl;
+    width: 90vw;
+    overflow: auto;
     table {
+        background-color: rgb(255, 255, 255);
         border-spacing: 0px;
         @include for-narrow-layout {
-            td {
-                width: 20px;
-                text-align: center;
-                padding: 1px;
-                border: 1px black solid;
-            }
-            th {
-                border: 1px black solid;
-                text-align: center;
-                padding: 1px;
-                color: white;
+            tr {
+                background-color: white;
+
+                td {
+                    width: 20px;
+                    text-align: center;
+                    padding: 1px;
+                    border: 1px black solid;
+                }
+                th {
+                    border: 1px black solid;
+                    text-align: center;
+                    padding: 1px;
+                    color: white;
+                }
             }
         }
         @include for-normal-layout {
             tr {
-                // position: sticky;
-                background-color: white;
-
                 td {
                     min-width: 60px;
                 }

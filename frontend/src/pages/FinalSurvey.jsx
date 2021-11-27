@@ -4,20 +4,18 @@ import { TreesImages } from '../cmps/TreesImages';
 import { treeService } from '../services/treeService';
 import { useSelector } from 'react-redux';
 import { storageService } from '../services/storageService';
-import { MemoTreesTypesTable } from '../cmps/table/TreesTypesTable';
-import { TreesTable } from '../cmps/table/TreesTable';
-import { TreeRecommendationTable } from '../cmps/table/TreeRecommendationTable';
+import { MemoTreesTypesTable } from '../cmps/final suervey/TreesTypesTable';
+import { TreesTable } from '../cmps/final suervey/TreesTable';
+import { TreeRecommendationTable } from '../cmps/final suervey/TreeRecommendationTable';
 import { useDispatch } from 'react-redux';
 import { querySurvey } from '../actions/TreeActions';
-// const TreesTypesTable = lazy(() => import('../cmps/TreesTypesTable'))
+import { SurveySummary } from '../cmps/final suervey/SurveySummary';
 
 export const FinalSurvey = () => {
 
-    const { currentSurvey, survey } = useSelector(state => state.TreeModule)
+    const { survey } = useSelector(state => state.TreeModule)
     const { loggedInUser } = useSelector(state => state.appModule)
     let [localSurvey, setLocalSurvey] = useState({})
-    // let [tableIdList, setTableIdList] = useState([''])
-    const [localSurveyId, setLocalSurveyId] = useState('')
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -26,6 +24,7 @@ export const FinalSurvey = () => {
     
     useEffect(() => {
         setLocalSurvey(survey)
+        console.log(survey,'survey');
     }, [survey])
 
     const query = async () => {
@@ -35,28 +34,15 @@ export const FinalSurvey = () => {
         }
     }
 
-    // useEffect(() => { //CHECK IF NECCECERY
-    //     async function queryTrees() {
-    //         if (currentSurvey) {
-    //             setTrees(await treeService.queryTrees(localSurveyId?.surveyTitle))
-    //         }
-    //     }
-    //     queryTrees()
-    // }, [localSurveyId])
-
-    // useEffect(() => {
-    //     queryTrees()
-    // }, [currentSurvey, loggedInUser])
 
     const onRemoveTree = (tree) => {
         treeService.removeTree(tree._id, loggedInUser.username)
-        // queryTrees()
     }
 
     return (
         <section id="main-survey" className="main-container  ">
             <div className="final-survey">
-                {/* <h1>טבלה סקר <span>{currentSurvey?.surveyTitle || localSurveyId?.surveyTitle}</span></h1> */}
+                <h1>טבלה סקר <span>{localSurvey?.surveyInfo?.surveyTitle}</span></h1>
                 <TreesTable onRemoveTree={onRemoveTree} trees={localSurvey.surveyTrees} />
                 <h1>תמונות</h1>
                 <TreesImages trees={localSurvey.surveyTrees} />
@@ -64,6 +50,8 @@ export const FinalSurvey = () => {
                 <MemoTreesTypesTable trees={localSurvey.surveyTrees} />
                 <h1>טבלת סיכום המלצות</h1>
                 <TreeRecommendationTable trees={localSurvey.surveyTrees} />
+                <h1>סיכום סקר</h1>
+                <SurveySummary summary={localSurvey?.surveyInfo?.surveySummary}/>
             </div>
         </section>
     )

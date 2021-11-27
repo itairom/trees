@@ -10,8 +10,12 @@
 }
 
 .image-card {
-// display: flex;
+margin-bottom: 30px;
+margin-right: 10px;
+text-align: center;
+font-weight: bold;
     img {
+        margin-top: 10px;
         width: 200px;
         height: 230px;
         object-fit: cover;

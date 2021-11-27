@@ -20,6 +20,7 @@ export const TreesForm = ({ querySurvey }) => {
     const [treeTypeOptions, setTreeTypeOptions] = useState([])
     const [treeType, setType] = useState(null)
     const [localSurvey, setLocalSurvey] = useState({})
+    const [isAddingDiameter, setIsAddingDiameter] = useState(false)
     const [imgUrl, setImgUrl] = useState('')
     const childRef = useRef();
     const dispatch = useDispatch()
@@ -31,13 +32,15 @@ export const TreesForm = ({ querySurvey }) => {
     useEffect(() => {
         setLocalSurvey(survey)
     }, [survey])
-    
+
 
     const initialFValues = {
         quantity: '',
         type: '',
         height: '',
         diameter: '',
+        diameter2: '',
+        diameter3: '',
         health: '',
         location: '',
         canopy: '',
@@ -62,8 +65,8 @@ export const TreesForm = ({ querySurvey }) => {
             temp.mobile = isLessThenFiveInput(fieldValues.mobile) || isEmptyInput(fieldValues.mobile)
         if ('quantity' in fieldValues)
             temp.quantity = isEmptyInput(fieldValues.quantity)
-        if ('idx' in fieldValues)
-            temp.idx = isEmptyInput(fieldValues.idx)
+        // if ('idx' in fieldValues)
+        // temp.idx = isEmptyInput(fieldValues.idx)
         if ('diameter' in fieldValues)
             temp.diameter = isEmptyInput(fieldValues.diameter)
         if ('height' in fieldValues)
@@ -142,7 +145,7 @@ export const TreesForm = ({ querySurvey }) => {
         treeCopy.imgUrl = imgUrl
         if (validate()) {
             localSurvey.surveyTrees.push(treeCopy)
-            dispatch(updateSurvey(localSurvey,loggedInUser))
+            dispatch(updateSurvey(localSurvey, loggedInUser))
             HandleIsModalShown(!isModalShown.isAddingTree)
             querySurvey()
             onResetForm()
@@ -164,7 +167,8 @@ export const TreesForm = ({ querySurvey }) => {
                     <div className="input-container">
                         <p>מספר עץ</p>
                         <Input
-                            error={errors.idx}
+                            type
+                            // error={errors.idx}
                             name="idx"
                             value={values.idx}
                             onChange={handleInputChange} />
@@ -178,7 +182,16 @@ export const TreesForm = ({ querySurvey }) => {
                             onChange={handleInputChange} />
                     </div>
                     <div className="input-container">
-                        <p>קוטר הגזע</p>
+                        <div className="flex">
+                            <p>קוטר הגזע</p>
+                            <p
+                                onClick={() => { setIsAddingDiameter(true) }}
+                                style={{
+                                    cursor: 'pointer',
+                                    color: '#27782a',
+                                    marginRight: '10px'
+                                }}>קוטר נוסף+</p>
+                        </div>
                         <Input
                             error={errors.diameter}
                             value={values.diameter}
@@ -187,6 +200,26 @@ export const TreesForm = ({ querySurvey }) => {
                             variant="standard"
                             onChange={handleInputChange} />
                     </div>
+                    {isAddingDiameter && <div className="input-container">
+                        <p>קוטר הגזע 2</p>
+                        <Input
+                            error={errors.diameter}
+                            value={values.diameter2}
+                            placeholder="קוטר בס״מ של הגזע 2"
+                            name="diameter2"
+                            variant="standard"
+                            onChange={handleInputChange} />
+                    </div>}
+                    {isAddingDiameter && <div className="input-container">
+                        <p>קוטר הגזע 3</p>
+                        <Input
+                            error={errors.diameter}
+                            value={values.diameter3}
+                            placeholder="קוטר בס״מ של הגזע 3"
+                            name="diameter3"
+                            variant="standard"
+                            onChange={handleInputChange} />
+                    </div>}
 
                     <div className="input-container">
                         <p onClick={() => HandleIsModalShown('health', !isModalShown.health)} >*מצב בריאותי</p>
