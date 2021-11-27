@@ -603,3 +603,19 @@
 11/23/2021, 10:11:14 PM - ERROR - cannot find trees | MongoServerSelectionError: connect ETIMEDOUT 3.122.153.109:27017 
 11/23/2021, 10:11:44 PM - ERROR - cannot find trees | MongoServerSelectionError: connect ETIMEDOUT 3.122.153.109:27017 
 11/23/2021, 10:12:14 PM - ERROR - cannot find trees | MongoServerSelectionError: connect ETIMEDOUT 3.122.153.109:27017 
+11/27/2021, 5:44:33 PM - ERROR - cannot find trees | MongoNetworkTimeoutError: connection timed out 
+11/27/2021, 5:45:33 PM - ERROR - cannot find trees | MongoServerSelectionError: connection <monitor> to 3.122.153.109:27017 closed 
+11/27/2021, 5:48:10 PM - ERROR - cannot find trees | MongoServerSelectionError: getaddrinfo ENOTFOUND trees-shard-00-01.z1890.mongodb.net 
+11/27/2021, 5:51:38 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:52:07 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:52:21 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:52:39 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:53:11 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:53:21 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:53:39 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:53:57 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:54:20 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:54:28 PM - ERROR - cannot  querySurveyIdList | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:54:30 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:54:53 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 
+11/27/2021, 5:54:55 PM - ERROR - cannot find trees | MongoServerSelectionError: connection timed out 

@@ -10,6 +10,7 @@ import { TreeRecommendationTable } from '../cmps/final suervey/TreeRecommendatio
 import { useDispatch } from 'react-redux';
 import { querySurvey } from '../actions/TreeActions';
 import { SurveySummary } from '../cmps/final suervey/SurveySummary';
+import { SurveyHeader } from '../cmps/final suervey/SurveyHeader';
 
 export const FinalSurvey = () => {
 
@@ -21,10 +22,10 @@ export const FinalSurvey = () => {
     useEffect(() => {
         query()
     }, [loggedInUser])
-    
+
     useEffect(() => {
         setLocalSurvey(survey)
-        console.log(survey,'survey');
+        console.log(survey, 'survey');
     }, [survey])
 
     const query = async () => {
@@ -41,7 +42,8 @@ export const FinalSurvey = () => {
 
     return (
         <section id="main-survey" className="main-container  ">
-            <div className="final-survey">
+            <div className="final-survey ">
+                <SurveyHeader surveyInfo={localSurvey?.surveyInfo} />
                 <h1>טבלה סקר <span>{localSurvey?.surveyInfo?.surveyTitle}</span></h1>
                 <TreesTable onRemoveTree={onRemoveTree} trees={localSurvey.surveyTrees} />
                 <h1>תמונות</h1>
@@ -51,7 +53,7 @@ export const FinalSurvey = () => {
                 <h1>טבלת סיכום המלצות</h1>
                 <TreeRecommendationTable trees={localSurvey.surveyTrees} />
                 <h1>סיכום סקר</h1>
-                <SurveySummary summary={localSurvey?.surveyInfo?.surveySummary}/>
+                <SurveySummary summary={localSurvey?.surveyInfo?.surveySummary} />
             </div>
         </section>
     )

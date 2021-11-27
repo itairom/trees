@@ -20,7 +20,14 @@ export function CreateSurvey() {
         surveyInfo: {
             surveyTitle: '',
             surveyDate: '',
-            surveySummary: ''
+            surveySummary: '',
+            companyLogo: '',
+            clientInfo: {
+                clientName: '',
+                clientEmail: '',
+                clientPhone: '',
+                clientAdress: ''
+            }
         },
         surveyTrees: [],
         surveyOwner: {}
@@ -39,12 +46,12 @@ export function CreateSurvey() {
         )
     }
 
-const onCreateSurvey = () => {
-    dispatch(updateSurvey(survey,loggedInUser))
-    // storageService.saveToStorage('survey',survey)
-    storageService.saveToStorage('surveyId',survey.surveyInfo)
-    history.push('./')
-}
+    const onCreateSurvey = () => {
+        dispatch(updateSurvey(survey, loggedInUser))
+        // storageService.saveToStorage('survey',survey)
+        storageService.saveToStorage('surveyId', survey.surveyInfo)
+        history.push('./')
+    }
 
 
     return (

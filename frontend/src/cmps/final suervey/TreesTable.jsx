@@ -189,7 +189,6 @@ export const TreesTable = ({ trees }) => {
                                                         backgroundColor: 'red !important',
                                                         position: 'absolute'
                                                     }}
-
                                                     {...provided.draggableProps}
                                                     {...provided.dragHandleProps}
                                                     ref={provided.innerRef}>
